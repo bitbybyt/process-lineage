@@ -1,0 +1,58 @@
+.track {
+     position: relative;
+     background-color: #ddd;
+     height: 7px;
+     display: -webkit-box;
+     display: -ms-flexbox;
+     display: flex;
+     margin-bottom: 60px;
+     margin-top: 50px
+ }
+
+ .track .step {
+     -webkit-box-flex: 1;
+     -ms-flex-positive: 1;
+     flex-grow: 1;
+     width: 25%;
+     margin-top: -18px;
+     text-align: center;
+     position: relative
+ }
+
+ .track .step.active:before {
+     background: #74e074;
+ }
+
+ .track .step::before {
+     height: 7px;
+     position: absolute;
+     content: "";
+     width: 100%;
+     left: 0;
+     top: 18px
+ }
+
+ .track .step.active .icon {
+     background: #74e074;
+     color: #fff
+ }
+
+ .track .icon {
+     display: inline-block;
+     width: 40px;
+     height: 40px;
+     line-height: 40px;
+     position: relative;
+     border-radius: 100%;
+     background: #ddd
+ }
+
+ .track .step .text {
+     font-weight: 900;
+     color: #000
+ }
+
+ .track .text {
+     display: block;
+     margin-top: 7px
+ }
