@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { Order, Factory, Manufacture, Ship } = require('../model/models');
 async function seed() {
 	await mongoose
-		.connect('mongodb://localhost/demoseed')
+		.connect('mongodb://localhost/demomanufacture')
 		.then(() => console.log('Connected to mongodb....'))
 		.catch((err) => console.log('Error:' + err));
 
