@@ -1,0 +1,89 @@
+[
+    {
+        "orderDetail": {
+            "qty": 3,
+            "productName": "D12",
+            "productId": 2
+        },
+        "internalUse": {
+            "isManufacture": true
+        },
+        "customer": {
+            "name": "Lester Chebyl",
+            "location": "Chennai"
+        }
+
+    },
+    {
+        "orderDetail": {
+            "qty": 5,
+            "productName": "D11",
+            "productId": 1
+        },
+        "internalUse": {
+            "isManufacture": true
+        },
+        "customer": {
+            "name": "lois lane",
+            "location": "Mumbai"
+        }
+    },
+    {
+        "orderDetail": {
+            "qty": 6,
+            "productName": "D13",
+            "productId": 3
+        },
+        "internalUse": {
+            "isManufacture": true
+        },
+        "customer": {
+            "name": "Richard ",
+            "location": "Kolkata"
+        }
+    },
+    {
+        "orderDetail": {
+            "qty": 3,
+            "productName": "D14",
+            "productId": 4
+        },
+        "internalUse": {
+            "isManufacture": true
+        },
+        "customer": {
+            "name": "Zeus",
+            "location": "Rourkela"
+        }
+    },
+    {
+        "orderDetail": {
+            "qty": 8,
+            "productName": "D18",
+            "productId": 5
+        },
+        "internalUse": {
+            "isManufacture": true
+        },
+        "customer": {
+            "name": "Vivek",
+            "location": "Bhubaneswar"
+        }
+    },
+    {
+        "orderDetail": {
+            "qty": 3,
+            "productName": "D20",
+            "productId": 6
+        },
+        "internalUse": {
+            "isManufacture": true
+        },
+        "customer": {
+            "name": "Hera",
+            "location": "Goa"
+        }
+    }
+
+
+]

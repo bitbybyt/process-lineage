@@ -1,0 +1,82 @@
+[
+    {
+        "location": "Mumbai",
+        "allProduct": [{
+            "availableQty": 10,
+            "productId": 1
+        }, {
+            "availableQty": 7,
+            "productId": 3
+        }, {
+            "availableQty": 2,
+            "productId": 5
+        }],
+        "time":  "2020-11-16T15:09:39.075Z"
+        
+    },
+    {
+        "location": "Kolkata",
+        "allProduct": [{
+            "availableQty": 9,   
+            "productId": 6
+        }, {
+            "availableQty": 2,   
+            "productId": 4
+        }, {
+            "availableQty": 11,   
+            "productId": 3
+        }],
+        "time":  "2020-11-16T15:09:39.075Z"
+    },
+    {
+        "location": "Chennai",
+        "allProduct": [{
+            "availableQty": 2,   
+            "productId": 1
+        }, {
+            "availableQty": 5,   
+            "productId": 2
+        }],
+        "time":  "2020-11-16T15:09:39.075Z"
+    },
+    {
+        "location": "Rourkela",
+        "allProduct": [{
+            "availableQty": 8,   
+            "productId": 5
+        }, {
+            "availableQty": 6,   
+            "productId": 4
+        }, {
+            "availableQty": 7,   
+            "productId": 2
+        }],
+        "time":  "2020-11-16T15:09:39.075Z"
+    },
+    {
+        "location": "Bhubaneswar",
+        "allProduct": [{
+            "availableQty": 6,   
+            "productId": 3
+        }, {
+            "availableQty": 9,   
+            "productId": 5
+        }],
+        "time":  "2020-11-16T15:09:39.075Z"
+    },
+    {
+        "location": "Goa",
+        "allProduct": [{
+            "availableQty": 2,   
+            "productId": 2
+        }, {
+            "availableQty": 6,   
+            "productId": 6
+        }, {
+            "availableQty": 1,   
+            "productId": 1
+        }],
+        "time":  "2020-11-16T15:09:39.075Z"
+    }
+
+]

@@ -1,65 +1,88 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const { Factory, Order, Manufacture, Ship } = require('../model/models');
 const router = express.Router();
-const orderSchema = new mongoose.Schema({
-	name: {
-		type: String,
-		required: true,
-		minlength: 5,
-		maxlength: 50,
-	},
-});
-const Order = mongoose.model('order', orderSchema);
-const factorySchema = new mongoose.Schema({
-	name: {
-		type: String,
-		required: true,
-		minlength: 5,
-		maxlength: 50,
-	},
-});
-const Factory = mongoose.model('factory', factorySchema);
-const shipmentSchema = new mongoose.Schema({
-	name: {
-		type: String,
-		required: true,
-		minlength: 5,
-		maxlength: 50,
-	},
-});
-const Shipment = mongoose.model('shipment', shipmentSchema);
 router.get('/order', async (req, res) => {
 	const order = await Order.find();
 	res.send(order);
-	console.log(order);
-});
-router.post('/order', async (req, res) => {
-	const order = new Order({
-		name: req.body.name,
-	});
-	const result = await order.save();
-	res.send(result);
 });
 router.get('/factory', async (req, res) => {
 	const factory = await Factory.find();
 	res.send(factory);
 });
+router.get('/manufacture', async (req, res) => {
+	const manufacture = await Manufacture.find();
+	res.send(manufacture);
+});
+router.get('/ship', async (req, res) => {
+	const ship = await Ship.find();
+	res.send(ship);
+});
+router.post('/order', async (req, res) => {
+	const order = await new Order({
+		customer: {
+			name: req.body.customer.name,
+			location: req.body.customer.location,
+		},
+		orderDetail: {
+			productName: req.body.orderDetail.productName,
+			productId: req.body.orderDetail.productId,
+			qty: req.body.orderDetail.qty,
+		},
+	});
+	const result = await order.save();
+	res.send(result);
+});
 router.post('/factory', async (req, res) => {
-	const factory = new Factory({
-		name: req.body.name,
+	let array = req.body.allProduct.map((allProduct) => allProduct);
+	const factory = await new Factory({
+		location: req.body.location,
+		allProduct: [...array],
 	});
 	const result = await factory.save();
 	res.send(result);
 });
-router.get('/shipment', async (req, res) => {
-	const shipment = await Shipment.find();
-	res.send(shipment);
-});
-router.post('/shipment', async (req, res) => {
-	const shipment = new Factory({
-		name: req.body.name,
+router.post('/manufacture', async (req, res) => {
+	/*const manufacture = await new Manufacture({
+		productId: req.body.productId,
+		assembly: {
+			isComplete: req.body.assembly.isComplete,
+			// time: Date
+		},
+		testing: {
+			isComplete: req.body.testing.isComplete,
+			// time: Date
+		},
+		packaging: {
+			isComplete: req.body.packaging.isComplete,
+			// time: Date
+		},
+    }); */
+	const manufacture = await new Manufacture({
+		productId: req.body.productId,
 	});
-	const result = await shipment.save();
+	s;
+	const result = await manufacture.save();
 	res.send(result);
 });
+router.post('/ship', async (req, res) => {
+	/*const ship = await new Ship({
+		productId: req.body.productId,
+		ship: {
+			isComplete: req.body.ship.isComplete,
+			//time: Date
+		},
+    });*/
+	const ship = await new Ship({
+		productId: req.body.productId,
+	});
+	const result = await ship.save();
+	res.send(result);
+});
+
+router.post('/order/:id', async (req, res) => {
+	const order = await Order.findById(req.params.id);
+	res.send(order);
+});
+
 module.exports = router;
