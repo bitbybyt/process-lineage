@@ -24,7 +24,7 @@ class Order extends Component {
 					{this.state.order.map((order) => (
 						<tr key={order._id}>
 							<td>{order._id}</td>
-							<td>{order.name}</td>
+							<td>{order.customer.name}</td>
 						</tr>
 					))}
 				</tbody>
