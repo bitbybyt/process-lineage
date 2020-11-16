@@ -23,7 +23,7 @@ class Factory extends Component {
 					{this.state.factory.map((factory) => (
 						<tr key={factory._id}>
 							<td>{factory._id}</td>
-							<td>{factory.name}</td>
+							<td>{factory.location}</td>
 						</tr>
 					))}
 				</tbody>
