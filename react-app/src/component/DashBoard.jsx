@@ -4,11 +4,12 @@ import './css/sb-admin-2.css';
 import './css/track.css';
 import './vendor/fontawesome-free/css/all.min.css';
 import undraw_profile from './img/undraw_profile.svg';
+
 class DashBoard extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<body id='page-top'>
+				<div id='page-top'>
 					{/* Page Wrapper */}
 					<div id='wrapper'>
 						{/* Sidebar */}
@@ -1040,7 +1041,23 @@ class DashBoard extends Component {
 							</div>
 						</div>
 					</div>
-				</body>
+					{/*Bootstrap core JavaScript*/}
+					<script src='vendor/jquery/jquery.min.js'></script>
+					<script src='vendor/bootstrap/js/bootstrap.bundle.min.js'></script>
+
+					{/*Core plugin JavaScript*/}
+					<script src='vendor/jquery-easing/jquery.easing.min.js'></script>
+
+					{/*Custom scripts for all pages*/}
+					<script src='js/sb-admin-2.min.js'></script>
+
+					{/*Page level plugins */}
+					<script src='vendor/chart.js/Chart.min.js'></script>
+
+					{/*Page level custom scripts */}
+					<script src={'js/demo/chart-area-demo.js'}></script>
+					<script src={'js/demo/chart-pie-demo.js'}></script>
+				</div>
 			</React.Fragment>
 		);
 	}
