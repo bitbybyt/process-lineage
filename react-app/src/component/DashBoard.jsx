@@ -9,7 +9,7 @@ class DashBoard extends Component {
 	state = {
 		product: [],
 		company: [],
-		currentproduct: {},
+		currentproduct: null,
 		currentcompany: {},
 	};
 	async componentDidMount() {
@@ -17,22 +17,24 @@ class DashBoard extends Component {
 		const { data: company } = await getCompany();
 		this.setState({ company });
 		const { data: product } = await getProduct();
-		this.setState({ product });
+		this.setState({ product: [{ _id: '', name: '' }, ...product] });
+		//this.setState({ currentproduct: product[0] });
 		//if (currentcompany) this.setState({ product, currentproduct: product[0] });
 	}
-	handleproduct = async (product) => {
-		//console.log(product);
-		await this.setState({ currentproduct: product });
+	handleproduct = async (e) => {
+		const productID = e.target.value;
+		const product = this.state.product.filter(
+			(product) => product._id === productID
+		);
+		await this.setState({ currentproduct: product[0] });
 		console.log(this.state.currentproduct);
 	};
 	handlecompany = async (company) => {
-		//console.log(company);
 		await this.setState({
 			currentcompany: company,
-			product: [...company.products],
+			product: [{ _id: '', name: '' }, ...company.products],
 		});
 		console.log(this.state.currentcompany, this.state.product);
-		console.log(this.state.product);
 	};
 	render() {
 		return (
@@ -109,10 +111,14 @@ class DashBoard extends Component {
 									aria-labelledby='headingUtilities'
 									data-parent='#accordionSidebar'>
 									<div className='bg-white py-2 collapse-inner rounded'>
-										<h6 className='collapse-header'>Custom Utilities:</h6>
+										<h6 className='collapse-header'>Company:</h6>
 										{this.state.company.map((company) => (
 											<div
-												className='collapse-item'
+												className={
+													this.state.currentcompany === company
+														? 'collapse-item active'
+														: 'collapse-item'
+												}
 												onClick={() => this.handlecompany(company)}>
 												{company.name}
 											</div>
@@ -201,14 +207,15 @@ class DashBoard extends Component {
 									{/* Topbar Search */}
 									<div className='container'>
 										<select
+											onChange={this.handleproduct}
 											className='browser-default custom-select custom-select-lg mb-3'
 											style={{ width: '200px' }}>
 											{this.state.product.map((product) => (
 												<option
+													key={product._id}
 													value={product._id}
 													className='dropdown-item'
-													href='#'
-													onClick={() => this.handleproduct(product)}>
+													href='#'>
 													{product.name}
 												</option>
 											))}
@@ -690,7 +697,7 @@ class DashBoard extends Component {
 																		aria-expanded='false'
 																		aria-controls='collapseCardExample1'>
 																		<h6 className='m-0 font-weight-bold text-primary'>
-																			Step 1
+																			Order Recieved
 																		</h6>
 																	</a>
 																	{/* Card Content - Collapse */}
@@ -706,41 +713,144 @@ class DashBoard extends Component {
 																</div>
 															</div>
 														</div>
-
 														<div id='sub-container'>
-															<span className='text-info'>
+															<span className='text-success'>
 																<i
-																	className='fas fa-caret-square-right fa-3x'
+																	className='fa fa-3x fa-check'
 																	aria-hidden='true'></i>
 															</span>
 															<div className='progress'>
 																<div
-																	className='progress-bar progress-bar-striped bg-info progress-bar-animated'
-																	role='progressbar'
+																	className='progress-bar progress-bar-striped bg-success progress-bar-animated'
 																	style={{ width: '100%' }}
-																	aria-valuenow='0'
+																	aria-valuenow='1'
 																	aria-valuemin='0'
 																	aria-valuemax='1'></div>
 															</div>
+
 															<div className='container'>
-																{/* Collapsable Card Example */}
+																{/* Collapsable Card Example*/}
 																<div className='card shadow mb-4'>
 																	{/* Card Header - Accordion */}
 																	<a
-																		href='#collapseCardExample2'
+																		href='#collapseCardExample1'
 																		className='d-block card-header py-3'
 																		data-toggle='collapse'
 																		role='button'
 																		aria-expanded='false'
-																		aria-controls='collapseCardExample2'>
+																		aria-controls='collapseCardExample1'>
 																		<h6 className='m-0 font-weight-bold text-primary'>
-																			Step 2
+																			Decisions
 																		</h6>
 																	</a>
 																	{/* Card Content - Collapse */}
 																	<div
 																		className='collapse multi-collapse'
-																		id='collapseCardExample2'>
+																		id='collapseCardExample1'>
+																		{this.state.currentproduct &&
+																			this.state.currentproduct.process.map(
+																				(process) =>
+																					process.category === 'decision' ? (
+																						<div className='card-body'>
+																							<strong>
+																								{process.processName}
+																							</strong>{' '}
+																							{process.timeTaken} <br />
+																						</div>
+																					) : (
+																						<div></div>
+																					)
+																			)}
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div id='sub-container'>
+															<span className='text-success'>
+																<i
+																	className='fa fa-3x fa-check'
+																	aria-hidden='true'></i>
+															</span>
+															<div className='progress'>
+																<div
+																	className='progress-bar progress-bar-striped bg-success progress-bar-animated'
+																	style={{ width: '100%' }}
+																	aria-valuenow='1'
+																	aria-valuemin='0'
+																	aria-valuemax='1'></div>
+															</div>
+
+															<div className='container'>
+																{/* Collapsable Card Example*/}
+																<div className='card shadow mb-4'>
+																	{/* Card Header - Accordion */}
+																	<a
+																		href='#collapseCardExample1'
+																		className='d-block card-header py-3'
+																		data-toggle='collapse'
+																		role='button'
+																		aria-expanded='false'
+																		aria-controls='collapseCardExample1'>
+																		<h6 className='m-0 font-weight-bold text-primary'>
+																			Activity
+																		</h6>
+																	</a>
+																	{/* Card Content - Collapse */}
+																	<div
+																		className='collapse multi-collapse'
+																		id='collapseCardExample1'>
+																		{this.state.currentproduct &&
+																			this.state.currentproduct.process.map(
+																				(process) =>
+																					process.category === 'activity' ? (
+																						<div className='card-body'>
+																							<strong>
+																								{process.processName}
+																							</strong>{' '}
+																							{process.timeTaken} <br />
+																						</div>
+																					) : (
+																						<div></div>
+																					)
+																			)}
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div id='sub-container'>
+															<span className='text-success'>
+																<i
+																	className='fa fa-3x fa-check'
+																	aria-hidden='true'></i>
+															</span>
+															<div className='progress'>
+																<div
+																	className='progress-bar progress-bar-striped bg-success progress-bar-animated'
+																	style={{ width: '100%' }}
+																	aria-valuenow='1'
+																	aria-valuemin='0'
+																	aria-valuemax='1'></div>
+															</div>
+
+															<div className='container'>
+																{/* Collapsable Card Example*/}
+																<div className='card shadow mb-4'>
+																	{/* Card Header - Accordion */}
+																	<a
+																		href='#collapseCardExample1'
+																		className='d-block card-header py-3'
+																		data-toggle='collapse'
+																		role='button'
+																		aria-expanded='false'
+																		aria-controls='collapseCardExample1'>
+																		<h6 className='m-0 font-weight-bold text-primary'>
+																			Order Completion
+																		</h6>
+																	</a>
+																	{/* Card Content - Collapse */}
+																	<div
+																		className='collapse multi-collapse'
+																		id='collapseCardExample1'>
 																		<div className='card-body'>
 																			<strong>Estimated Time:</strong> 10:00{' '}
 																			<br />
@@ -748,57 +858,6 @@ class DashBoard extends Component {
 																		</div>
 																	</div>
 																</div>
-															</div>
-														</div>
-
-														<div id='sub-container'>
-															<span className=''>
-																<i
-																	className='fa fa-3x fa-minus-square'
-																	aria-hidden='true'></i>
-															</span>
-															<div className='progress'>
-																<div
-																	className='progress-bar progress-bar-striped bg-success'
-																	role='progressbar progress-bar-animated'
-																	style={{ width: '0%' }}
-																	aria-valuenow='0'
-																	aria-valuemin='0'
-																	aria-valuemax='1'></div>
-															</div>
-														</div>
-
-														<div id='sub-container'>
-															<span className=''>
-																<i
-																	className='fa fa-3x fa-minus-square'
-																	aria-hidden='true'></i>
-															</span>
-															<div className='progress'>
-																<div
-																	className='progress-bar progress-bar-striped bg-success'
-																	role='progressbar progress-bar-animated'
-																	style={{ width: '0%' }}
-																	aria-valuenow='0'
-																	aria-valuemin='0'
-																	aria-valuemax='1'></div>
-															</div>
-														</div>
-
-														<div id='sub-container'>
-															<span className=''>
-																<i
-																	className='fa fa-3x fa-minus-square'
-																	aria-hidden='true'></i>
-															</span>
-															<div className='progress'>
-																<div
-																	className='progress-bar progress-bar-striped bg-success'
-																	role='progressbar progress-bar-animated'
-																	style={{ width: '0%' }}
-																	aria-valuenow='0'
-																	aria-valuemin='0'
-																	aria-valuemax='1'></div>
 															</div>
 														</div>
 													</div>
