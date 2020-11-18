@@ -1,34 +1,11 @@
 import React, { Component } from 'react';
-import { getCompany, getProduct } from '../services/httpServices';
 import './css/sb-admin-2.min.css';
 import './css/sb-admin-2.css';
 import './css/track.css';
 import './vendor/fontawesome-free/css/all.min.css';
 import undraw_profile from './img/undraw_profile.svg';
-class DashBoard extends Component {
-	state = {
-		product: [],
-		company: [],
-		currentproduct: {},
-		currentcompany: {},
-	};
-	async componentDidMount() {
-		const { currentcompany, currentproduct } = this.state;
-		const { data: company } = await getCompany();
-		this.setState({ company, currentcompany: company[0] });
-		const { data: product } = await getProduct();
-		if (currentcompany) this.setState({ product, currentproduct: product[0] });
-	}
-	handleproduct = (product) => {
-		console.log(product);
-		this.setState({ currentproduct: product });
-		console.log(this.state.currentproduct);
-	};
-	handlecompany = (company) => {
-		console.log(company);
-		this.setState({ currentcompany: company });
-		console.log(this.state.currentcompany);
-	};
+class Body extends Component {
+	state = {};
 	render() {
 		return (
 			<React.Fragment>
@@ -105,23 +82,17 @@ class DashBoard extends Component {
 									data-parent='#accordionSidebar'>
 									<div className='bg-white py-2 collapse-inner rounded'>
 										<h6 className='collapse-header'>Custom Utilities:</h6>
-										{this.state.company.map((company) => (
-											<a
-												className='collapse-item'
-												to='utilities-animation.html'
-												onClick={() => this.handlecompany(company)}>
-												{company.name}
-											</a>
-										))}
-										{/* <a className='collapse-item' to='utilities-animation.html'>
+										<a
+											className='collapse-item'
+											href='utilities-animation.html'>
 											A
 										</a>
-										<a className='collapse-item' href='utilities-bproduct.html'>
+										<a className='collapse-item' href='utilities-border.html'>
 											B
 										</a>
 										<a className='collapse-item' href='utilities-color.html'>
 											C
-										</a> */}
+										</a>
 									</div>
 								</div>
 							</li>
@@ -172,12 +143,12 @@ class DashBoard extends Component {
 							{/* Divider */}
 							{/*hr className="sidebar-divider d-none d-md-block"*/}
 
-							{/* Sidebar Toggler (Sidebar)
+							{/* Sidebar Toggler (Sidebar) */}
 							<div className='text-center d-none d-md-inline'>
 								<button
-									className='rounded-circle bproduct-0'
+									className='rounded-circle border-0'
 									id='sidebarToggle'></button>
-							</div> */}
+							</div>
 						</ul>
 						{/* End of Sidebar */}
 
@@ -196,23 +167,7 @@ class DashBoard extends Component {
 
 									{/* Topbar Search */}
 									<div className='container'>
-										<select
-											className='browser-default custom-select custom-select-lg mb-3'
-											style={{ width: '200px' }}>
-											{this.state.product.map((product) => (
-												<option
-													value={product._id}
-													className='dropdown-item'
-													href='#'
-													onClick={() => this.handleproduct(product)}>
-													{product.name}
-												</option>
-											))}
-											{/*<option value='1'>One</option>
-											<option value='2'>Two</option>
-											<option value='3'>Three</option>*/}
-										</select>
-										{/*<div className='dropdown'>
+										<div className='dropdown'>
 											<button
 												type='button'
 												className='btn btn-primary dropdown-toggle'
@@ -220,9 +175,17 @@ class DashBoard extends Component {
 												Dropdown button
 											</button>
 											<div className='dropdown-menu'>
-											
+												<a className='dropdown-item' href='#'>
+													Apple
+												</a>
+												<a className='dropdown-item' href='#'>
+													Ball
+												</a>
+												<a className='dropdown-item' href='#'>
+													Cat
+												</a>
 											</div>
-										</div>*/}
+										</div>
 									</div>
 
 									{/*div id="collapseUtilities" className="collapse" aria-labelledby="headingUtilities"
@@ -230,12 +193,12 @@ class DashBoard extends Component {
                                                 <div className="bg-white py-2 collapse-inner rounded">
                                                     <h6 className="collapse-header">Custom Utilities:</h6>
                                                     <a className="collapse-item" href="utilities-color.html">A</a>
-                                                    <a className="collapse-item" href="utilities-bproduct.html">B</a>
+                                                    <a className="collapse-item" href="utilities-border.html">B</a>
                                                     <a className="collapse-item" href="utilities-animation.html">C</a>
                                                 </div>
                                             </div>
 
-                                            <input type="text" className="form-control bg-light bproduct-0 small" placeholder="Search for..."
+                                            <input type="text" className="form-control bg-light border-0 small" placeholder="Search for..."
                                                 aria-label="Search" aria-describedby="basic-addon2">
                                             <div className="input-group-append">
                                                 <button className="btn btn-primary" type="button">
@@ -266,7 +229,7 @@ class DashBoard extends Component {
 													<div className='input-group'>
 														<input
 															type='text'
-															className='form-control bg-light bproduct-0 small'
+															className='form-control bg-light border-0 small'
 															placeholder='Search for...'
 															aria-label='Search'
 															aria-describedby='basic-addon2'
@@ -365,7 +328,7 @@ class DashBoard extends Component {
                                                         <div className="status-indicator"></div>
                                                     </div>
                                                     <div>
-                                                        <div className="text-truncate">I have the photos that you producted last month, how
+                                                        <div className="text-truncate">I have the photos that you ordered last month, how
                                                             would you like them sent to you?</div>
                                                         <div className="small text-gray-500">Jae Chun · 1d</div>
                                                     </div>
@@ -454,7 +417,7 @@ class DashBoard extends Component {
 											href='#'
 											className='d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm'>
 											<i className='fas fa-download fa-sm text-white-50'></i>{' '}
-											product
+											Order
 										</a>
 									</div>
 
@@ -462,7 +425,7 @@ class DashBoard extends Component {
 									<div className='row'>
 										{/* Earnings (Monthly) Card Example */}
 										<div className='col-xl-3 col-md-6 mb-4'>
-											<div className='card bproduct-left-primary shadow h-100 py-2'>
+											<div className='card border-left-primary shadow h-100 py-2'>
 												<div className='card-body'>
 													<div className='row no-gutters align-items-center'>
 														<div className='col mr-2'>
@@ -483,7 +446,7 @@ class DashBoard extends Component {
 
 										{/* Earnings (Monthly) Card Example */}
 										<div className='col-xl-3 col-md-6 mb-4'>
-											<div className='card bproduct-left-success shadow h-100 py-2'>
+											<div className='card border-left-success shadow h-100 py-2'>
 												<div className='card-body'>
 													<div className='row no-gutters align-items-center'>
 														<div className='col mr-2'>
@@ -504,7 +467,7 @@ class DashBoard extends Component {
 
 										{/* Earnings (Monthly) Card Example */}
 										<div className='col-xl-3 col-md-6 mb-4'>
-											<div className='card bproduct-left-info shadow h-100 py-2'>
+											<div className='card border-left-info shadow h-100 py-2'>
 												<div className='card-body'>
 													<div className='row no-gutters align-items-center'>
 														<div className='col mr-2'>
@@ -540,7 +503,7 @@ class DashBoard extends Component {
 
 										{/* Pending Requests Card Example */}
 										<div className='col-xl-3 col-md-6 mb-4'>
-											<div className='card bproduct-left-warning shadow h-100 py-2'>
+											<div className='card border-left-warning shadow h-100 py-2'>
 												<div className='card-body'>
 													<div className='row no-gutters align-items-center'>
 														<div className='col mr-2'>
@@ -1004,7 +967,7 @@ class DashBoard extends Component {
                                                     <h6 className="m-0 font-weight-bold text-primary">Development Approach</h6>
                                                 </div>
                                                 <div className="card-body">
-                                                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in product to reduce
+                                                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
                                                         CSS bloat and poor page performance. Custom CSS classes are used to create
                                                         custom components and custom utility classes.</p>
                                                     <p className="mb-0">Before working with this theme, you should become familiar with the
@@ -1084,4 +1047,4 @@ class DashBoard extends Component {
 	}
 }
 
-export default DashBoard;
+export default Body;
