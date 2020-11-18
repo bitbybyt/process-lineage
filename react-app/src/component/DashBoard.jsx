@@ -13,21 +13,26 @@ class DashBoard extends Component {
 		currentcompany: {},
 	};
 	async componentDidMount() {
-		const { currentcompany, currentproduct } = this.state;
+		//const { currentcompany, currentproduct } = this.state;
 		const { data: company } = await getCompany();
-		this.setState({ company, currentcompany: company[0] });
+		this.setState({ company });
 		const { data: product } = await getProduct();
-		if (currentcompany) this.setState({ product, currentproduct: product[0] });
+		this.setState({ product });
+		//if (currentcompany) this.setState({ product, currentproduct: product[0] });
 	}
-	handleproduct = (product) => {
-		console.log(product);
-		this.setState({ currentproduct: product });
+	handleproduct = async (product) => {
+		//console.log(product);
+		await this.setState({ currentproduct: product });
 		console.log(this.state.currentproduct);
 	};
-	handlecompany = (company) => {
-		console.log(company);
-		this.setState({ currentcompany: company });
-		console.log(this.state.currentcompany);
+	handlecompany = async (company) => {
+		//console.log(company);
+		await this.setState({
+			currentcompany: company,
+			product: [...company.products],
+		});
+		console.log(this.state.currentcompany, this.state.product);
+		console.log(this.state.product);
 	};
 	render() {
 		return (
@@ -106,12 +111,11 @@ class DashBoard extends Component {
 									<div className='bg-white py-2 collapse-inner rounded'>
 										<h6 className='collapse-header'>Custom Utilities:</h6>
 										{this.state.company.map((company) => (
-											<a
+											<div
 												className='collapse-item'
-												to='utilities-animation.html'
 												onClick={() => this.handlecompany(company)}>
 												{company.name}
-											</a>
+											</div>
 										))}
 										{/* <a className='collapse-item' to='utilities-animation.html'>
 											A
