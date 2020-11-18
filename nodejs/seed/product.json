@@ -1,0 +1,600 @@
+[
+    {
+        "name": "XPS 15",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "Decide the Factory",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "Raw Material Availability",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Assembly",
+                "state": "active",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Testing",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Packaging",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Shipping",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "Alienware",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "Decide the Factory",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "Raw Material Availability",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Assembly",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Testing",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Packaging",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Shipping",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "Latitude 7490",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "Decide the Factory",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "Raw Material Availability",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Assembly",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Testing",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Packaging",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Shipping",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "G5 15 SE",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "Decide the Factory",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "Raw Material Availability",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Assembly",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Testing",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Packaging",
+                "state": "fail",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Shipping",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "blu t-shirt",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "raw material availability",
+                "state": "fail",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "employee available",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "cutting",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "stitching",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "ironing",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "testing",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "packaging",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "shipping",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "honey jeans",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "raw material availability",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "employee available",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "cutting",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "stitching",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "ironing",
+                "state": "active",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "testing",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "packaging",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "shipping",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "Bee Jacket",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "raw material availability",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "employee available",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "cutting",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "stitching",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "ironing",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "testing",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "packaging",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "shipping",
+                "state": "active",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "Span Scarf",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "raw material availability",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "employee available",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "cutting",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "stitching",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "ironing",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "testing",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "packaging",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "shipping",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "Manicure",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "service availability",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "employee available",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "tools available",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "product available",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "provide service",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "take feedback",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "payment",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "Hair Cut",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "service availability",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "employee available",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "tools available",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "product available",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "provide service",
+                "state": "active",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "take feedback",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "payment",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "Facial",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "service availability",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "employee available",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "tools available",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "product available",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "provide service",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "take feedback",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "payment",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "Massage",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "service availability",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "employee available",
+                "state": "fail",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "tools available",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "product available",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "provide service",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "take feedback",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "payment",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "Bill1",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "invoice validation",
+                "state": "fail",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "reciept",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "Bill2",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "invoice validation",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "reciept",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    }
+]

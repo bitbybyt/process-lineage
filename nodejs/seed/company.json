@@ -1,0 +1,138 @@
+[
+    {
+        "name": "dell",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "Decide the Factory",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "Raw Material Availability",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Assembly",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Testing",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Packaging",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "Shipping",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            }
+
+        ]
+    },
+    {
+        "name": "lifestyle",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "raw material availability",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "employee available",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "cutting",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "stitching",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "ironing",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "testing",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "packaging",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "shipping",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "urbanclap",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "service availability",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "employee available",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "tools available",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "decision",
+                "processName": "product available",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "provide service",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "take feedback",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "payment",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "dell invoice system",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "invoice validation",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "reciept",
+                "timeExpected": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    }
+]

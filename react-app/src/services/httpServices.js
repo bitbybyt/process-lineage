@@ -1,7 +1,7 @@
 import axios from 'axios';
-export function getFactory() {
-	return axios.get('http://localhost:5000/api/factory');
+export function getProduct() {
+	return axios.get('http://localhost:5000/api/product');
 }
-export function getOrder() {
-	return axios.get('http://localhost:5000/api/order');
+export function getCompany() {
+	return axios.get('http://localhost:5000/api/company');
 }

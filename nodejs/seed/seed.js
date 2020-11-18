@@ -1,30 +1,28 @@
 const fs = require('fs');
 const mongoose = require('mongoose');
-const { Order, Factory, Manufacture, Ship } = require('../model/models');
+const Company = require('../model/company');
+const Product = require('../model/product');
 async function seed() {
 	await mongoose
-		.connect('mongodb://localhost/demoseed')
+		.connect('mongodb://localhost/demomanufacture', {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		})
 		.then(() => console.log('Connected to mongodb....'))
 		.catch((err) => console.log('Error:' + err));
 
-	await Order.deleteMany({});
-	await Factory.deleteMany({});
-	await Manufacture.deleteMany({});
-	await Ship.deleteMany({});
+	await Company.deleteMany({});
+	await Product.deleteMany({});
 
-	const order = JSON.parse(fs.readFileSync(`${__dirname}/order.json`, 'utf-8'));
-	const factory = JSON.parse(
-		fs.readFileSync(`${__dirname}/factory.json`, 'utf-8')
+	const company = JSON.parse(
+		fs.readFileSync(`${__dirname}/company.json`, 'utf-8')
 	);
-	const manufacture = JSON.parse(
-		fs.readFileSync(`${__dirname}/manufacture.json`, 'utf-8')
+	const product = JSON.parse(
+		fs.readFileSync(`${__dirname}/product.json`, 'utf-8')
 	);
-	const ship = JSON.parse(fs.readFileSync(`${__dirname}/ship.json`, 'utf-8'));
 
-	await Order.insertMany(order);
-	await Factory.insertMany(factory);
-	await Manufacture.insertMany(manufacture);
-	await Ship.insertMany(ship);
+	await Company.insertMany(company);
+	await Product.insertMany(product);
 
 	mongoose.disconnect();
 
