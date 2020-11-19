@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Product = require('./product');
+const Bil = require('./bill');
 
 const companySchema = new mongoose.Schema({
 	name: String,
@@ -23,6 +24,12 @@ const companySchema = new mongoose.Schema({
 			ref: 'Product',
 		},
 	],
+	bills: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Bill',
+		},
+	]
 });
 
 const Company = mongoose.model('Company', companySchema);

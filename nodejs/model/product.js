@@ -1,8 +1,15 @@
 const mongoose = require('mongoose');
 const Company = require('./company');
+const Bill = require('./bill');
 
 const productSchema = new mongoose.Schema({
     name: String,
+    status: {
+        type: String,
+        lowercase: true,
+        enum: ['pending', 'fail', 'complete', 'active'],
+        default: 'pending'
+    },
     parent: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Company'
