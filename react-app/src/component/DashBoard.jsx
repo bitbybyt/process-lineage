@@ -39,7 +39,7 @@ class DashBoard extends Component {
 	render() {
 		const { currentproduct } = this.state;
 		var next;
-		function category(category, fail1, pending1, complete1) {
+		function category(category, fail1, pending1, active1, complete1) {
 			console.log(category);
 			if (currentproduct) {
 				const process = currentproduct.process;
@@ -76,9 +76,9 @@ class DashBoard extends Component {
 					return complete1;
 				} else {
 					console.log('lastone');
-					next = 'pending';
+					next = 'active';
 					console.log('nextsteps : ', next);
-					return pending1;
+					return active1;
 				}
 			}
 			return complete1;
@@ -825,6 +825,7 @@ class DashBoard extends Component {
 																className={`${category(
 																	'decision',
 																	'text-danger',
+																	'',
 																	'text-info',
 																	'text-success'
 																)}`}>
@@ -832,6 +833,7 @@ class DashBoard extends Component {
 																	className={`fa fa-3x ${category(
 																		'decision',
 																		'fa-ban',
+																		'fa-minus-square',
 																		'fa-step-forward',
 																		'fa-check'
 																	)}`}
@@ -839,13 +841,16 @@ class DashBoard extends Component {
 															</span>
 															<div className='progress'>
 																<div
+																	style={{ width: '100%' }}
 																	className={`progress-bar progress-bar-striped ${category(
 																		'decision',
 																		'bg-danger',
+																		'bg-transparent',
 																		'bg-info',
 																		'bg-success'
 																	)} progress-bar-animated`}
-																	style={{ width: '100%' }}
+																	
+															
 																	aria-valuenow='1'
 																	aria-valuemin='0'
 																	aria-valuemax='1'></div>
@@ -932,11 +937,12 @@ class DashBoard extends Component {
 																		? ` ${category(
 																				'activity',
 																				'text-danger',
+																				'',
 																				'text-info',
 																				'text-success'
 																		  )}`
-																		: next === 'pending'
-																		? 'text-info'
+																		: (next === 'pending' || next === 'active')
+																		? ''
 																		: 'text-danger'
 																}>
 																<i
@@ -945,11 +951,12 @@ class DashBoard extends Component {
 																			? ` ${category(
 																					'activity',
 																					'fa-ban',
+																					'fa-minus-square',
 																					'fa-step-forward',
 																					'fa-check'
 																			  )}`
-																			: next === 'pending'
-																			? 'fa-step-forward'
+																			: (next === 'pending' || next === 'active')
+																			? 'fa-minus-square'
 																			: 'fa-ban'
 																	}`}
 																	aria-hidden='true'></i>
@@ -961,11 +968,12 @@ class DashBoard extends Component {
 																			? ` ${category(
 																					'activity',
 																					'bg-danger',
+																					'bg-transparent',
 																					'bg-info',
 																					'bg-success'
 																			  )} `
-																			: next === 'pending'
-																			? 'bg-info'
+																			: (next === 'pending' || next === 'active')
+																			? 'bg-transparent'
 																			: 'bg-danger'
 																	} progress-bar-animated`}
 																	style={{ width: '100%' }}
@@ -1053,7 +1061,7 @@ class DashBoard extends Component {
 																	next === 'complete'
 																		? 'text-success'
 																		: next === 'pending'
-																		? 'text-info'
+																		? ''
 																		: 'text-danger'
 																}>
 																<i
@@ -1062,7 +1070,7 @@ class DashBoard extends Component {
 																		next === 'complete'
 																			? 'fa-check'
 																			: next === 'pending'
-																			? 'fa-step-forward'
+																			? 'fa-minus-square'
 																			: 'fa-ban'
 																	}`}
 																	aria-hidden='true'></i>
@@ -1076,7 +1084,7 @@ class DashBoard extends Component {
 																		next === 'complete'
 																			? 'bg-success'
 																			: next === 'pending'
-																			? 'bg-info'
+																			? 'bg-transparent'
 																			: 'bg-danger'
 																	} progress-bar-animated`}
 																	style={{ width: '100%' }}
