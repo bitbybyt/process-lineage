@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, forwardRef } from 'react';
 import { getCompany, getProduct } from '../services/httpServices';
 import './css/sb-admin-2.min.css';
 import './css/sb-admin-2.css';
@@ -37,6 +37,118 @@ class DashBoard extends Component {
 		console.log(this.state.currentcompany, this.state.product);
 	};
 	render() {
+		const { currentproduct } = this.state;
+		var next;
+		function category(category, fail1, pending1, complete1) {
+			console.log(category);
+			if (currentproduct) {
+				const process = currentproduct.process;
+				console.log(process);
+				const activity = process.filter(
+					(process) => process.category === category
+				);
+				const fail = activity.filter((activity) => activity.state === 'fail');
+				console.log(fail);
+				const complete = activity.filter(
+					(activity) => activity.state === 'complete'
+				);
+				console.log(complete);
+				if (fail.length !== 0) {
+					console.log('fail');
+					next = 'fail';
+					console.log('nextsteps : ', next);
+					//icon = 'fa-ban';
+					return fail1;
+				} else if (activity[0].state === 'pending') {
+					console.log('pending');
+					next = 'pending';
+					console.log('nextsteps : ', next);
+
+					//icon = 'fa-step-forward';
+
+					return pending1;
+				} else if (complete.length === activity.length) {
+					console.log('complete');
+					next = 'complete';
+					//icon = 'fa-check';
+					console.log('nextsteps : ', next);
+
+					return complete1;
+				} else {
+					console.log('lastone');
+					next = 'pending';
+					console.log('nextsteps : ', next);
+					return pending1;
+				}
+			}
+			return complete1;
+		}
+		// function category(category) {
+		// 	console.log(category);
+		// 	if (currentproduct) {
+		// 		const process = currentproduct.process;
+		// 		console.log(process);
+		// 		const activity = process.filter(
+		// 			(process) => process.category === category
+		// 		);
+		// 		const fail = activity.filter((activity) => activity.state === 'fail');
+		// 		console.log(fail);
+		// 		const complete = activity.filter(
+		// 			(activity) => activity.state === 'complete'
+		// 		);
+		// 		console.log(complete);
+		// 		if (fail.length !== 0) {
+		// 			console.log('fail');
+		// 			//icon = 'fa-ban';
+		// 			return 'bg-danger';
+		// 		} else if (activity[0].state === 'pending') {
+		// 			console.log('pending');
+		// 			//icon = 'fa-step-forward';
+
+		// 			return ' bg-info ';
+		// 		} else if (complete.length === activity.length) {
+		// 			console.log('complete');
+		// 			//icon = 'fa-check';
+
+		// 			return ' bg-success';
+		// 		} else {
+		// 			console.log('lastone');
+		// 			return ' bg-info ';
+		// 		}
+		// 	}
+		// 	return 'bg-success';
+		// }
+		// function icon(category) {
+		// 	console.log(category);
+		// 	if (currentproduct) {
+		// 		const process = currentproduct.process;
+		// 		console.log(process);
+		// 		const activity = process.filter(
+		// 			(process) => process.category === category
+		// 		);
+		// 		const fail = activity.filter((activity) => activity.state === 'fail');
+		// 		console.log(fail);
+		// 		const complete = activity.filter(
+		// 			(activity) => activity.state === 'complete'
+		// 		);
+		// 		console.log(complete);
+		// 		if (fail.length !== 0) {
+		// 			console.log('fail');
+		// 			return 'fa-ban';
+		// 		} else if (activity[0].state === 'pending') {
+		// 			console.log('pending');
+		// 			return 'fa-step-forward';
+		// 		} else if (complete.length === activity.length) {
+		// 			console.log('complete');
+		// 			return 'fa-check';
+		// 		} else {
+		// 			console.log('lastone');
+		// 			return 'fa-step-forward';
+		// 		}
+		// 	}
+		// 	return 'fa-minus-square';
+		// }
+
 		return (
 			<React.Fragment>
 				<div id='page-top'>
@@ -245,7 +357,6 @@ class DashBoard extends Component {
                                                     <a className="collapse-item" href="utilities-animation.html">C</a>
                                                 </div>
                                             </div>
-
                                             <input type="text" className="form-control bg-light bproduct-0 small" placeholder="Search for..."
                                                 aria-label="Search" aria-describedby="basic-addon2">
                                             <div className="input-group-append">
@@ -342,7 +453,6 @@ class DashBoard extends Component {
                                                 <a className="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                                             </div>
                                         </li>
-
                                         
                                         <li className="nav-item dropdown no-arrow mx-1">
                                             <a className="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
@@ -611,28 +721,24 @@ class DashBoard extends Component {
                                                                 </div>
                                                                 <div className="container">Type Anything Here, and here is something long!</div>
                                                             </div>
-
                                                             <div id="sub-container">
                                                                 <span className="text-info"><i className="fas fa-caret-square-right fa-3x" aria-hidden="true"></i></span>
                                                                 <div className="progress">
                                                                     <div className="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" style="width: 100%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1"></div>
                                                                 </div>
                                                             </div>
-
                                                             <div id="sub-container">
                                                                 <span className=""><i className="fa fa-3x fa-minus-square" aria-hidden="true"></i></span>
                                                                 <div className="progress">
                                                                     <div className="progress-bar progress-bar-striped bg-success" role="progressbar progress-bar-animated" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1"></div>
                                                                 </div>
                                                             </div>
-
                                                             <div id="sub-container">
                                                                 <span className=""><i className="fa fa-3x fa-minus-square" aria-hidden="true"></i></span>
                                                                 <div className="progress">
                                                                     <div className="progress-bar progress-bar-striped bg-success" role="progressbar progress-bar-animated" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1"></div>
                                                                 </div>
                                                             </div>
-
                                                             <div id="sub-container">
                                                                 <span className=""><i className="fa fa-3x fa-minus-square" aria-hidden="true"></i></span>
                                                                 <div className="progress">
@@ -705,9 +811,6 @@ class DashBoard extends Component {
 																		className='collapse multi-collapse'
 																		id='collapseCardExample1'>
 																		<div className='pro-list'>
-																			
-																			
-																			
 																			{/* <div className="text-info border border-info rounded pl md-2 my-3 mx-3">A</div>
                                                                 			<div className="text-success border border-success rounded pl md-2 my-3 mx-3">B</div>
                                                                 			<div className="text-warning border border-warning rounded pl md-2 my-3 mx-3">D</div>
@@ -718,14 +821,30 @@ class DashBoard extends Component {
 															</div>
 														</div>
 														<div id='sub-container'>
-															<span className='text-info'>
+															<span
+																className={`${category(
+																	'decision',
+																	'text-danger',
+																	'text-info',
+																	'text-success'
+																)}`}>
 																<i
-																	className='fa fa-3x fa-step-forward'
+																	className={`fa fa-3x ${category(
+																		'decision',
+																		'fa-ban',
+																		'fa-step-forward',
+																		'fa-check'
+																	)}`}
 																	aria-hidden='true'></i>
 															</span>
 															<div className='progress'>
 																<div
-																	className='progress-bar progress-bar-striped bg-info progress-bar-animated'
+																	className={`progress-bar progress-bar-striped ${category(
+																		'decision',
+																		'bg-danger',
+																		'bg-info',
+																		'bg-success'
+																	)} progress-bar-animated`}
 																	style={{ width: '100%' }}
 																	aria-valuenow='1'
 																	aria-valuemin='0'
@@ -755,55 +874,100 @@ class DashBoard extends Component {
 																			this.state.currentproduct.process.map(
 																				(process) => {
 																					//TODO: implement time exceeded yellow color
-																					if(process.category === 'decision' && process.state === 'complete') {
+																					if (
+																						process.category === 'decision' &&
+																						process.state === 'complete'
+																					) {
 																						return (
 																							<div className='pro-list'>
-																								<div className="text-success border border-success rounded pl md-2 my-3 mx-3 py-3 px-3">
+																								<div className='text-success border border-success rounded pl md-2 my-3 mx-3 py-3 px-3'>
 																									{process.processName}
 																								</div>
 																							</div>
-																						)
-																					} else if (process.category === 'decision' && process.state === 'active') {
+																						);
+																					} else if (
+																						process.category === 'decision' &&
+																						process.state === 'active'
+																					) {
 																						return (
 																							<div className='pro-list'>
-																								<div className="text-info border border-info rounded pl md-2 my-3 mx-3 py-3 px-3">
+																								<div className='text-info border border-info rounded pl md-2 my-3 mx-3 py-3 px-3'>
 																									{process.processName}
 																								</div>
 																							</div>
-																						)
-																					} else if (process.category === 'decision' && process.state === 'fail') {
+																						);
+																					} else if (
+																						process.category === 'decision' &&
+																						process.state === 'fail'
+																					) {
 																						return (
 																							<div className='pro-list'>
-																								<div className="text-danger border border-danger rounded pl md-2 my-3 mx-3 py-3 px-3">
+																								<div className='text-danger border border-danger rounded pl md-2 my-3 mx-3 py-3 px-3'>
 																									{process.processName}
 																								</div>
 																							</div>
-																						)
-																					} else if (process.category === 'decision') {
+																						);
+																					} else if (
+																						process.category === 'decision'
+																					) {
 																						return (
 																							<div className='pro-list'>
-																								<div className="text-muted border border-muted rounded pl md-2 my-3 mx-3 py-3 px-3">
+																								<div className='text-muted border border-muted rounded pl md-2 my-3 mx-3 py-3 px-3'>
 																									{process.processName}
 																								</div>
 																							</div>
-																						)
+																						);
 																					}
 																				}
-																			)
-																		}
+																			)}
 																	</div>
 																</div>
 															</div>
 														</div>
+
 														<div id='sub-container'>
-															<span className='text-danger'>
+															<span
+																className={
+																	next === 'complete'
+																		? ` ${category(
+																				'activity',
+																				'text-danger',
+																				'text-info',
+																				'text-success'
+																		  )}`
+																		: next === 'pending'
+																		? 'text-info'
+																		: 'text-danger'
+																}>
 																<i
-																	className='fa fa-3x fa-ban'
+																	className={`fa fa-3x ${
+																		next === 'complete'
+																			? ` ${category(
+																					'activity',
+																					'fa-ban',
+																					'fa-step-forward',
+																					'fa-check'
+																			  )}`
+																			: next === 'pending'
+																			? 'fa-step-forward'
+																			: 'fa-ban'
+																	}`}
 																	aria-hidden='true'></i>
 															</span>
 															<div className='progress'>
 																<div
-																	className='progress-bar progress-bar-striped bg-danger progress-bar-animated'
+																	className={`progress-bar progress-bar-striped ${
+																		next === 'complete'
+																			? ` ${category(
+																					'activity',
+																					'bg-danger',
+																					'bg-info',
+																					'bg-success'
+																			  )} `
+																			: next === 'pending'
+																			? 'bg-info'
+																			: 'bg-danger'
+																	} progress-bar-animated`}
 																	style={{ width: '100%' }}
 																	aria-valuenow='1'
 																	aria-valuemin='0'
@@ -833,56 +997,89 @@ class DashBoard extends Component {
 																			this.state.currentproduct.process.map(
 																				(process) => {
 																					//TODO: implement time exceeded yellow color
-																					if(process.category === 'activity' && process.state === 'complete') {
+																					if (
+																						process.category === 'activity' &&
+																						process.state === 'complete'
+																					) {
 																						return (
 																							<div className='pro-list'>
-																								<div className="text-success border border-success rounded pl md-2 my-3 mx-3 py-3 px-3">
+																								<div className='text-success border border-success rounded pl md-2 my-3 mx-3 py-3 px-3'>
 																									{process.processName}
 																								</div>
 																							</div>
-																						)
-																					} else if (process.category === 'activity' && process.state === 'active') {
+																						);
+																					} else if (
+																						process.category === 'activity' &&
+																						process.state === 'active'
+																					) {
 																						return (
 																							<div className='pro-list'>
-																								<div className="text-info border border-info rounded pl md-2 my-3 mx-3 py-3 px-3">
+																								<div className='text-info border border-info rounded pl md-2 my-3 mx-3 py-3 px-3'>
 																									{process.processName}
 																								</div>
 																							</div>
-																						)
-																					} else if (process.category === 'activity' && process.state === 'fail') {
+																						);
+																					} else if (
+																						process.category === 'activity' &&
+																						process.state === 'fail'
+																					) {
 																						return (
 																							<div className='pro-list'>
-																								<div className="text-danger border border-danger rounded pl md-2 my-3 mx-3 py-3 px-3">
+																								<div className='text-danger border border-danger rounded pl md-2 my-3 mx-3 py-3 px-3'>
 																									{process.processName}
 																								</div>
 																							</div>
-																						)
-																					} else if (process.category === 'activity') {
+																						);
+																					} else if (
+																						process.category === 'activity'
+																					) {
 																						return (
 																							<div className='pro-list'>
-																								<div className="text-muted border border-muted rounded pl md-2 my-3 mx-3 py-3 px-3">
+																								<div className='text-muted border border-muted rounded pl md-2 my-3 mx-3 py-3 px-3'>
 																									{process.processName}
 																								</div>
 																							</div>
-																						)
+																						);
 																					}
 																				}
-																			)
-																		}
+																			)}
 																	</div>
 																</div>
 															</div>
 														</div>
 														<div id='sub-container'>
-															<span className=''>
+															<span
+																className={
+																	next === 'complete'
+																		? 'text-success'
+																		: next === 'pending'
+																		? 'text-info'
+																		: 'text-danger'
+																}>
 																<i
-																	className='fa fa-3x fa-minus-square'
+																	//className='fa fa-3x fa-minus-square'
+																	className={`fa fa-3x ${
+																		next === 'complete'
+																			? 'fa-check'
+																			: next === 'pending'
+																			? 'fa-step-forward'
+																			: 'fa-ban'
+																	}`}
 																	aria-hidden='true'></i>
 															</span>
+
 															<div className='progress'>
 																<div
-																	className='progress-bar progress-bar-striped bg-success progress-bar-animated'
-																	style={{ width: '0%' }}
+																	//className='progress-bar progress-bar-striped bg-success progress-bar-animated'
+
+																	className={`progress-bar progress-bar-striped ${
+																		next === 'complete'
+																			? 'bg-success'
+																			: next === 'pending'
+																			? 'bg-info'
+																			: 'bg-danger'
+																	} progress-bar-animated`}
+																	style={{ width: '100%' }}
 																	aria-valuenow='1'
 																	aria-valuemin='0'
 																	aria-valuemax='1'></div>
@@ -1093,9 +1290,7 @@ class DashBoard extends Component {
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
-
                                             <div className="col-lg-12 mb-4"*/}
 
 									{/* Illustrations */}
@@ -1130,7 +1325,6 @@ class DashBoard extends Component {
                                                         Bootstrap framework, especially the utility classes.</p>
                                                 </div>
                                         
-
                                         </div>
                                     </div*/}
 								</div>
