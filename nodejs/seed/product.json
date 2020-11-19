@@ -1,6 +1,7 @@
 [
     {
         "name": "XPS 15",
+        "status": "active",
         "process": [
             {
                 "category": "decision",
@@ -59,6 +60,7 @@
         ]
     },
     {
+
         "name": "XPS 15",
         "status": "active",
         "process": [
@@ -239,7 +241,8 @@
         ]
     },
     {
-        "name": "blu t-shirt",
+        "name": "Blu t-shirt",
+        "status": "fail",
         "process": [
             {
                 "category": "decision",
@@ -3431,6 +3434,7 @@
     },
     {
         "name": "Bill2",
+        "status": "complete",
         "process": [
             {
                 "category": "decision",
@@ -3522,6 +3526,60 @@
                     "inTime": "2020-11-16T15:09:39.075Z",
                     "outTime": "2020-11-16T15:09:39.075Z"
                 }
+            }
+        ]
+    },
+    {
+        "name": "Bill2",
+        "status": "active",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "invoice validation",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "reciept",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "Bill2",
+        "status": "fail",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "invoice validation",
+                "state": "fail",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "reciept",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "Bill2",
+        "status": "active",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "invoice validation",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "reciept",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
             }
         ]
     }

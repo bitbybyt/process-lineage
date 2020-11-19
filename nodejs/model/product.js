@@ -7,8 +7,8 @@ const productSchema = new mongoose.Schema({
     status: {
         type: String,
         lowercase: true,
-        enum: ['pending', 'fail', 'complete', 'active'],
-        default: 'pending'
+        enum: ['fail', 'complete', 'active'],
+        default: 'active'
     },
     parent: {
         type: mongoose.Schema.Types.ObjectId,
@@ -28,9 +28,15 @@ const productSchema = new mongoose.Schema({
                 enum: ['pending', 'fail', 'complete', 'active'],
                 default: 'pending'
             },
-            timeTaken: {
-                type: Date,
-                default: Date.now,
+            time: {
+                inTime: {
+                    type: Date,
+                    default: Date.now,
+                },
+                outTime: {
+                    type: Date,
+                    default: Date.now,
+                }
             }
         }
     ],
