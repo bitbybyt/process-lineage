@@ -24,6 +24,12 @@ const companySchema = new mongoose.Schema({
 			ref: 'Product',
 		},
 	],
+	bills: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Bill',
+		},
+	]
 });
 
 const Company = mongoose.model('Company', companySchema);
