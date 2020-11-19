@@ -28,9 +28,15 @@ const productSchema = new mongoose.Schema({
                 enum: ['pending', 'fail', 'complete', 'active'],
                 default: 'pending'
             },
-            timeTaken: {
-                type: Date,
-                default: Date.now,
+            time: {
+                inTime: {
+                    type: Date,
+                    default: Date.now,
+                },
+                outTime: {
+                    type: Date,
+                    default: Date.now,
+                }
             }
         }
     ],
