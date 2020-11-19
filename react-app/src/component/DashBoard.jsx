@@ -219,7 +219,7 @@ class DashBoard extends Component {
 								</a>
 								<div
 									id='collapseUtilities'
-									className='collapse'
+									className='collapse show'
 									aria-labelledby='headingUtilities'
 									data-parent='#accordionSidebar'>
 									<div className='bg-white py-2 collapse-inner rounded'>
@@ -760,21 +760,8 @@ class DashBoard extends Component {
 												Progress
 											</h6>
 										</div>
-										<div className='card-body'>
-											{/*div className="text-center">
-                                                <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                                    src="img/undraw_posting_photo.svg" alt="">
-                                            </div>
-                                            <p>Add some quality, svg illustrations to your project courtesy of <a
-                                                    target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                                                constantly updated collection of beautiful svg images that you can use
-                                                completely free and without attribution!</p>
-                                            <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                                                unDraw &rarr;</a*/}
-											<div className='card-body'>
-												<div className='chart-area'>
-													{/* <canvas id="myAreaChart"></canvas> */}
-
+										<div className='card-body min-vh-100'> //TODO: remove min-vh and do somthing useful in your life, dont cheat
+											
 													<div id='container'>
 														<div id='sub-container'>
 															<span className='text-success'>
@@ -860,21 +847,13 @@ class DashBoard extends Component {
 																{/* Collapsable Card Example*/}
 																<div className='card shadow mb-4'>
 																	{/* Card Header - Accordion */}
-																	<a
-																		href='#collapseCardExample1'
-																		className='d-block card-header py-3'
-																		data-toggle='collapse'
-																		role='button'
-																		aria-expanded='false'
-																		aria-controls='collapseCardExample1'>
+																	<div className='card-header py-3'>
 																		<h6 className='m-0 font-weight-bold text-primary'>
 																			Decisions
 																		</h6>
-																	</a>
+																	</div>
 																	{/* Card Content - Collapse */}
-																	<div
-																		className='collapse multi-collapse'
-																		id='collapseCardExample1'>
+																	<div className='card-body'>
 																		{this.state.currentproduct &&
 																			this.state.currentproduct.process.map(
 																				(process) => {
@@ -942,7 +921,7 @@ class DashBoard extends Component {
 																				'text-success'
 																		  )}`
 																		: (next === 'pending' || next === 'active')
-																		? ''
+																		? next = 'pending'
 																		: 'text-danger'
 																}>
 																<i
@@ -955,9 +934,11 @@ class DashBoard extends Component {
 																					'fa-step-forward',
 																					'fa-check'
 																			  )}`
-																			: (next === 'pending' || next === 'active')
+																			: next === 'pending'
 																			? 'fa-minus-square'
-																			: 'fa-ban'
+																			: next === 'active'
+																			? 'fa-step-forward'
+																			:'fa-ban'
 																	}`}
 																	aria-hidden='true'></i>
 															</span>
@@ -972,8 +953,10 @@ class DashBoard extends Component {
 																					'bg-info',
 																					'bg-success'
 																			  )} `
-																			: (next === 'pending' || next === 'active')
+																			: next === 'pending'
 																			? 'bg-transparent'
+																			: next === 'active'
+																			? 'bg-info'
 																			: 'bg-danger'
 																	} progress-bar-animated`}
 																	style={{ width: '100%' }}
@@ -1060,7 +1043,7 @@ class DashBoard extends Component {
 																className={
 																	next === 'complete'
 																		? 'text-success'
-																		: next === 'pending'
+																		: (next === 'pending' || next === 'active')
 																		? ''
 																		: 'text-danger'
 																}>
@@ -1069,7 +1052,7 @@ class DashBoard extends Component {
 																	className={`fa fa-3x ${
 																		next === 'complete'
 																			? 'fa-check'
-																			: next === 'pending'
+																			: (next === 'pending' || next === 'active')
 																			? 'fa-minus-square'
 																			: 'fa-ban'
 																	}`}
@@ -1083,7 +1066,7 @@ class DashBoard extends Component {
 																	className={`progress-bar progress-bar-striped ${
 																		next === 'complete'
 																			? 'bg-success'
-																			: next === 'pending'
+																			: (next === 'pending' || next === 'active')
 																			? 'bg-transparent'
 																			: 'bg-danger'
 																	} progress-bar-animated`}
@@ -1122,8 +1105,6 @@ class DashBoard extends Component {
 															</div>
 														</div>
 													</div>
-												</div>
-											</div>
 										</div>
 									</div>
 
