@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Product = require('./product');
+const Bil = require('./bill');
 
 const companySchema = new mongoose.Schema({
 	name: String,
