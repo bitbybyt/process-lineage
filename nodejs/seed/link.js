@@ -54,7 +54,7 @@ async function link() {
 	// company3.products.push(product9);
 	// company3.products.push(product10);
 	// company3.products.push(product11);
-	// company3.products.push(product12);
+	company3.products.push(product12);
 	// await company3.save();
 
 	// company4.products.push(product13);
