@@ -4,7 +4,10 @@ const Company = require('./company');
 
 const billSchema = new mongoose.Schema({
     customerName: String,
-    date:Date,
+    date: {
+        type: Date,
+        default: Date.now
+    },
     sub: [
         {
 			type: mongoose.Schema.Types.ObjectId,

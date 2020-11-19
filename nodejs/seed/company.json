@@ -1,6 +1,6 @@
 [
     {
-        "name": "dell",
+        "name": "Dell",
         "process": [
             {
                 "category": "decision",
@@ -36,7 +36,7 @@
         ]
     },
     {
-        "name": "lifestyle",
+        "name": "Lifestyle",
         "process": [
             {
                 "category": "decision",
@@ -81,7 +81,7 @@
         ]
     },
     {
-        "name": "urbanclap",
+        "name": "Urbanclap",
         "process": [
             {
                 "category": "decision",
@@ -121,7 +121,7 @@
         ]
     },
     {
-        "name": "dell invoice system",
+        "name": "Dell Invoice System",
         "process": [
             {
                 "category": "decision",
