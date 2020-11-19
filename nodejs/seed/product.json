@@ -1,6 +1,7 @@
 [
     {
         "name": "XPS 15",
+        "status": "active",
         "process": [
             {
                 "category": "decision",
@@ -42,6 +43,7 @@
     },
     {
         "name": "Alienware",
+        "status": "active",
         "process": [
             {
                 "category": "decision",
@@ -83,6 +85,7 @@
     },
     {
         "name": "Latitude 7490",
+        "status": "active",
         "process": [
             {
                 "category": "decision",
@@ -124,6 +127,7 @@
     },
     {
         "name": "G5 15 SE",
+        "status": "fail",
         "process": [
             {
                 "category": "decision",
@@ -164,7 +168,8 @@
         ]
     },
     {
-        "name": "blu t-shirt",
+        "name": "Blu t-shirt",
+        "status": "fail",
         "process": [
             {
                 "category": "decision",
@@ -217,7 +222,8 @@
         ]
     },
     {
-        "name": "honey jeans",
+        "name": "Honey Jeans",
+        "status": "active",
         "process": [
             {
                 "category": "decision",
@@ -271,6 +277,7 @@
     },
     {
         "name": "Bee Jacket",
+        "status": "active",
         "process": [
             {
                 "category": "decision",
@@ -324,6 +331,7 @@
     },
     {
         "name": "Span Scarf",
+        "status": "active",
         "process": [
             {
                 "category": "decision",
@@ -377,6 +385,7 @@
     },
     {
         "name": "Manicure",
+        "status": "active",
         "process": [
             {
                 "category": "decision",
@@ -424,6 +433,7 @@
     },
     {
         "name": "Hair Cut",
+        "status": "active",
         "process": [
             {
                 "category": "decision",
@@ -471,6 +481,7 @@
     },
     {
         "name": "Facial",
+        "status": "complete",
         "process": [
             {
                 "category": "decision",
@@ -518,6 +529,7 @@
     },
     {
         "name": "Massage",
+        "status": "fail",
         "process": [
             {
                 "category": "decision",
@@ -565,6 +577,7 @@
     },
     {
         "name": "Bill1",
+        "status": "fail",
         "process": [
             {
                 "category": "decision",
@@ -582,6 +595,7 @@
     },
     {
         "name": "Bill2",
+        "status": "complete",
         "process": [
             {
                 "category": "decision",
@@ -593,6 +607,60 @@
                 "category": "activity",
                 "processName": "reciept",
                 "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "Bill2",
+        "status": "active",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "invoice validation",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "reciept",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "Bill2",
+        "status": "fail",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "invoice validation",
+                "state": "fail",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "reciept",
+                "state": "pending",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            }
+        ]
+    },
+    {
+        "name": "Bill2",
+        "status": "active",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "invoice validation",
+                "state": "complete",
+                "timeTaken": "2020-11-16T15:09:39.075Z"
+            },
+            {
+                "category": "activity",
+                "processName": "reciept",
+                "state": "pending",
                 "timeTaken": "2020-11-16T15:09:39.075Z"
             }
         ]
