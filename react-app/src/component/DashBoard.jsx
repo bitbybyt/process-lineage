@@ -704,24 +704,28 @@ class DashBoard extends Component {
 																	<div
 																		className='collapse multi-collapse'
 																		id='collapseCardExample1'>
-																		<div className='card-body'>
-																			<strong>Estimated Time:</strong> 10:00{' '}
-																			<br />
-																			<strong>Time Taken:</strong> 12:00
+																		<div className='pro-list'>
+																			
+																			
+																			
+																			{/* <div className="text-info border border-info rounded pl md-2 my-3 mx-3">A</div>
+                                                                			<div className="text-success border border-success rounded pl md-2 my-3 mx-3">B</div>
+                                                                			<div className="text-warning border border-warning rounded pl md-2 my-3 mx-3">D</div>
+                                                                			<div className="text-danger border border-danger rounded pl md-2 my-3 mx-3">C</div> */}
 																		</div>
 																	</div>
 																</div>
 															</div>
 														</div>
 														<div id='sub-container'>
-															<span className='text-success'>
+															<span className='text-info'>
 																<i
-																	className='fa fa-3x fa-check'
+																	className='fa fa-3x fa-step-forward'
 																	aria-hidden='true'></i>
 															</span>
 															<div className='progress'>
 																<div
-																	className='progress-bar progress-bar-striped bg-success progress-bar-animated'
+																	className='progress-bar progress-bar-striped bg-info progress-bar-animated'
 																	style={{ width: '100%' }}
 																	aria-valuenow='1'
 																	aria-valuemin='0'
@@ -749,31 +753,57 @@ class DashBoard extends Component {
 																		id='collapseCardExample1'>
 																		{this.state.currentproduct &&
 																			this.state.currentproduct.process.map(
-																				(process) =>
-																					process.category === 'decision' ? (
-																						<div className='card-body'>
-																							<strong>
-																								{process.processName}
-																							</strong>{' '}
-																							{process.timeTaken} <br />
-																						</div>
-																					) : (
-																						<div></div>
-																					)
-																			)}
+																				(process) => {
+																					//TODO: implement time exceeded yellow color
+																					if(process.category === 'decision' && process.state === 'complete') {
+																						return (
+																							<div className='pro-list'>
+																								<div className="text-success border border-success rounded pl md-2 my-3 mx-3 py-3 px-3">
+																									{process.processName}
+																								</div>
+																							</div>
+																						)
+																					} else if (process.category === 'decision' && process.state === 'active') {
+																						return (
+																							<div className='pro-list'>
+																								<div className="text-info border border-info rounded pl md-2 my-3 mx-3 py-3 px-3">
+																									{process.processName}
+																								</div>
+																							</div>
+																						)
+																					} else if (process.category === 'decision' && process.state === 'fail') {
+																						return (
+																							<div className='pro-list'>
+																								<div className="text-danger border border-danger rounded pl md-2 my-3 mx-3 py-3 px-3">
+																									{process.processName}
+																								</div>
+																							</div>
+																						)
+																					} else if (process.category === 'decision') {
+																						return (
+																							<div className='pro-list'>
+																								<div className="text-muted border border-muted rounded pl md-2 my-3 mx-3 py-3 px-3">
+																									{process.processName}
+																								</div>
+																							</div>
+																						)
+																					}
+																				}
+																			)
+																		}
 																	</div>
 																</div>
 															</div>
 														</div>
 														<div id='sub-container'>
-															<span className='text-success'>
+															<span className='text-danger'>
 																<i
-																	className='fa fa-3x fa-check'
+																	className='fa fa-3x fa-ban'
 																	aria-hidden='true'></i>
 															</span>
 															<div className='progress'>
 																<div
-																	className='progress-bar progress-bar-striped bg-success progress-bar-animated'
+																	className='progress-bar progress-bar-striped bg-danger progress-bar-animated'
 																	style={{ width: '100%' }}
 																	aria-valuenow='1'
 																	aria-valuemin='0'
@@ -801,32 +831,58 @@ class DashBoard extends Component {
 																		id='collapseCardExample1'>
 																		{this.state.currentproduct &&
 																			this.state.currentproduct.process.map(
-																				(process) =>
-																					process.category === 'activity' ? (
-																						<div className='card-body'>
-																							<strong>
-																								{process.processName}
-																							</strong>{' '}
-																							{process.timeTaken} <br />
-																						</div>
-																					) : (
-																						<div></div>
-																					)
-																			)}
+																				(process) => {
+																					//TODO: implement time exceeded yellow color
+																					if(process.category === 'activity' && process.state === 'complete') {
+																						return (
+																							<div className='pro-list'>
+																								<div className="text-success border border-success rounded pl md-2 my-3 mx-3 py-3 px-3">
+																									{process.processName}
+																								</div>
+																							</div>
+																						)
+																					} else if (process.category === 'activity' && process.state === 'active') {
+																						return (
+																							<div className='pro-list'>
+																								<div className="text-info border border-info rounded pl md-2 my-3 mx-3 py-3 px-3">
+																									{process.processName}
+																								</div>
+																							</div>
+																						)
+																					} else if (process.category === 'activity' && process.state === 'fail') {
+																						return (
+																							<div className='pro-list'>
+																								<div className="text-danger border border-danger rounded pl md-2 my-3 mx-3 py-3 px-3">
+																									{process.processName}
+																								</div>
+																							</div>
+																						)
+																					} else if (process.category === 'activity') {
+																						return (
+																							<div className='pro-list'>
+																								<div className="text-muted border border-muted rounded pl md-2 my-3 mx-3 py-3 px-3">
+																									{process.processName}
+																								</div>
+																							</div>
+																						)
+																					}
+																				}
+																			)
+																		}
 																	</div>
 																</div>
 															</div>
 														</div>
 														<div id='sub-container'>
-															<span className='text-success'>
+															<span className=''>
 																<i
-																	className='fa fa-3x fa-check'
+																	className='fa fa-3x fa-minus-square'
 																	aria-hidden='true'></i>
 															</span>
 															<div className='progress'>
 																<div
 																	className='progress-bar progress-bar-striped bg-success progress-bar-animated'
-																	style={{ width: '100%' }}
+																	style={{ width: '0%' }}
 																	aria-valuenow='1'
 																	aria-valuemin='0'
 																	aria-valuemax='1'></div>
