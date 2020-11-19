@@ -14,6 +14,7 @@ async function seed() {
 
 	await Company.deleteMany({});
 	await Product.deleteMany({});
+	await Bill.deleteMany({});
 
 	const company = JSON.parse(
 		fs.readFileSync(`${__dirname}/company.json`, 'utf-8')
@@ -27,7 +28,7 @@ async function seed() {
 
 	await Company.insertMany(company);
 	await Product.insertMany(product);
-	await Product.insertMany(bill);
+	await Bill.insertMany(bill);
 
 	mongoose.disconnect();
 
