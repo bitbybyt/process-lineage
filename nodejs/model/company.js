@@ -14,7 +14,6 @@ const companySchema = new mongoose.Schema({
 			processName: String,
 			timeExpected: {
 				type: Date,
-				default: Date.now,
 			},
 		},
 	],

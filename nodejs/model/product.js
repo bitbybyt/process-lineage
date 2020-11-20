@@ -10,6 +10,7 @@ const productSchema = new mongoose.Schema({
         enum: ['fail', 'complete', 'active'],
         default: 'active'
     },
+    totalTime: Number,
     parent: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Company'
@@ -41,6 +42,28 @@ const productSchema = new mongoose.Schema({
         }
     ],
 });
+
+productSchema.methods.eachTime = function (i) {
+    // console.log(i);
+    // console.log(i);
+    return (this.process[i].time.outTime - this.process[i].time.inTime);
+}
+
+productSchema.methods.tillTime = function (i) {
+    if(this.process[i].state === 'complete') {
+        return (this.process[i].time.outTime - this.process[0].time.inTime);
+    } else if(i > 0) {
+        return (this.process[i-1].time.outTime - this.process[0].time.inTime);
+    } else return 0;
+}
+
+productSchema.pre('save', async function () {
+    if(this.status === 'complete') {
+        let p=this.process.length;
+        this.totalTime = this.process[p-1].time.outTime - this.process[0].time.inTime
+    }
+    
+})
 
 const Product = mongoose.model('Product', productSchema);
 
