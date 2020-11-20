@@ -26,10 +26,9 @@ class DashBoard extends Component {
 		//this.setState({ currentproduct: product[0] });
 		//if (currentcompany) this.setState({ product, currentproduct: product[0] });
 		try {
-			const jwt = localStorage.getItem('token');
+			const jwt = await localStorage.getItem('token');
 			const user = jwtDecode(jwt);
-			this.setState({ user });
-			console.log(user);
+			this.setState({ user, currentcompany: user.currentcompany });
 		} catch (err) {}
 	}
 	handleproduct = async (e) => {
@@ -40,13 +39,13 @@ class DashBoard extends Component {
 		await this.setState({ currentproduct: product[0] });
 		console.log(this.state.currentproduct);
 	};
-	handlecompany = async (company) => {
-		await this.setState({
-			currentcompany: company,
-			product: [{ _id: '', name: '' }, ...company.products],
-		});
-		console.log(this.state.currentcompany, this.state.product);
-	};
+	// handlecompany = async (company) => {
+	// 	await this.setState({
+	// 		currentcompany: company,
+	// 		product: [{ _id: '', name: '' }, ...company.products],
+	// 	});
+	// 	console.log(this.state.currentcompany, this.state.product);
+	// };
 	render() {
 		const { currentproduct } = this.state;
 		var next;
@@ -235,7 +234,10 @@ class DashBoard extends Component {
 									data-parent='#accordionSidebar'>
 									<div className='bg-white py-2 collapse-inner rounded'>
 										<h6 className='collapse-header'>Company:</h6>
-										{this.state.company.map((company) => (
+										<div className='collapse-item active'>
+											{this.state.currentcompany.name}
+										</div>
+										{/* {this.state.company.map((company) => (
 											<div
 												className={
 													this.state.currentcompany === company
@@ -245,16 +247,7 @@ class DashBoard extends Component {
 												onClick={() => this.handlecompany(company)}>
 												{company.name}
 											</div>
-										))}
-										{/* <a className='collapse-item' to='utilities-animation.html'>
-											A
-										</a>
-										<a className='collapse-item' href='utilities-bproduct.html'>
-											B
-										</a>
-										<a className='collapse-item' href='utilities-color.html'>
-											C
-										</a> */}
+										))} */}
 									</div>
 								</div>
 							</li>
