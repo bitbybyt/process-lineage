@@ -320,14 +320,16 @@ class DashBoard extends Component {
 									<div className='container'>
 										<select
 											onChange={this.handleproduct}
-											className='browser-default custom-select custom-select-lg mb-3'
-											style={{ width: '200px' }}>
+											className='browser-default custom-select custom-select-sm py-3'
+											style={{ width: '200px' }}									
+											>
 											{this.state.product.map((product) => (
 												<option
 													key={product._id}
 													value={product._id}
 													className='dropdown-item'
-													href='#'>
+													href='#'
+													>
 													{product.name}
 												</option>
 											))}
@@ -402,6 +404,29 @@ class DashBoard extends Component {
 												</form>
 											</div>
 										</li>
+
+										{/* Topbar Search */}
+										<div className='container'>
+										<select
+											onChange={this.handleproduct}
+											className='browser-default custom-select custom-select-sm py-3'
+											style={{ width: '200px' }}									
+											>
+											{/*{this.state.product.map((product) => (
+												<option
+													key={product._id}
+													value={product._id}
+													className='dropdown-item'
+													href='#'
+													>
+													{product.name}
+												</option>
+											))}*/}
+											<option value='1'>One</option>
+											<option value='2'>Two</option>
+											<option value='3'>Three</option>
+										</select>
+									</div>
 
 										{/* Nav Item - Alerts */}
 										{/* <li className="nav-item dropdown no-arrow mx-1">
@@ -583,12 +608,12 @@ class DashBoard extends Component {
 									<div className='row'>
 										{/* Earnings (Monthly) Card Example */}
 										<div className='col-xl-3 col-md-6 mb-4'>
-											<div className='card bproduct-left-primary shadow h-100 py-2'>
+											<div className='card border-left-primary shadow h-100 py-2'>
 												<div className='card-body'>
 													<div className='row no-gutters align-items-center'>
 														<div className='col mr-2'>
 															<div className='text-xs font-weight-bold text-primary text-uppercase mb-1'>
-																BOTTLENECKS
+															Bill Reference
 															</div>
 															<div className='h5 mb-0 font-weight-bold text-gray-800'>
 																--
@@ -604,12 +629,12 @@ class DashBoard extends Component {
 
 										{/* Earnings (Monthly) Card Example */}
 										<div className='col-xl-3 col-md-6 mb-4'>
-											<div className='card bproduct-left-success shadow h-100 py-2'>
+											<div className='card border-left-success shadow h-100 py-2'>
 												<div className='card-body'>
 													<div className='row no-gutters align-items-center'>
 														<div className='col mr-2'>
 															<div className='text-xs font-weight-bold text-success text-uppercase mb-1'>
-																xxx
+																Current State
 															</div>
 															<div className='h5 mb-0 font-weight-bold text-gray-800'>
 																---
@@ -625,12 +650,12 @@ class DashBoard extends Component {
 
 										{/* Earnings (Monthly) Card Example */}
 										<div className='col-xl-3 col-md-6 mb-4'>
-											<div className='card bproduct-left-info shadow h-100 py-2'>
+											<div className='card border-left-info shadow h-100 py-2'>
 												<div className='card-body'>
 													<div className='row no-gutters align-items-center'>
 														<div className='col mr-2'>
 															<div className='text-xs font-weight-bold text-info text-uppercase mb-1'>
-																xxx
+																Success Percentage 
 															</div>
 															<div className='row no-gutters align-items-center'>
 																<div className='col-auto'>
@@ -638,7 +663,7 @@ class DashBoard extends Component {
 																		---
 																	</div>
 																</div>
-																<div className='col'>
+																{/*<div className='col'>
 																	<div className='progress progress-sm mr-2'>
 																		<div
 																			className='progress-bar bg-info'
@@ -648,7 +673,7 @@ class DashBoard extends Component {
 																			aria-valuemin='0'
 																			aria-valuemax='100'></div>
 																	</div>
-																</div>
+																</div>*/}
 															</div>
 														</div>
 														<div className='col-auto'>
@@ -661,12 +686,12 @@ class DashBoard extends Component {
 
 										{/* Pending Requests Card Example */}
 										<div className='col-xl-3 col-md-6 mb-4'>
-											<div className='card bproduct-left-warning shadow h-100 py-2'>
+											<div className='card border-left-warning shadow h-100 py-2'>
 												<div className='card-body'>
 													<div className='row no-gutters align-items-center'>
 														<div className='col mr-2'>
 															<div className='text-xs font-weight-bold text-warning text-uppercase mb-1'>
-																xxx
+																Estimated Time
 															</div>
 															<div className='h5 mb-0 font-weight-bold text-gray-800'>
 																--
@@ -1116,9 +1141,11 @@ class DashBoard extends Component {
 											<div className='card shadow mb-4'>
 												<div className='card-header py-3'>
 													<h6 className='m-0 font-weight-bold text-primary'>
-														Projects
+														BOTTLENECKS
 													</h6>
 												</div>
+
+
 												<div className='card-body'>
 													<h4 className='small font-weight-bold'>
 														Server Migration{' '}
