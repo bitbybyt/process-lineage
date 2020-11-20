@@ -57,6 +57,55 @@ productSchema.methods.tillTime = function (i) {
     } else return 0;
 }
 
+productSchema.methods.propagationTime = function(i) {
+    if (!(this.process[i].state === 'complete' || this.process[i].state === 'active')) { i-=1; }
+    
+    console.log(this.process);
+    
+    let max=0;
+    let t;
+    let loc=0;
+    // console.log(i);
+    for (let z=i; z>0; z--) {
+        t = this.process[z].time.inTime - this.process[z-1].time.outTime;
+        // console.log(t);
+        if(t>max) {max=t; loc=z;} 
+    }
+    return [max, loc];
+    
+}
+
+productSchema.statics.alleachTime = async function (name, i) {
+    // console.log(name);
+    // console.log(i);
+    let sum=0; let cnt=0;
+    const foundProduct = await this.find({name : name});
+
+    for(let p in foundProduct) {
+        let foundProcess = foundProduct[p].process[i];
+        if (foundProcess.state === 'complete') {
+            cnt+=1;    
+            sum+=foundProcess.time.outTime - foundProcess.time.inTime;
+        }
+    }
+    return sum/cnt;
+} 
+
+productSchema.statics.alltillTime = async function (name, i) {
+    let sum=0; let cnt=0;
+    const foundProduct = await this.find({name : name});
+    
+    for(let p in foundProduct) {
+        let foundProcess = foundProduct[p].process[i];
+        if (foundProcess.state === 'complete') {
+            sum+= foundProcess.time.outTime - foundProduct[p].process[0].time.inTime;
+            cnt +=1;
+        }
+    }
+    return sum/cnt;
+
+}
+
 productSchema.pre('save', async function () {
     if(this.status === 'complete') {
         let p=this.process.length;
