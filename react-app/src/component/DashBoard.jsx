@@ -5,6 +5,7 @@ import './css/sb-admin-2.css';
 import './css/track.css';
 import './vendor/fontawesome-free/css/all.min.css';
 import undraw_profile from './img/undraw_profile.svg';
+import bottleneck from './img/bottle.png';
 class DashBoard extends Component {
 	state = {
 		product: [],
@@ -583,12 +584,12 @@ class DashBoard extends Component {
 									<div className='row'>
 										{/* Earnings (Monthly) Card Example */}
 										<div className='col-xl-3 col-md-6 mb-4'>
-											<div className='card bproduct-left-primary shadow h-100 py-2'>
+											<div className='card border-left-primary shadow h-100 py-2'>
 												<div className='card-body'>
 													<div className='row no-gutters align-items-center'>
 														<div className='col mr-2'>
 															<div className='text-xs font-weight-bold text-primary text-uppercase mb-1'>
-																BOTTLENECKS
+																Bill Reference
 															</div>
 															<div className='h5 mb-0 font-weight-bold text-gray-800'>
 																--
@@ -604,12 +605,12 @@ class DashBoard extends Component {
 
 										{/* Earnings (Monthly) Card Example */}
 										<div className='col-xl-3 col-md-6 mb-4'>
-											<div className='card bproduct-left-success shadow h-100 py-2'>
+											<div className='card border-left-success shadow h-100 py-2'>
 												<div className='card-body'>
 													<div className='row no-gutters align-items-center'>
 														<div className='col mr-2'>
 															<div className='text-xs font-weight-bold text-success text-uppercase mb-1'>
-																xxx
+																Current State
 															</div>
 															<div className='h5 mb-0 font-weight-bold text-gray-800'>
 																---
@@ -625,12 +626,12 @@ class DashBoard extends Component {
 
 										{/* Earnings (Monthly) Card Example */}
 										<div className='col-xl-3 col-md-6 mb-4'>
-											<div className='card bproduct-left-info shadow h-100 py-2'>
+											<div className='card border-left-info shadow h-100 py-2'>
 												<div className='card-body'>
 													<div className='row no-gutters align-items-center'>
 														<div className='col mr-2'>
 															<div className='text-xs font-weight-bold text-info text-uppercase mb-1'>
-																xxx
+																Success %
 															</div>
 															<div className='row no-gutters align-items-center'>
 																<div className='col-auto'>
@@ -661,12 +662,12 @@ class DashBoard extends Component {
 
 										{/* Pending Requests Card Example */}
 										<div className='col-xl-3 col-md-6 mb-4'>
-											<div className='card bproduct-left-warning shadow h-100 py-2'>
+											<div className='card border-left-warning shadow h-100 py-2'>
 												<div className='card-body'>
 													<div className='row no-gutters align-items-center'>
 														<div className='col mr-2'>
 															<div className='text-xs font-weight-bold text-warning text-uppercase mb-1'>
-																xxx
+																Estimated Time
 															</div>
 															<div className='h5 mb-0 font-weight-bold text-gray-800'>
 																--
@@ -760,6 +761,7 @@ class DashBoard extends Component {
 												Progress
 											</h6>
 										</div>
+<<<<<<< Updated upstream
 										<div className='card-body'>
 											{/*div className="text-center">
                                                 <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
@@ -775,6 +777,9 @@ class DashBoard extends Component {
 												<div className='chart-area'>
 													{/* <canvas id="myAreaChart"></canvas> */}
 
+=======
+										<div className='card-body min-vh-100'> //TODO: remove min-vh and do somthing useful in your life, dont cheat
+>>>>>>> Stashed changes
 													<div id='container'>
 														<div id='sub-container'>
 															<span className='text-success'>
@@ -810,6 +815,11 @@ class DashBoard extends Component {
 																	<div
 																		className='collapse multi-collapse'
 																		id='collapseCardExample1'>
+																		<div className='card-body'>
+																			<strong>Recieved at:</strong> 10:00{' '}
+																			<br />
+																			<strong>Estimated Time:</strong> 12:00
+																		</div>
 																		<div className='pro-list'>
 																			{/* <div className="text-info border border-info rounded pl md-2 my-3 mx-3">A</div>
                                                                 			<div className="text-success border border-success rounded pl md-2 my-3 mx-3">B</div>
@@ -850,26 +860,36 @@ class DashBoard extends Component {
 																	aria-valuemin='0'
 																	aria-valuemax='1'></div>
 															</div>
-
+															
 															<div className='container'>
 																{/* Collapsable Card Example*/}
 																<div className='card shadow mb-4'>
 																	{/* Card Header - Accordion */}
 																	<a
+<<<<<<< Updated upstream
 																		href='#collapseCardExample1'
+=======
+																		href='#collapseCardExample2'
+>>>>>>> Stashed changes
 																		className='d-block card-header py-3'
 																		data-toggle='collapse'
 																		role='button'
 																		aria-expanded='false'
 																		aria-controls='collapseCardExample1'>
 																		<h6 className='m-0 font-weight-bold text-primary'>
-																			Decisions
+																			Decision
 																		</h6>
 																	</a>
+<<<<<<< Updated upstream
 																	{/* Card Content - Collapse */}
 																	<div
 																		className='collapse multi-collapse'
 																		id='collapseCardExample1'>
+=======
+																	
+																	{/* Card Content - Collapse */}
+																	<div className='collapse multi-collapse' id='collapseCardExample2'>
+>>>>>>> Stashed changes
 																		{this.state.currentproduct &&
 																			this.state.currentproduct.process.map(
 																				(process) => {
@@ -923,8 +943,9 @@ class DashBoard extends Component {
 																	</div>
 																</div>
 															</div>
+															
 														</div>
-
+													
 														<div id='sub-container'>
 															<span
 																className={
@@ -973,7 +994,7 @@ class DashBoard extends Component {
 																	aria-valuemin='0'
 																	aria-valuemax='1'></div>
 															</div>
-
+																	
 															<div className='container'>
 																{/* Collapsable Card Example*/}
 																<div className='card shadow mb-4'>
@@ -1117,6 +1138,44 @@ class DashBoard extends Component {
 												</div>
 											</div>
 										</div>
+									</div>
+									<div className='card-columns'>
+									<div className="flip-card">
+									<div className="flip-card-inner">
+									  <div className="flip-card-front">
+											<img className='bottle' src= {bottleneck}/>
+									  </div>
+									  <div className="flip-card-back">
+										<h1>John Doe</h1> 
+										<p>Architect & Engineer</p> 
+										<p>We love that guy</p>
+									  </div>
+									</div>
+								  </div>
+								  <div className="flip-card">
+									<div className="flip-card-inner">
+									  <div className="flip-card-front">
+									
+									  </div>
+									  <div className="flip-card-back">
+										<h1>John Doe</h1> 
+										<p>Architect & Engineer</p> 
+										<p>We love that guy</p>
+									  </div>
+									</div>
+								  </div>
+								  <div className="flip-card">
+									<div className="flip-card-inner">
+									  <div className="flip-card-front">
+									
+									  </div>
+									  <div className="flip-card-back">
+										<h1>John Doe</h1> 
+										<p>Architect & Engineer</p> 
+										<p>We love that guy</p>
+									  </div>
+									</div>
+								  </div>
 									</div>
 
 									{/* Content Row */}
