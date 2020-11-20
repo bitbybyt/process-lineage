@@ -5,6 +5,8 @@ import './css/sb-admin-2.css';
 import './css/track.css';
 import './vendor/fontawesome-free/css/all.min.css';
 import undraw_profile from './img/undraw_profile.svg';
+import bottleneck from './img/bottle.jpg';
+
 class DashBoard extends Component {
 	state = {
 		product: [],
@@ -785,7 +787,7 @@ class DashBoard extends Component {
 												Progress
 											</h6>
 										</div>
-										<div className='card-body min-vh-100'> //TODO: remove min-vh and do somthing useful in your life, dont cheat
+										<div className='card-body custom-height'>
 											
 													<div id='container'>
 														<div id='sub-container'>
@@ -820,13 +822,12 @@ class DashBoard extends Component {
 																	</a>
 																	{/* Card Content - Collapse */}
 																	<div
-																		className='collapse multi-collapse'
+																		className='collapse multi-collapse show'
 																		id='collapseCardExample1'>
-																		<div className='pro-list'>
-																			{/* <div className="text-info border border-info rounded pl md-2 my-3 mx-3">A</div>
-                                                                			<div className="text-success border border-success rounded pl md-2 my-3 mx-3">B</div>
-                                                                			<div className="text-warning border border-warning rounded pl md-2 my-3 mx-3">D</div>
-                                                                			<div className="text-danger border border-danger rounded pl md-2 my-3 mx-3">C</div> */}
+																		<div className='card-body'>
+																			<strong>Estimated Time:</strong> 10:00{' '}
+																			<br />
+																			<strong>Time Taken:</strong> 12:00
 																		</div>
 																	</div>
 																</div>
@@ -872,13 +873,20 @@ class DashBoard extends Component {
 																{/* Collapsable Card Example*/}
 																<div className='card shadow mb-4'>
 																	{/* Card Header - Accordion */}
-																	<div className='card-header py-3'>
+																	<a
+																		href='#collapseCardExample1'
+																		className='d-block card-header py-3'
+																		data-toggle='collapse'
+																		role='button'
+																		aria-expanded='false'
+																		aria-controls='collapseCardExample1'>
 																		<h6 className='m-0 font-weight-bold text-primary'>
-																			Decisions
+																			Decision
 																		</h6>
-																	</div>
+																	</a>
 																	{/* Card Content - Collapse */}
-																	<div className='card-body'>
+																	<div className='collapse multi-collapse show'
+																		id='collapseCardExample1'>
 																		{this.state.currentproduct &&
 																			this.state.currentproduct.process.map(
 																				(process) => {
@@ -1007,7 +1015,7 @@ class DashBoard extends Component {
 																	</a>
 																	{/* Card Content - Collapse */}
 																	<div
-																		className='collapse multi-collapse'
+																		className='collapse multi-collapse show'
 																		id='collapseCardExample1'>
 																		{this.state.currentproduct &&
 																			this.state.currentproduct.process.map(
@@ -1118,7 +1126,7 @@ class DashBoard extends Component {
 																	</a>
 																	{/* Card Content - Collapse */}
 																	<div
-																		className='collapse multi-collapse'
+																		className='collapse multi-collapse show'
 																		id='collapseCardExample1'>
 																		<div className='card-body'>
 																			<strong>Estimated Time:</strong> 10:00{' '}
@@ -1132,6 +1140,46 @@ class DashBoard extends Component {
 													</div>
 										</div>
 									</div>
+
+									<div className='card-columns'>
+										<div className="flip-card">
+											<div className="flip-card-inner">
+									  			<div className="flip-card-front">
+													<img className='bottle' src= {bottleneck}/>
+									  			</div>
+									  			<div className="flip-card-back">
+													<h1>John Doe</h1> 
+													<p>Architect & Engineer</p> 
+													<p>We love that guy</p>
+									  			</div>
+											</div>
+								  		</div>
+								  		<div className="flip-card">
+											<div className="flip-card-inner">
+									  			<div className="flip-card-front">
+												  <img className='bottle' src= {bottleneck}/>
+									  			</div>
+									  			<div className="flip-card-back">
+													<h1>John Doe</h1> 
+													<p>Architect & Engineer</p> 
+													<p>We love that guy</p>
+									  			</div>
+											</div>
+								  		</div>
+								  		<div className="flip-card">
+											<div className="flip-card-inner">
+									  			<div className="flip-card-front">
+												  <img className='bottle' src= {bottleneck}/>
+									  			</div>
+									  			<div className="flip-card-back">
+													<h1>John Doe</h1> 
+													<p>Architect & Engineer</p> 
+													<p>We love that guy</p>
+									  			</div>
+											</div>
+								  		</div>
+									</div>
+									{/* TODO: here ends */}
 
 									{/* Content Row */}
 									<div className='row'>

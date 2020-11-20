@@ -47,8 +47,9 @@ const Home = () => {
                 <div className="row">
                     <div className="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
                         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                        <h1>Know About Your <em>PRODUCT</em></h1>
-                        <a href="#about" className="main-button-slider">KNOW US BETTER</a>
+                        <h1>Know About Your <em>PROCESS</em></h1>
+                        <a href="#about" className="main-button-slider">LOGIN</a> 
+                        {/* TODO: Login here @3iswajit*/}
                     </div>
                 </div>
             </div>
