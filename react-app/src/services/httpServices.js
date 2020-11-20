@@ -12,3 +12,11 @@ export async function getUser(username, password, currentcompany) {
 		currentcompany,
 	});
 }
+export function getBill() {
+	return axios.get('http://localhost:5000/api/bill');
+}
+export function getCompanyBill(currentcompanyID, sel) {
+	return axios.get(
+		`http://localhost:5000/api/company/bill/${currentcompanyID}/${sel}`
+	);
+}

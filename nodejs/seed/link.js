@@ -39,7 +39,7 @@ async function link() {
 	const bill5 = await Bill.findOne({ customerName: 'Dummy1' });
 	const bill6 = await Bill.findOne({ customerName: 'Tom Avery' });
 
-	console.log(bill1);
+	// console.log(bill1);
 
 	for (let p in product1) {
 		product1[p].parent = company1;

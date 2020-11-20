@@ -1,26 +1,33 @@
 import React, { Component, forwardRef } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
-import { getCompany, getProduct } from '../services/httpServices';
+import { getCompany, getProduct, getBill } from '../services/httpServices';
 import './css/sb-admin-2.min.css';
 import './css/sb-admin-2.css';
 import './css/track.css';
 import './vendor/fontawesome-free/css/all.min.css';
 import undraw_profile from './img/undraw_profile.svg';
 import bottleneck from './img/bottle.jpg';
-
+import moment from 'moment';
+import { getCompanyBill } from './../services/httpServices';
 class DashBoard extends Component {
 	state = {
 		product: [],
 		company: [],
+		bill: [],
 		currentproduct: null,
+		currentbill: null,
 		currentcompany: {},
 		user: {},
+		currenttime: '',
 	};
 	async componentDidMount() {
 		//const { currentcompany, currentproduct } = this.state;
 		const { data: company } = await getCompany();
 		this.setState({ company });
+		const { data: bill } = await getBill();
+		this.setState({ bill: [{ _id: '', name: '' }, ...bill] });
+		//console.log(bill);
 		const { data: product } = await getProduct();
 		this.setState({ product: [{ _id: '', name: '' }, ...product] });
 		//this.setState({ currentproduct: product[0] });
@@ -29,8 +36,31 @@ class DashBoard extends Component {
 			const jwt = await localStorage.getItem('token');
 			const user = jwtDecode(jwt);
 			this.setState({ user, currentcompany: user.currentcompany });
+			console.log(user.currentcompany);
+			// this.setState({ bill: this.state.currentcompany.bills });
+			// console.log(this.state.bill);
 		} catch (err) {}
 	}
+	handleTime = async (e) => {
+		const currenttime = e.target.value;
+		await this.setState({ currenttime });
+		//console.log(this.state.currenttime);
+		//console.log(this.state.bill);
+		//console.log(this.state.currentcompany);
+		const { data: biller } = await getCompanyBill(
+			this.state.currentcompany._id,
+			this.state.currenttime
+		);
+		console.log(typeof biller);
+		await this.setState({ bill: biller });
+		console.log(this.state.bill);
+	};
+	// handlebill = async (e) => {
+	// 	const billID = e.target.value;
+	// 	const bill = this.state.bill.filter((bill) => bill._id === billID);
+	// 	await this.setState({ currentbill: bill[0] });
+	// 	console.log(this.state.currentbill);
+	// };
 	handleproduct = async (e) => {
 		const productID = e.target.value;
 		const product = this.state.product.filter(
@@ -93,71 +123,6 @@ class DashBoard extends Component {
 			}
 			return complete1;
 		}
-		// function category(category) {
-		// 	console.log(category);
-		// 	if (currentproduct) {
-		// 		const process = currentproduct.process;
-		// 		console.log(process);
-		// 		const activity = process.filter(
-		// 			(process) => process.category === category
-		// 		);
-		// 		const fail = activity.filter((activity) => activity.state === 'fail');
-		// 		console.log(fail);
-		// 		const complete = activity.filter(
-		// 			(activity) => activity.state === 'complete'
-		// 		);
-		// 		console.log(complete);
-		// 		if (fail.length !== 0) {
-		// 			console.log('fail');
-		// 			//icon = 'fa-ban';
-		// 			return 'bg-danger';
-		// 		} else if (activity[0].state === 'pending') {
-		// 			console.log('pending');
-		// 			//icon = 'fa-step-forward';
-
-		// 			return ' bg-info ';
-		// 		} else if (complete.length === activity.length) {
-		// 			console.log('complete');
-		// 			//icon = 'fa-check';
-
-		// 			return ' bg-success';
-		// 		} else {
-		// 			console.log('lastone');
-		// 			return ' bg-info ';
-		// 		}
-		// 	}
-		// 	return 'bg-success';
-		// }
-		// function icon(category) {
-		// 	console.log(category);
-		// 	if (currentproduct) {
-		// 		const process = currentproduct.process;
-		// 		console.log(process);
-		// 		const activity = process.filter(
-		// 			(process) => process.category === category
-		// 		);
-		// 		const fail = activity.filter((activity) => activity.state === 'fail');
-		// 		console.log(fail);
-		// 		const complete = activity.filter(
-		// 			(activity) => activity.state === 'complete'
-		// 		);
-		// 		console.log(complete);
-		// 		if (fail.length !== 0) {
-		// 			console.log('fail');
-		// 			return 'fa-ban';
-		// 		} else if (activity[0].state === 'pending') {
-		// 			console.log('pending');
-		// 			return 'fa-step-forward';
-		// 		} else if (complete.length === activity.length) {
-		// 			console.log('complete');
-		// 			return 'fa-check';
-		// 		} else {
-		// 			console.log('lastone');
-		// 			return 'fa-step-forward';
-		// 		}
-		// 	}
-		// 	return 'fa-minus-square';
-		// }
 
 		return (
 			<React.Fragment>
@@ -322,23 +287,21 @@ class DashBoard extends Component {
 
 									{/* Topbar Search */}
 									<div className='container'>
-										<select
-											onChange={this.handleproduct}
-											className='browser-default custom-select custom-select-sm py-3'
+										{/* <select
+											onChange={this.handlebill}
+											className='browser-default custom-select custom-select-sm mb-3'
 											style={{ width: '200px' }}>
-											{this.state.product.map((product) => (
+											{this.state.bill.map((bill) => (
 												<option
-													key={product._id}
-													value={product._id}
+													key={bill._id}
+													value={bill._id}
 													className='dropdown-item'
 													href='#'>
-													{product.name}
+													{bill.customerName}
 												</option>
 											))}
-											{/*<option value='1'>One</option>
-											<option value='2'>Two</option>
-											<option value='3'>Three</option>*/}
-										</select>
+										</select> */}
+
 										{/*<div className='dropdown'>
 											<button
 												type='button'
@@ -410,8 +373,9 @@ class DashBoard extends Component {
 										{/* Topbar Search */}
 										<div className='container'>
 											<select
-												onChange={this.handleproduct}
-												className='browser-default custom-select custom-select-sm py-3'
+												onChange={this.handleTime}
+												value={this.state.currenttime}
+												className='browser-default custom-select custom-select-sm mb-3'
 												style={{ width: '200px' }}>
 												{/*{this.state.product.map((product) => (
 												<option
@@ -423,9 +387,10 @@ class DashBoard extends Component {
 													{product.name}
 												</option>
 											))}*/}
-												<option value='1'>One</option>
-												<option value='2'>Two</option>
-												<option value='3'>Three</option>
+												<option value='' disabled></option>
+												<option value='1'>Today</option>
+												<option value='2'>This week</option>
+												<option value='3'>This Month</option>
 											</select>
 										</div>
 
