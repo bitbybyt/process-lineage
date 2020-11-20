@@ -1,27 +1,48 @@
 [
     {
         "customerName": "Barbie Shah",
-        "date": "2020-11-16T15:09:39.075Z"
+        "date": "2020-11-23T7:09:09.072Z"
     },
     {
         "customerName": "Spandan Kar",
-        "date": "2020-11-15T15:09:39.075Z"
+        "date": "2020-10-22T18:54:10.028Z"
     },
     {
         "customerName": "Natasha Mohanty",
-        "date": "2020-11-14T15:09:39.075Z"
+        "date": "2020-10-02T17:44:55.049Z"
     },
     {
         "customerName": "Biswajit Patra",
-        "date": "2020-11-13T15:09:39.075Z"
+        "date": "2020-11-14T07:32:29.005Z"
     },
     {
-        "customerName": "Dummy1",
-        "date": "2020-11-16T15:09:39.075Z"
+        "customerName": "Dummy 1",
+        "date": "2020-10-17T11:07:33.590Z"
     },
     {
         "customerName": "Tom Avery",
-        "date": "2020-11-16T15:09:39.075Z"
+        "date": "2020-11-19T10:09:31.785Z"
+    },
+    {
+        "customerName": "Dummy 2",
+        "date": "2020-11-08T05:43:19.815Z"
+    },
+    {
+        "customerName": "Dummy 3",
+        "date": "2020-11-20T08:47:17.695Z" 
+    },
+    {
+        "customerName": "Dummy 4",
+        "date": "2020-11-16T09:08:12.078Z"
+    },
+    {
+        "customerName": "Dummy 5",
+        "date": "2020-11-18T11:78:35.785Z"
+    },
+    {
+        "customerName": "Dummy 6",
+        "date": "2020-11-08T11:78:35.785Z"
     }
+
 
 ]

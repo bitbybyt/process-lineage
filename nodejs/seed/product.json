@@ -8,8 +8,8 @@
                 "processName": "Decide the Factory",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:40.075Z"
+                    "inTime": "2020-11-23T7:09:09.072Z",
+                    "outTime": "2020-11-23T9:02:55.045Z"
                 }
             },
             {
@@ -17,8 +17,8 @@
                 "processName": "Raw Material Availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:41.075Z",
-                    "outTime": "2020-11-16T15:09:48.075Z"
+                    "inTime": "2020-11-23T10:09:22.057Z",
+                    "outTime": "2020-11-23T12:09:48.040Z"
                 }
             },
             {
@@ -26,7 +26,7 @@
                 "processName": "Assembly",
                 "state": "active",
                 "time": {
-                    "inTime": "2020-11-16T15:09:50.075Z",
+                    "inTime": "2020-11-24T15:09:50.075Z",
                     "outTime": "2020-11-16T15:09:39.075Z"
                 }
             },
@@ -69,8 +69,8 @@
                 "processName": "Decide the Factory",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:10.075Z",
-                    "outTime": "2020-11-16T15:09:12.075Z"
+                    "inTime": "2020-10-22T18:54:10.028Z",
+                    "outTime": "2020-10-22T19:09:12.059Z"
                 }
             },
             {
@@ -78,8 +78,8 @@
                 "processName": "Raw Material Availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:14.075Z",
-                    "outTime": "2020-11-16T15:09:16.075Z"
+                    "inTime": "2020-10-22T22:34:14.027Z",
+                    "outTime": "2020-10-23T09:09:16.037Z"
                 }
             },
             {
@@ -87,8 +87,8 @@
                 "processName": "Assembly",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:20.075Z",
-                    "outTime": "2020-11-16T15:09:23.075Z"
+                    "inTime": "2020-10-23T12:03:20.051Z",
+                    "outTime": "2020-10-24T17:16:23.053Z"
                 }
             },
             {
@@ -96,8 +96,8 @@
                 "processName": "Testing",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:24.075Z",
-                    "outTime": "2020-11-16T15:09:30.075Z"
+                    "inTime": "2020-10-24T19:09:24.033Z",
+                    "outTime": "2020-10-25T05:43:30.015Z"
                 }
             },
             {
@@ -105,8 +105,8 @@
                 "processName": "Packaging",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:34.075Z",
-                    "outTime": "2020-11-16T15:09:43.075Z"
+                    "inTime": "2020-10-25T14:06:34.054Z",
+                    "outTime": "2020-10-25T20:39:43.045Z"
                 }
             },
             {
@@ -114,8 +114,8 @@
                 "processName": "Shipping",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:44.075Z",
-                    "outTime": "2020-11-16T15:09:59.075Z"
+                    "inTime": "2020-10-26T06:40:44.011Z",
+                    "outTime": "2020-10-26T15:07:36.090Z"
                 }
             }
         ]
@@ -129,8 +129,8 @@
                 "processName": "Decide the Factory",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-10-02T17:44:55.049Z",
+                    "outTime": "2020-10-02T19:41:29.055Z"
                 }
             },
             {
@@ -138,8 +138,128 @@
                 "processName": "Raw Material Availability",
                 "state": "complete",
                 "time": {
+                    "inTime": "2020-10-02T10:58:39.025Z",
+                    "outTime": "2020-10-03T06:19:39.022Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "Assembly",
+                "state": "fail",
+                "time": {
+                    "inTime": "2020-10-04T15:09:39.075Z",
+                    "outTime": "2020-11-16T15:09:39.075Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "Testing",
+                "state": "pending",
+                "time": {
                     "inTime": "2020-11-16T15:09:39.075Z",
                     "outTime": "2020-11-16T15:09:39.075Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "Packaging",
+                "state": "pending",
+                "time": {
+                    "inTime": "2020-11-16T15:09:39.075Z",
+                    "outTime": "2020-11-16T15:09:39.075Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "Shipping",
+                "state": "pending",
+                "time": {
+                    "inTime": "2020-11-16T15:09:39.075Z",
+                    "outTime": "2020-11-16T15:09:39.075Z"
+                }
+            }
+        ]
+    },
+    {
+        "name": "XPS 15",
+        "status": "complete",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "Decide the Factory",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-08-27T13:11:46.008Z",
+                    "outTime": "2020-08-27T15:09:52.041Z"
+                }
+            },
+            {
+                "category": "decision",
+                "processName": "Raw Material Availability",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-08-28T16:11:29.007Z",
+                    "outTime": "2020-08-28T16:22:53.050Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "Assembly",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-08-28T20:26:39.052Z",
+                    "outTime": "2020-08-29T09:43:39.024Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "Testing",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-08-29T12:00:01.008Z",
+                    "outTime": "2020-08-29T17:09:39.017Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "Packaging",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-08-29T19:14:50.115Z",
+                    "outTime": "2020-08-30T04:12:13.105Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "Shipping",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-08-30T13:09:01.505Z",
+                    "outTime": "2020-09-31T07:09:10.195Z"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Blu t-shirt",
+        "status": "fail",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "Decide the Factory",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-11-14T07:32:29.005Z",
+                    "outTime": "2020-11-14T09:45:00.125Z"
+                }
+            },
+            {
+                "category": "decision",
+                "processName": "Raw Material Availability",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-11-15T15:18:40.875Z",
+                    "outTime": "2020-11-15T20:21:33.295Z"
                 }
             },
             {
@@ -182,126 +302,6 @@
     },
     {
         "name": "XPS 15",
-        "status": "complete",
-        "process": [
-            {
-                "category": "decision",
-                "processName": "Decide the Factory",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "decision",
-                "processName": "Raw Material Availability",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "Assembly",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "Testing",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "Packaging",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "Shipping",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            }
-        ]
-    },
-    {
-        "name": "Blu t-shirt",
-        "status": "fail",
-        "process": [
-            {
-                "category": "decision",
-                "processName": "Decide the Factory",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "decision",
-                "processName": "Raw Material Availability",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "Assembly",
-                "state": "active",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "Testing",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "Packaging",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "Shipping",
-                "state": "pending",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            }
-        ]
-    },
-    {
-        "name": "XPS 15",
         "status": "active",
         "process": [
             {
@@ -309,8 +309,8 @@
                 "processName": "Decide the Factory",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-22T16:15:49.150Z",
+                    "outTime": "2020-11-22T18:16:54.490Z"
                 }
             },
             {
@@ -369,8 +369,8 @@
                 "processName": "Decide the Factory",
                 "state": "pending",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-24T15:09:39.075Z",
+                    "outTime": "2020-11-24T15:09:39.075Z"
                 }
             },
             {
@@ -429,8 +429,8 @@
                 "processName": "Decide the Factory",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-19T11:07:33.590Z",
+                    "outTime": "2020-11-19T12:30:19.005Z"
                 }
             },
             {
@@ -438,8 +438,8 @@
                 "processName": "Raw Material Availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-19T13:09:44.125Z",
+                    "outTime": "2020-11-20T01:10:51.515Z"
                 }
             },
             {
@@ -447,8 +447,8 @@
                 "processName": "Assembly",
                 "state": "pending",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T15:09:39.075Z",
+                    "outTime": "2020-11-20T15:09:39.075Z"
                 }
             },
             {
@@ -489,8 +489,8 @@
                 "processName": "Decide the Factory",
                 "state": "pending",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-22T15:09:39.075Z",
+                    "outTime": "2020-11-23T15:09:39.075Z"
                 }
             },
             {
@@ -498,7 +498,7 @@
                 "processName": "Raw Material Availability",
                 "state": "pending",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
+                    "inTime": "2020-11-23T15:09:39.075Z",
                     "outTime": "2020-11-16T15:09:39.075Z"
                 }
             },
@@ -609,8 +609,8 @@
                 "processName": "Decide the Factory",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T19:19:29.015Z",
+                    "outTime": "2020-11-21T22:16:36.275Z"
                 }
             },
             {
@@ -618,7 +618,7 @@
                 "processName": "Raw Material Availability",
                 "state": "fail",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
+                    "inTime": "2020-11-22T15:09:39.075Z",
                     "outTime": "2020-11-16T15:09:39.075Z"
                 }
             },
@@ -669,8 +669,8 @@
                 "processName": "Decide the Factory",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T14:10:29.090Z",
+                    "outTime": "2020-11-20T15:27:52.585Z"
                 }
             },
             {
@@ -678,8 +678,8 @@
                 "processName": "Raw Material Availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T18:04:32.790Z",
+                    "outTime": "2020-11-20T20:31:09.575Z"
                 }
             },
             {
@@ -687,8 +687,8 @@
                 "processName": "Assembly",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T22:34:11.205Z",
+                    "outTime": "2020-11-20T23:07:16.278Z"
                 }
             },
             {
@@ -696,8 +696,8 @@
                 "processName": "Testing",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T15:08:38.105Z",
+                    "outTime": "2020-11-21T08:40:49.713Z"
                 }
             },
             {
@@ -705,8 +705,8 @@
                 "processName": "Packaging",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T10:41:21.560Z",
+                    "outTime": "2020-11-21T15:35:07.285Z"
                 }
             },
             {
@@ -714,8 +714,8 @@
                 "processName": "Shipping",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T16:09:07.051Z",
+                    "outTime": "2020-11-21T20:09:03.790Z"
                 }
             }
         ]
@@ -729,8 +729,8 @@
                 "processName": "Decide the Factory",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-17T09:40:20.500Z",
+                    "outTime": "2020-11-17T17:03:49.005Z"
                 }
             },
             {
@@ -738,8 +738,8 @@
                 "processName": "Raw Material Availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-17T18:31:11.032Z",
+                    "outTime": "2020-11-17T20:17:19.785Z"
                 }
             },
             {
@@ -747,8 +747,8 @@
                 "processName": "Assembly",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-17T22:39.197Z",
+                    "outTime": "2020-11-18T10:51:39.025Z"
                 }
             },
             {
@@ -757,7 +757,7 @@
                 "state": "active",
                 "time": {
                     "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "outTime": "2020-11-17T15:09:39.075Z"
                 }
             },
             {
@@ -789,8 +789,8 @@
                 "processName": "Decide the Factory",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-17T20:09:17.009Z",
+                    "outTime": "2020-11-18T07:25:58.800Z"
                 }
             },
             {
@@ -798,8 +798,8 @@
                 "processName": "Raw Material Availability",
                 "state": "pending",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-18T09:12:19.045Z",
+                    "outTime": "2020-11-18T11:21:17.000Z"
                 }
             },
             {
@@ -849,8 +849,8 @@
                 "processName": "Decide the Factory",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T11:09:44.905Z",
+                    "outTime": "2020-11-20T15:47:12.315Z"
                 }
             },
             {
@@ -858,8 +858,8 @@
                 "processName": "Raw Material Availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T18:18:37.251Z",
+                    "outTime": "2020-11-21T22:56:10.285Z"
                 }
             },
             {
@@ -909,8 +909,8 @@
                 "processName": "Decide the Factory",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-19T10:09:31.785Z",
+                    "outTime": "2020-11-19T15:28:39.700Z"
                 }
             },
             {
@@ -918,8 +918,8 @@
                 "processName": "Raw Material Availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-19T10:34:56.050Z",
+                    "outTime": "2020-11-20T13:32:11.005Z"
                 }
             },
             {
@@ -927,8 +927,8 @@
                 "processName": "Assembly",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T15:33:18.000Z",
+                    "outTime": "2020-11-20T19:16:23.953Z"
                 }
             },
             {
@@ -936,8 +936,8 @@
                 "processName": "Testing",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T20:43:28.075Z",
+                    "outTime": "2020-11-21T03:55:53.099Z"
                 }
             },
             {
@@ -969,7 +969,7 @@
                 "processName": "raw material availability",
                 "state": "fail",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
+                    "inTime": "2020-11-14T15:09:39.075Z",
                     "outTime": "2020-11-16T15:09:39.075Z"
                 }
             },
@@ -1047,8 +1047,8 @@
                 "processName": "raw material availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-08T05:43:19.815Z",
+                    "outTime": "2020-11-08T09:34:13.295Z"
                 }
             },
             {
@@ -1056,8 +1056,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-08T13:14:57.073Z",
+                    "outTime": "2020-11-08T18:23:45.353Z"
                 }
             },
             {
@@ -1065,8 +1065,8 @@
                 "processName": "cutting",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-09T06:11:39.762Z",
+                    "outTime": "2020-11-09T12:17:22.095Z"
                 }
             },
             {
@@ -1074,8 +1074,8 @@
                 "processName": "stitching",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-09T20:29:39.088Z",
+                    "outTime": "2020-11-10T08:54:17.295Z"
                 }
             },
             {
@@ -1125,8 +1125,8 @@
                 "processName": "raw material availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-10T12:47:13.185Z",
+                    "outTime": "2020-11-10T15:33:27.650Z"
                 }
             },
             {
@@ -1134,8 +1134,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-11T20:10:24.509Z",
+                    "outTime": "2020-11-11T04:22:57.555Z"
                 }
             },
             {
@@ -1143,7 +1143,7 @@
                 "processName": "cutting",
                 "state": "fail",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
+                    "inTime": "2020-11-12T15:09:39.075Z",
                     "outTime": "2020-11-16T15:09:39.075Z"
                 }
             },
@@ -1203,8 +1203,8 @@
                 "processName": "raw material availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-15T07:22:34.531Z",
+                    "outTime": "2020-11-15T09:11:21.205Z"
                 }
             },
             {
@@ -1212,8 +1212,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-16T15:18:23.333Z",
+                    "outTime": "2020-11-16T22:29:54.305Z"
                 }
             },
             {
@@ -1221,8 +1221,8 @@
                 "processName": "cutting",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-18T08:26:38.885Z",
+                    "outTime": "2020-11-18T13:51:22.765Z"
                 }
             },
             {
@@ -1230,8 +1230,8 @@
                 "processName": "stitching",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T17:11:39.909Z",
+                    "outTime": "2020-11-20T20:38:52.099Z"
                 }
             },
             {
@@ -1239,8 +1239,8 @@
                 "processName": "ironing",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T21:09:26.835Z",
+                    "outTime": "2020-11-21T22:00:47.032Z"
                 }
             },
             {
@@ -1248,8 +1248,8 @@
                 "processName": "testing",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-22T07:08:37.855Z",
+                    "outTime": "2020-11-22T13:56:28.068Z"
                 }
             },
             {
@@ -1257,8 +1257,8 @@
                 "processName": "packaging",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-22T15:47:54.022Z",
+                    "outTime": "2020-11-22T23:36:23.225Z"
                 }
             },
             {
@@ -1266,8 +1266,8 @@
                 "processName": "shipping",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-22T04:52:45.034Z",
+                    "outTime": "2020-11-22T12:11:29.435Z"
                 }
             }
         ]
@@ -1359,8 +1359,8 @@
                 "processName": "raw material availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-10T00:15:27.115Z",
+                    "outTime": "2020-11-11T05:42:34.071Z"
                 }
             },
             {
@@ -1368,8 +1368,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-11T09:46:50.065Z",
+                    "outTime": "2020-11-11T13:27:09.094Z"
                 }
             },
             {
@@ -1377,8 +1377,8 @@
                 "processName": "cutting",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-11T15:33:29.070Z",
+                    "outTime": "2020-11-11T19:44:15.095Z"
                 }
             },
             {
@@ -1386,8 +1386,8 @@
                 "processName": "stitching",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-11T20:09:59.800Z",
+                    "outTime": "2020-11-11T23:11:13.005Z"
                 }
             },
             {
@@ -1395,8 +1395,8 @@
                 "processName": "ironing",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-12T06:09:37.046Z",
+                    "outTime": "2020-11-12T08:18:06.595Z"
                 }
             },
             {
@@ -1404,8 +1404,8 @@
                 "processName": "testing",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-12T13:06:39.075Z",
+                    "outTime": "2020-11-12T15:01:39.075Z"
                 }
             },
             {
@@ -1413,8 +1413,8 @@
                 "processName": "packaging",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-12T17:11:11.053Z",
+                    "outTime": "2020-11-12T20:00:33.050Z"
                 }
             },
             {
@@ -1437,8 +1437,8 @@
                 "processName": "raw material availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-16T00:09:09.565Z",
+                    "outTime": "2020-11-16T05:11:56.000Z"
                 }
             },
             {
@@ -1446,8 +1446,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-16T07:00:15.054Z",
+                    "outTime": "2020-11-16T12:19:43.985Z"
                 }
             },
             {
@@ -1455,8 +1455,8 @@
                 "processName": "cutting",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-16T15:09:08.009Z",
+                    "outTime": "2020-11-16T19:46:06.055Z"
                 }
             },
             {
@@ -1464,8 +1464,8 @@
                 "processName": "stitching",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-16T21:44:38.115Z",
+                    "outTime": "2020-11-17T02:21:42.711Z"
                 }
             },
             {
@@ -1473,8 +1473,8 @@
                 "processName": "ironing",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-17T08:38:56.089Z",
+                    "outTime": "2020-11-17T10:45:37.005Z"
                 }
             },
             {
@@ -1482,8 +1482,8 @@
                 "processName": "testing",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-17T13:12:22.785Z",
+                    "outTime": "2020-11-17T15:30:47.090Z"
                 }
             },
             {
@@ -1491,8 +1491,8 @@
                 "processName": "packaging",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-17T18:09:22.665Z",
+                    "outTime": "2020-11-17T22:35:30.890Z"
                 }
             },
             {
@@ -1515,8 +1515,8 @@
                 "processName": "raw material availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-10T00:25:50.685Z",
+                    "outTime": "2020-11-10T05:12:39.893Z"
                 }
             },
             {
@@ -1524,8 +1524,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-10T10:33:06.070Z",
+                    "outTime": "2020-11-10T13:17:09.005Z"
                 }
             },
             {
@@ -1533,14 +1533,92 @@
                 "processName": "cutting",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-10T15:10:24.095Z",
+                    "outTime": "2020-11-10T16:56:40.009Z"
                 }
             },
             {
                 "category": "activity",
                 "processName": "stitching",
                 "state": "pending",
+                "time": {
+                    "inTime": "2020-11-18T15:31:44.075Z",
+                    "outTime": "2020-11-18T21:17:50.075Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "ironing",
+                "state": "pending",
+                "time": {
+                    "inTime": "2020-11-16T15:09:39.075Z",
+                    "outTime": "2020-11-16T15:09:39.075Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "testing",
+                "state": "pending",
+                "time": {
+                    "inTime": "2020-11-16T15:09:39.075Z",
+                    "outTime": "2020-11-16T15:09:39.075Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "packaging",
+                "state": "pending",
+                "time": {
+                    "inTime": "2020-11-16T15:09:39.075Z",
+                    "outTime": "2020-11-16T15:09:39.075Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "shipping",
+                "state": "pending",
+                "time": {
+                    "inTime": "2020-11-16T15:09:39.075Z",
+                    "outTime": "2020-11-16T15:09:39.075Z"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Span Scarf",
+        "status": "fail",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "raw material availability",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-11-17T13:31:44.075Z",
+                    "outTime": "2020-11-17T17:50:21.075Z"
+                }
+            },
+            {
+                "category": "decision",
+                "processName": "employee available",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-11-17T19:14:30.070Z",
+                    "outTime": "2020-11-17T22:49:09.005Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "cutting",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-11-17T23:55:30.095Z",
+                    "outTime": "2020-11-17T02:20:19.088Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "stitching",
+                "state": "fail",
                 "time": {
                     "inTime": "2020-11-16T15:09:39.075Z",
                     "outTime": "2020-11-16T15:09:39.075Z"
@@ -1593,8 +1671,8 @@
                 "processName": "raw material availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-10T11:07:55.455Z",
+                    "outTime": "2020-11-10T16:49:59.895Z"
                 }
             },
             {
@@ -1602,86 +1680,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "cutting",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "stitching",
-                "state": "fail",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "ironing",
-                "state": "pending",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "testing",
-                "state": "pending",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "packaging",
-                "state": "pending",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "shipping",
-                "state": "pending",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            }
-        ]
-    },
-    {
-        "name": "Span Scarf",
-        "status": "fail",
-        "process": [
-            {
-                "category": "decision",
-                "processName": "raw material availability",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "decision",
-                "processName": "employee available",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-10T18:14:47.085Z",
+                    "outTime": "2020-11-10T23:52:39.805Z"
                 }
             },
             {
@@ -1749,8 +1749,8 @@
                 "processName": "raw material availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T06:07:59.015Z",
+                    "outTime": "2020-11-20T11:13:35.106Z"
                 }
             },
             {
@@ -1758,8 +1758,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T15:53:37.905Z",
+                    "outTime": "2020-11-20T19:22:49.895Z"
                 }
             },
             {
@@ -1767,8 +1767,8 @@
                 "processName": "cutting",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-22T20:09:43.585Z",
+                    "outTime": "2020-11-22T21:49:56.499Z"
                 }
             },
             {
@@ -1776,8 +1776,8 @@
                 "processName": "stitching",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-23T00:17:08.067Z",
+                    "outTime": "2020-11-23T05:40:25.705Z"
                 }
             },
             {
@@ -1785,8 +1785,8 @@
                 "processName": "ironing",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-23T07:09:20.095Z",
+                    "outTime": "2020-11-23T08:53:37.905Z"
                 }
             },
             {
@@ -1827,8 +1827,8 @@
                 "processName": "raw material availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T22:48:49.070Z",
+                    "outTime": "2020-11-21T02:45:33.005Z"
                 }
             },
             {
@@ -1836,8 +1836,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T04:43:22.035Z",
+                    "outTime": "2020-11-21T07:16:18.002Z"
                 }
             },
             {
@@ -1845,8 +1845,8 @@
                 "processName": "cutting",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T09:27:11.034Z",
+                    "outTime": "2020-11-21T11:31:57.059Z"
                 }
             },
             {
@@ -1854,8 +1854,8 @@
                 "processName": "stitching",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T12:21:12.088Z",
+                    "outTime": "2020-11-21T17:46:44.905Z"
                 }
             },
             {
@@ -1863,8 +1863,8 @@
                 "processName": "ironing",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T22:18:47.078Z",
+                    "outTime": "2020-11-21T23:43:25.675Z"
                 }
             },
             {
@@ -1872,8 +1872,8 @@
                 "processName": "testing",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-22T02:11:45.078Z",
+                    "outTime": "2020-11-22T04:02:38.895Z"
                 }
             },
             {
@@ -1881,8 +1881,8 @@
                 "processName": "packaging",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-22T07:57:35.785Z",
+                    "outTime": "2020-11-22T10:35:49.455Z"
                 }
             },
             {
@@ -1890,8 +1890,8 @@
                 "processName": "shipping",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-22T13:40:04.975Z",
+                    "outTime": "2020-11-22T17:01:44.895Z"
                 }
             }
         ]
@@ -1905,8 +1905,8 @@
                 "processName": "raw material availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-19T13:56:34.075Z",
+                    "outTime": "2020-11-19T19:06:23.075Z"
                 }
             },
             {
@@ -1914,8 +1914,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-19T20:46:37.905Z",
+                    "outTime": "2020-11-19T23:39:56.455Z"
                 }
             },
             {
@@ -1923,8 +1923,8 @@
                 "processName": "cutting",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-19T24:55:57.090Z",
+                    "outTime": "2020-11-20T02:29:45.565Z"
                 }
             },
             {
@@ -1932,8 +1932,8 @@
                 "processName": "stitching",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T04:42:04.575Z",
+                    "outTime": "2020-11-21T10:25:13.785Z"
                 }
             },
             {
@@ -1941,8 +1941,8 @@
                 "processName": "ironing",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T12:39:24.905Z",
+                    "outTime": "2020-11-21T15:24:46.665Z"
                 }
             },
             {
@@ -1950,8 +1950,8 @@
                 "processName": "testing",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T17:36:19.068Z",
+                    "outTime": "2020-11-21T20:48:55.456Z"
                 }
             },
             {
@@ -1959,8 +1959,8 @@
                 "processName": "packaging",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T22:39:56.235Z",
+                    "outTime": "2020-11-22T01:23:17.895Z"
                 }
             },
             {
@@ -1983,8 +1983,8 @@
                 "processName": "raw material availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-16T17:29:53.135Z",
+                    "outTime": "2020-11-16T22:38:23.695Z"
                 }
             },
             {
@@ -1992,8 +1992,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-16T23:49:22.150Z",
+                    "outTime": "2020-11-17T02:39:57.185Z"
                 }
             },
             {
@@ -2001,8 +2001,8 @@
                 "processName": "cutting",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-17T05:46:30.465Z",
+                    "outTime": "2020-11-17T08:24:38.565Z"
                 }
             },
             {
@@ -2010,8 +2010,8 @@
                 "processName": "stitching",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-17T09:18:479.985Z",
+                    "outTime": "2020-11-17T14:26:23.065Z"
                 }
             },
             {
@@ -2019,8 +2019,8 @@
                 "processName": "ironing",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-17T15:35:27.795Z",
+                    "outTime": "2020-11-17T17:29:50.205Z"
                 }
             },
             {
@@ -2028,8 +2028,8 @@
                 "processName": "testing",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-17T20:25:52.385Z",
+                    "outTime": "2020-11-17T22:49:18.785Z"
                 }
             },
             {
@@ -2037,8 +2037,8 @@
                 "processName": "packaging",
                 "state": "active",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-17T15:09:39.075Z",
+                    "outTime": "2020-11-17T15:09:39.075Z"
                 }
             },
             {
@@ -2061,8 +2061,8 @@
                 "processName": "raw material availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-19T06:20:38.805Z",
+                    "outTime": "2020-11-19T11:58:57.485Z"
                 }
             },
             {
@@ -2070,8 +2070,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-19T13:41:08.058Z",
+                    "outTime": "2020-11-19T16:03:47.205Z"
                 }
             },
             {
@@ -2079,8 +2079,8 @@
                 "processName": "cutting",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-19T17:48:27.505Z",
+                    "outTime": "2020-11-19T19:27:59.785Z"
                 }
             },
             {
@@ -2105,162 +2105,6 @@
                 "category": "activity",
                 "processName": "testing",
                 "state": "pending",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "packaging",
-                "state": "pending",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "shipping",
-                "state": "pending",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            }
-        ]
-    },
-    {
-        "name": "Span Scarf",
-        "status": "active",
-        "process": [
-            {
-                "category": "decision",
-                "processName": "raw material availability",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "decision",
-                "processName": "employee available",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "cutting",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "stitching",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "ironing",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "testing",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "packaging",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "shipping",
-                "state": "active",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            }
-        ]
-    },
-    {
-        "name": "Span Scarf",
-        "status": "active",
-        "process": [
-            {
-                "category": "decision",
-                "processName": "raw material availability",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "decision",
-                "processName": "employee available",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "cutting",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "stitching",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "ironing",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "testing",
-                "state": "complete",
                 "time": {
                     "inTime": "2020-11-16T15:09:39.075Z",
                     "outTime": "2020-11-16T15:09:39.075Z"
@@ -2295,8 +2139,8 @@
                 "processName": "raw material availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-15T14:48:38.057Z",
+                    "outTime": "2020-11-15T17:19:42.395Z"
                 }
             },
             {
@@ -2304,8 +2148,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-15T19:38:29.605Z",
+                    "outTime": "2020-11-15T22:57:59.295Z"
                 }
             },
             {
@@ -2313,8 +2157,8 @@
                 "processName": "cutting",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-15T23:57:28.485Z",
+                    "outTime": "2020-11-16T02:27:50.785Z"
                 }
             },
             {
@@ -2322,8 +2166,164 @@
                 "processName": "stitching",
                 "state": "complete",
                 "time": {
+                    "inTime": "2020-11-16T03:38:59.295Z",
+                    "outTime": "2020-11-16T15:49:17.405Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "ironing",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-11-16T17:38:27.305Z",
+                    "outTime": "2020-11-16T19:44:56.785Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "testing",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-11-16T20:24:05.075Z",
+                    "outTime": "2020-11-16T23:48:24.555Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "packaging",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-11-17T00:42:29.057Z",
+                    "outTime": "2020-11-17T04:52:48.345Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "shipping",
+                "state": "active",
+                "time": {
                     "inTime": "2020-11-16T15:09:39.075Z",
                     "outTime": "2020-11-16T15:09:39.075Z"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Span Scarf",
+        "status": "active",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "raw material availability",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-11-05T01:38:28.445Z",
+                    "outTime": "2020-11-05T06:45:22.225Z"
+                }
+            },
+            {
+                "category": "decision",
+                "processName": "employee available",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-11-05T08:46:35.895Z",
+                    "outTime": "2020-11-05T11:19:49.575Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "cutting",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-11-05T13:25:49.687Z",
+                    "outTime": "2020-11-05T15:00:14.775Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "stitching",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-11-05T18:09:50.235Z",
+                    "outTime": "2020-11-05T22:51:47.895Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "ironing",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-11-05T23:39:27.824Z",
+                    "outTime": "2020-11-06T02:29:59.045Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "testing",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-11-06T05:25:59.791Z",
+                    "outTime": "2020-11-06T07:09:25.465Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "packaging",
+                "state": "pending",
+                "time": {
+                    "inTime": "2020-11-16T15:09:39.075Z",
+                    "outTime": "2020-11-16T15:09:39.075Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "shipping",
+                "state": "pending",
+                "time": {
+                    "inTime": "2020-11-16T15:09:39.075Z",
+                    "outTime": "2020-11-16T15:09:39.075Z"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Span Scarf",
+        "status": "active",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "raw material availability",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-10-19T03:44:59.285Z",
+                    "outTime": "2020-10-19T09:47:27.785Z"
+                }
+            },
+            {
+                "category": "decision",
+                "processName": "employee available",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-10-20T11:49:36.685Z",
+                    "outTime": "2020-10-20T15:28:08.465Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "cutting",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-11-21T17:28:35.465Z",
+                    "outTime": "2020-11-21T19:01:47.026Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "stitching",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-11-21T20:16:37.285Z",
+                    "outTime": "2020-11-22T03:57:36.695Z"
                 }
             },
             {
@@ -2331,8 +2331,8 @@
                 "processName": "ironing",
                 "state": "active",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-22T15:09:39.075Z",
+                    "outTime": "2020-11-22T15:19:39.075Z"
                 }
             },
             {
@@ -2373,8 +2373,8 @@
                 "processName": "service availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T14:46:58.295Z",
+                    "outTime": "2020-11-21T16:09:24.805Z"
                 }
             },
             {
@@ -2442,8 +2442,8 @@
                 "processName": "service availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T11:35:58.029Z",
+                    "outTime": "2020-11-20T13:47:26.567Z"
                 }
             },
             {
@@ -2451,8 +2451,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T14:47:20.045Z",
+                    "outTime": "2020-11-20T15:29:38.975Z"
                 }
             },
             {
@@ -2460,8 +2460,8 @@
                 "processName": "tools available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T16:20:34.034Z",
+                    "outTime": "2020-11-20T18:56:28.045Z"
                 }
             },
             {
@@ -2469,8 +2469,8 @@
                 "processName": "product available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T20:10:46.185Z",
+                    "outTime": "2020-11-20T22:45:25.675Z"
                 }
             },
             {
@@ -2511,8 +2511,8 @@
                 "processName": "service availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-18T10:45:48.265Z",
+                    "outTime": "2020-11-18T12:50:37.675Z"
                 }
             },
             {
@@ -2520,8 +2520,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-18T13:39:59.046Z",
+                    "outTime": "2020-11-18T14:56:23.575Z"
                 }
             },
             {
@@ -2529,8 +2529,8 @@
                 "processName": "tools available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-18T15:28:00.045Z",
+                    "outTime": "2020-11-18T17:59:32.095Z"
                 }
             },
             {
@@ -2538,8 +2538,8 @@
                 "processName": "product available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-18T18:44:57.345Z",
+                    "outTime": "2020-11-18T20:14:37.565Z"
                 }
             },
             {
@@ -2547,8 +2547,8 @@
                 "processName": "provide service",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-19T10:09:59.043Z",
+                    "outTime": "2020-11-19T12:31:46.245Z"
                 }
             },
             {
@@ -2556,8 +2556,8 @@
                 "processName": "take feedback",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-19T13:00:00.000Z",
+                    "outTime": "2020-11-19T13:15:00.000Z"
                 }
             },
             {
@@ -2565,8 +2565,8 @@
                 "processName": "payment",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-19T13:20:39.075Z",
+                    "outTime": "2020-11-19T13:30:49.075Z"
                 }
             }
         ]
@@ -2580,8 +2580,8 @@
                 "processName": "service availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T07:24:39.056Z",
+                    "outTime": "2020-11-21T09:27:32.023Z"
                 }
             },
             {
@@ -2589,8 +2589,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T10:00:56.395Z",
+                    "outTime": "2020-11-21T11:23:47.925Z"
                 }
             },
             {
@@ -2598,8 +2598,8 @@
                 "processName": "tools available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T12:45:28.785Z",
+                    "outTime": "2020-11-21T13:28:59.545Z"
                 }
             },
             {
@@ -2607,8 +2607,8 @@
                 "processName": "product available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T16:26:38.456Z",
+                    "outTime": "2020-11-21T18:57:23.525Z"
                 }
             },
             {
@@ -2616,8 +2616,8 @@
                 "processName": "provide service",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-22T10:27:58.575Z",
+                    "outTime": "2020-11-22T12:48:13.265Z"
                 }
             },
             {
@@ -2625,8 +2625,8 @@
                 "processName": "take feedback",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-22T13:00:00.000Z",
+                    "outTime": "2020-11-22T13:15:00.000Z"
                 }
             },
             {
@@ -2649,8 +2649,8 @@
                 "processName": "service availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-15T07:24:39.056Z",
+                    "outTime": "2020-11-15T09:27:32.023Z"
                 }
             },
             {
@@ -2658,8 +2658,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-15T10:00:56.395Z",
+                    "outTime": "2020-11-15T11:23:47.925Z"
                 }
             },
             {
@@ -2667,8 +2667,8 @@
                 "processName": "tools available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-15T12:45:28.785Z",
+                    "outTime": "2020-11-15T13:28:59.545Z"
                 }
             },
             {
@@ -2676,8 +2676,8 @@
                 "processName": "product available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-15T16:26:38.456Z",
+                    "outTime": "2020-11-15T18:57:23.525Z"
                 }
             },
             {
@@ -2685,8 +2685,8 @@
                 "processName": "provide service",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-16T10:27:58.575Z",
+                    "outTime": "2020-11-16T12:48:13.265Z"
                 }
             },
             {
@@ -2694,8 +2694,8 @@
                 "processName": "take feedback",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-16T13:00:00.000Z",
+                    "outTime": "2020-11-16T13:15:00.000Z"
                 }
             },
             {
@@ -2718,8 +2718,8 @@
                 "processName": "service availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-23T11:78:35.785Z",
+                    "outTime": "2020-11-23T13:57:18.685Z"
                 }
             },
             {
@@ -2727,8 +2727,8 @@
                 "processName": "employee available",
                 "state": "active",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-12T14:13:34.675Z",
+                    "outTime": "2020-11-12T15:29:17.785Z"
                 }
             },
             {
@@ -2736,8 +2736,8 @@
                 "processName": "tools available",
                 "state": "pending",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-12T15:09:39.075Z",
+                    "outTime": "2020-11-12T15:09:39.075Z"
                 }
             },
             {
@@ -2745,8 +2745,8 @@
                 "processName": "product available",
                 "state": "pending",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-12T15:09:39.075Z",
+                    "outTime": "2020-11-12T15:09:39.075Z"
                 }
             },
             {
@@ -2787,8 +2787,8 @@
                 "processName": "service availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T11:78:35.785Z",
+                    "outTime": "2020-11-20T13:57:18.685Z"
                 }
             },
             {
@@ -2796,8 +2796,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T14:56:34.065Z",
+                    "outTime": "2020-11-20T15:25:17.325Z"
                 }
             },
             {
@@ -2805,8 +2805,8 @@
                 "processName": "tools available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T16:56:25.785Z",
+                    "outTime": "2020-11-20T17:37:52.455Z"
                 }
             },
             {
@@ -2856,8 +2856,8 @@
                 "processName": "service availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-02T11:78:35.785Z",
+                    "outTime": "2020-11-02T13:57:18.685Z"
                 }
             },
             {
@@ -2865,8 +2865,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-02T14:56:34.065Z",
+                    "outTime": "2020-11-02T15:25:17.325Z"
                 }
             },
             {
@@ -2874,8 +2874,8 @@
                 "processName": "tools available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-02T16:09:48.485Z",
+                    "outTime": "2020-11-02T17:58:28.670Z"
                 }
             },
             {
@@ -2883,8 +2883,8 @@
                 "processName": "product available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-02T18:35:39.385Z",
+                    "outTime": "2020-11-02T20:04:39.585Z"
                 }
             },
             {
@@ -2892,8 +2892,8 @@
                 "processName": "provide service",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-03T10:47:29.056Z",
+                    "outTime": "2020-11-03T12:36:28.895Z"
                 }
             },
             {
@@ -2901,8 +2901,8 @@
                 "processName": "take feedback",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-03T13:00:39.075Z",
+                    "outTime": "2020-11-03T13:15:39.075Z"
                 }
             },
             {
@@ -2910,8 +2910,8 @@
                 "processName": "payment",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-03T13:30:39.075Z",
+                    "outTime": "2020-11-03T14:00:39.075Z"
                 }
             }
         ]
@@ -2925,8 +2925,8 @@
                 "processName": "service availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-08T11:78:35.785Z",
+                    "outTime": "2020-11-08T13:57:18.685Z"
                 }
             },
             {
@@ -2934,8 +2934,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-08T14:56:34.065Z",
+                    "outTime": "2020-11-08T15:25:17.325Z"
                 }
             },
             {
@@ -2943,8 +2943,8 @@
                 "processName": "tools available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-08T16:09:48.485Z",
+                    "outTime": "2020-11-08T17:58:28.670Z"
                 }
             },
             {
@@ -2952,8 +2952,8 @@
                 "processName": "product available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-08T18:35:39.385Z",
+                    "outTime": "2020-11-08T20:04:39.585Z"
                 }
             },
             {
@@ -2961,8 +2961,8 @@
                 "processName": "provide service",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-09T10:47:29.056Z",
+                    "outTime": "2020-11-09T12:36:28.895Z"
                 }
             },
             {
@@ -2970,8 +2970,8 @@
                 "processName": "take feedback",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-09T13:00:39.075Z",
+                    "outTime": "2020-11-09T13:15:39.075Z"
                 }
             },
             {
@@ -2979,8 +2979,8 @@
                 "processName": "payment",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-09T13:30:39.075Z",
+                    "outTime": "2020-11-09T14:00:39.075Z"
                 }
             }
         ]
@@ -2994,8 +2994,8 @@
                 "processName": "service availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-22T11:78:35.785Z",
+                    "outTime": "2020-11-22T13:57:18.685Z"
                 }
             },
             {
@@ -3003,8 +3003,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-22T14:56:34.065Z",
+                    "outTime": "2020-11-22T15:25:17.325Z"
                 }
             },
             {
@@ -3012,8 +3012,8 @@
                 "processName": "tools available",
                 "state": "active",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-22T15:09:39.075Z",
+                    "outTime": "2020-11-22T15:09:39.075Z"
                 }
             },
             {
@@ -3021,8 +3021,8 @@
                 "processName": "product available",
                 "state": "pending",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-22T15:09:39.075Z",
+                    "outTime": "2020-11-22T15:09:39.075Z"
                 }
             },
             {
@@ -3063,8 +3063,8 @@
                 "processName": "service availability",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T11:78:35.785Z",
+                    "outTime": "2020-11-20T13:57:18.685Z"
                 }
             },
             {
@@ -3072,8 +3072,8 @@
                 "processName": "employee available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T14:56:34.065Z",
+                    "outTime": "2020-11-20T15:25:17.325Z"
                 }
             },
             {
@@ -3081,8 +3081,8 @@
                 "processName": "tools available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T16:09:48.485Z",
+                    "outTime": "2020-11-20T17:58:28.670Z"
                 }
             },
             {
@@ -3090,8 +3090,8 @@
                 "processName": "product available",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-20T18:35:39.385Z",
+                    "outTime": "2020-11-20T20:04:39.585Z"
                 }
             },
             {
@@ -3099,8 +3099,8 @@
                 "processName": "provide service",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T10:47:29.056Z",
+                    "outTime": "2020-11-21T12:36:28.895Z"
                 }
             },
             {
@@ -3108,8 +3108,8 @@
                 "processName": "take feedback",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T13:00:39.075Z",
+                    "outTime": "2020-11-21T13:15:39.075Z"
                 }
             },
             {
@@ -3117,8 +3117,8 @@
                 "processName": "payment",
                 "state": "active",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-08T13:30:39.075Z",
+                    "outTime": "2020-11-08T14:00:39.075Z"
                 }
             }
         ]
@@ -3131,47 +3131,47 @@
                 "category": "decision",
                 "processName": "service availability",
                 "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "decision",
-                "processName": "employee available",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "decision",
-                "processName": "tools available",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "decision",
-                "processName": "product available",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "provide service",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
+                "time":{
+                        "inTime": "2020-11-18T11:78:35.785Z",
+                        "outTime": "2020-11-18T13:57:18.685Z"
+                    }
+                },
+                {
+                    "category": "decision",
+                    "processName": "employee available",
+                    "state": "complete",
+                    "time": {
+                        "inTime": "2020-11-18T14:56:34.065Z",
+                        "outTime": "2020-11-18T15:25:17.325Z"
+                    }
+                },
+                {
+                    "category": "decision",
+                    "processName": "tools available",
+                    "state": "complete",
+                    "time": {
+                        "inTime": "2020-11-18T16:09:48.485Z",
+                        "outTime": "2020-11-18T17:58:28.670Z"
+                    }
+                },
+                {
+                    "category": "decision",
+                    "processName": "product available",
+                    "state": "complete",
+                    "time": {
+                        "inTime": "2020-11-18T18:35:39.385Z",
+                        "outTime": "2020-11-18T20:04:39.585Z"
+                    }
+                },
+                {
+                    "category": "activity",
+                    "processName": "provide service",
+                    "state": "complete",
+                    "time": {
+                        "inTime": "2020-11-19T10:47:29.056Z",
+                        "outTime": "2020-11-19T12:36:28.895Z"
+                    }
+                },
             {
                 "category": "activity",
                 "processName": "take feedback",
@@ -3193,7 +3193,7 @@
         ]
     },
     {
-        "name": "Bill1",
+        "name": "dx018",
         "status": "fail",
         "process": [
             {
@@ -3217,7 +3217,7 @@
         ]
     },
     {
-        "name": "Bill1",
+        "name": "ex023",
         "status": "complete",
         "process": [
             {
@@ -3225,8 +3225,8 @@
                 "processName": "invoice validation",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-09T16:31:16.090Z",
+                    "outTime": "2020-11-09T20:04:56.375Z"
                 }
             },
             {
@@ -3234,14 +3234,14 @@
                 "processName": "reciept",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-16T21:35:08.075Z",
+                    "outTime": "2020-11-17T01:18:26.075Z"
                 }
             }
         ]
     },
     {
-        "name": "Bill1",
+        "name": "fx056",
         "status": "active",
         "process": [
             {
@@ -3265,7 +3265,7 @@
         ]
     },
     {
-        "name": "Bill1",
+        "name": "dx018",
         "status": "active",
         "process": [
             {
@@ -3273,8 +3273,8 @@
                 "processName": "invoice validation",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-18T11:12:25.005Z",
+                    "outTime": "2020-11-18T15:48:39.090Z"
                 }
             },
             {
@@ -3282,14 +3282,14 @@
                 "processName": "reciept",
                 "state": "active",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-18T17:09:15.067Z",
+                    "outTime": "2020-11-18T20:55:42.075Z"
                 }
             }
         ]
     },
     {
-        "name": "Bill1",
+        "name": "ax033",
         "status": "active",
         "process": [
             {
@@ -3313,7 +3313,7 @@
         ]
     },
     {
-        "name": "Bill1",
+        "name": "ax033",
         "status": "fail",
         "process": [
             {
@@ -3321,8 +3321,8 @@
                 "processName": "invoice validation",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-23T00:49:59.095Z",
+                    "outTime": "2020-11-23T05:27:32.897Z"
                 }
             },
             {
@@ -3337,7 +3337,7 @@
         ]
     },
     {
-        "name": "Bill1",
+        "name": "hx089",
         "status": "complete",
         "process": [
             {
@@ -3345,8 +3345,8 @@
                 "processName": "invoice validation",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T09:05:19.000Z",
+                    "outTime": "2020-11-21T12:46:44.785Z"
                 }
             },
             {
@@ -3354,135 +3354,15 @@
                 "processName": "reciept",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            }
-        ]
-    },
-    {
-        "name": "Bill1",
-        "status": "complete",
-        "process": [
-            {
-                "category": "decision",
-                "processName": "invoice validation",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "reciept",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            }
-        ]
-    },
-    {
-        "name": "Bill1",
-        "status": "fail",
-        "process": [
-            {
-                "category": "decision",
-                "processName": "invoice validation",
-                "state": "fail",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "reciept",
-                "state": "pending",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            }
-        ]
-    },
-    {
-        "name": "Bill1",
-        "status": "active",
-        "process": [
-            {
-                "category": "decision",
-                "processName": "invoice validation",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "reciept",
-                "state": "pending",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            }
-        ]
-    },
-    {
-        "name": "Bill2",
-        "status": "complete",
-        "process": [
-            {
-                "category": "decision",
-                "processName": "invoice validation",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "reciept",
-                "state": "complete",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-21T15:49:39.090Z",
+                    "outTime": "2020-11-21T19:31:18.005Z"
                 }
             }
         ]
     },
     
     {
-        "name": "Bill2",
-        "status": "active",
-        "process": [
-            {
-                "category": "decision",
-                "processName": "invoice validation",
-                "state": "pending",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            },
-            {
-                "category": "activity",
-                "processName": "reciept",
-                "state": "pending",
-                "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
-                }
-            }
-        ]
-    },
-    {
-        "name": "Bill2",
+        "name": "fx055",
         "status": "fail",
         "process": [
             {
@@ -3506,7 +3386,7 @@
         ]
     },
     {
-        "name": "Bill2",
+        "name": "ax033",
         "status": "active",
         "process": [
             {
@@ -3514,8 +3394,8 @@
                 "processName": "invoice validation",
                 "state": "complete",
                 "time": {
-                    "inTime": "2020-11-16T15:09:39.075Z",
-                    "outTime": "2020-11-16T15:09:39.075Z"
+                    "inTime": "2020-11-17T10:57:29.075Z",
+                    "outTime": "2020-11-17T14:13:55.075Z"
                 }
             },
             {
@@ -3530,56 +3410,159 @@
         ]
     },
     {
-        "name": "Bill2",
+        "name": "bx089",
+        "status": "complete",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "invoice validation",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-11-05T15:12:00.095Z",
+                    "outTime": "2020-11-05T15:16:56.000Z"
+                }
+            },
+            {
+                "category": "activity",
+                "processName": "reciept",
+                "state": "complete",
+                "time": {
+                    "inTime": "2020-11-06T15:09:39.075Z",
+                    "outTime": "2020-11-06T15:09:39.075Z"
+                }
+            }
+        ]
+    },
+    
+    {
+        "name": "cx021",
         "status": "active",
         "process": [
             {
                 "category": "decision",
                 "processName": "invoice validation",
                 "state": "pending",
-                "timeTaken": "2020-11-16T15:09:39.075Z"
+                "time": {
+                    "inTime": "2020-11-18T18:11:39.090Z",
+                    "outTime": "2020-11-18T22:34:22.005Z"
+                }
             },
             {
                 "category": "activity",
                 "processName": "reciept",
                 "state": "pending",
-                "timeTaken": "2020-11-16T15:09:39.075Z"
+                "time": {
+                    "inTime": "2020-11-16T15:09:39.075Z",
+                    "outTime": "2020-11-16T15:09:39.075Z"
+                }
             }
         ]
     },
     {
-        "name": "Bill2",
+        "name": "cx010",
         "status": "fail",
         "process": [
             {
                 "category": "decision",
                 "processName": "invoice validation",
                 "state": "fail",
-                "timeTaken": "2020-11-16T15:09:39.075Z"
+                "time": {
+                    "inTime": "2020-11-16T15:09:39.075Z",
+                    "outTime": "2020-11-16T15:09:39.075Z"
+                }
             },
             {
                 "category": "activity",
                 "processName": "reciept",
                 "state": "pending",
-                "timeTaken": "2020-11-16T15:09:39.075Z"
+                "time": {
+                    "inTime": "2020-11-16T15:09:39.075Z",
+                    "outTime": "2020-11-16T15:09:39.075Z"
+                }
             }
         ]
     },
     {
-        "name": "Bill2",
+        "name": "jx077",
         "status": "active",
         "process": [
             {
                 "category": "decision",
                 "processName": "invoice validation",
                 "state": "complete",
-                "timeTaken": "2020-11-16T15:09:39.075Z"
+                "time": {
+                    "inTime": "2020-11-18T08:47:17.695Z",
+                    "outTime": "2020-11-19T10:12:56.895Z"
+                }
             },
             {
                 "category": "activity",
                 "processName": "reciept",
                 "state": "pending",
-                "timeTaken": "2020-11-16T15:09:39.075Z"
+                "time": {
+                    "inTime": "2020-11-16T15:09:39.075Z",
+                    "outTime": "2020-11-16T15:09:39.075Z"
+                }
+            }
+        ]
+    },
+    {
+        "name": "jx077",
+        "status": "active",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "invoice validation",
+                "state": "pending",
+                "inTime": "2020-11-22T15:09:39.075Z",
+                "outTime": "2020-11-22T19:09:12.059Z"
+            },
+            {
+                "category": "activity",
+                "processName": "reciept",
+                "state": "pending",
+                "inTime": "2020-11-22T15:09:39.075Z",
+                "outTime": "2020-11-22T19:09:12.059Z"
+            }
+        ]
+    },
+    {
+        "name": "gx027",
+        "status": "fail",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "invoice validation",
+                "state": "fail",
+                "inTime": "2020-11-18T15:09:39.075Z",
+                "outTime": "2020-11-19T19:09:12.059Z"
+            },
+            {
+                "category": "activity",
+                "processName": "reciept",
+                "state": "pending",
+                "inTime": "2020-11-22T15:09:39.075Z",
+                "outTime": "2020-11-22T19:09:12.059Z"
+            }
+        ]
+    },
+    {
+        "name": "fx092",
+        "status": "active",
+        "process": [
+            {
+                "category": "decision",
+                "processName": "invoice validation",
+                "state": "complete",
+                "inTime": "2020-11-20T20:09:44.505Z",
+                "outTime": "2020-11-20T23:35:12.049Z"
+            },
+            {
+                "category": "activity",
+                "processName": "reciept",
+                "state": "pending",
+                "inTime": "2020-11-22T15:09:39.075Z",
+                "outTime": "2020-11-22T19:09:12.059Z"
             }
         ]
     }
