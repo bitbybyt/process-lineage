@@ -1,4 +1,6 @@
 import React, { Component, forwardRef } from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
 import { getCompany, getProduct } from '../services/httpServices';
 import './css/sb-admin-2.min.css';
 import './css/sb-admin-2.css';
@@ -13,6 +15,7 @@ class DashBoard extends Component {
 		company: [],
 		currentproduct: null,
 		currentcompany: {},
+		user: {},
 	};
 	async componentDidMount() {
 		//const { currentcompany, currentproduct } = this.state;
@@ -22,6 +25,12 @@ class DashBoard extends Component {
 		this.setState({ product: [{ _id: '', name: '' }, ...product] });
 		//this.setState({ currentproduct: product[0] });
 		//if (currentcompany) this.setState({ product, currentproduct: product[0] });
+		try {
+			const jwt = localStorage.getItem('token');
+			const user = jwtDecode(jwt);
+			this.setState({ user });
+			console.log(user);
+		} catch (err) {}
 	}
 	handleproduct = async (e) => {
 		const productID = e.target.value;
@@ -323,15 +332,13 @@ class DashBoard extends Component {
 										<select
 											onChange={this.handleproduct}
 											className='browser-default custom-select custom-select-sm py-3'
-											style={{ width: '200px' }}									
-											>
+											style={{ width: '200px' }}>
 											{this.state.product.map((product) => (
 												<option
 													key={product._id}
 													value={product._id}
 													className='dropdown-item'
-													href='#'
-													>
+													href='#'>
 													{product.name}
 												</option>
 											))}
@@ -409,12 +416,11 @@ class DashBoard extends Component {
 
 										{/* Topbar Search */}
 										<div className='container'>
-										<select
-											onChange={this.handleproduct}
-											className='browser-default custom-select custom-select-sm py-3'
-											style={{ width: '200px' }}									
-											>
-											{/*{this.state.product.map((product) => (
+											<select
+												onChange={this.handleproduct}
+												className='browser-default custom-select custom-select-sm py-3'
+												style={{ width: '200px' }}>
+												{/*{this.state.product.map((product) => (
 												<option
 													key={product._id}
 													value={product._id}
@@ -424,11 +430,11 @@ class DashBoard extends Component {
 													{product.name}
 												</option>
 											))}*/}
-											<option value='1'>One</option>
-											<option value='2'>Two</option>
-											<option value='3'>Three</option>
-										</select>
-									</div>
+												<option value='1'>One</option>
+												<option value='2'>Two</option>
+												<option value='3'>Three</option>
+											</select>
+										</div>
 
 										{/* Nav Item - Alerts */}
 										{/* <li className="nav-item dropdown no-arrow mx-1">
@@ -559,7 +565,7 @@ class DashBoard extends Component {
 												aria-haspopup='true'
 												aria-expanded='false'>
 												<span className='mr-2 d-none d-lg-inline text-gray-600 small'>
-													Douglas McGee
+													{this.state.user.username}
 												</span>
 												<img
 													className='img-profile rounded-circle'
@@ -615,7 +621,7 @@ class DashBoard extends Component {
 													<div className='row no-gutters align-items-center'>
 														<div className='col mr-2'>
 															<div className='text-xs font-weight-bold text-primary text-uppercase mb-1'>
-															Bill Reference
+																Bill Reference
 															</div>
 															<div className='h5 mb-0 font-weight-bold text-gray-800'>
 																--
@@ -657,7 +663,7 @@ class DashBoard extends Component {
 													<div className='row no-gutters align-items-center'>
 														<div className='col mr-2'>
 															<div className='text-xs font-weight-bold text-info text-uppercase mb-1'>
-																Success Percentage 
+																Success Percentage
 															</div>
 															<div className='row no-gutters align-items-center'>
 																<div className='col-auto'>
@@ -788,396 +794,392 @@ class DashBoard extends Component {
 											</h6>
 										</div>
 										<div className='card-body custom-height'>
-											
-													<div id='container'>
-														<div id='sub-container'>
-															<span className='text-success'>
-																<i
-																	className='fa fa-3x fa-check'
-																	aria-hidden='true'></i>
-															</span>
-															<div className='progress'>
-																<div
-																	className='progress-bar progress-bar-striped bg-success progress-bar-animated'
-																	style={{ width: '100%' }}
-																	aria-valuenow='1'
-																	aria-valuemin='0'
-																	aria-valuemax='1'></div>
-															</div>
+											<div id='container'>
+												<div id='sub-container'>
+													<span className='text-success'>
+														<i
+															className='fa fa-3x fa-check'
+															aria-hidden='true'></i>
+													</span>
+													<div className='progress'>
+														<div
+															className='progress-bar progress-bar-striped bg-success progress-bar-animated'
+															style={{ width: '100%' }}
+															aria-valuenow='1'
+															aria-valuemin='0'
+															aria-valuemax='1'></div>
+													</div>
 
-															<div className='container'>
-																{/* Collapsable Card Example*/}
-																<div className='card shadow mb-4'>
-																	{/* Card Header - Accordion */}
-																	<a
-																		href='#collapseCardExample1'
-																		className='d-block card-header py-3'
-																		data-toggle='collapse'
-																		role='button'
-																		aria-expanded='false'
-																		aria-controls='collapseCardExample1'>
-																		<h6 className='m-0 font-weight-bold text-primary'>
-																			Order Recieved
-																		</h6>
-																	</a>
-																	{/* Card Content - Collapse */}
-																	<div
-																		className='collapse multi-collapse show'
-																		id='collapseCardExample1'>
-																		<div className='card-body'>
-																			<strong>Estimated Time:</strong> 10:00{' '}
-																			<br />
-																			<strong>Time Taken:</strong> 12:00
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-														<div id='sub-container'>
-															<span
-																className={`${category(
-																	'decision',
-																	'text-danger',
-																	'',
-																	'text-info',
-																	'text-success'
-																)}`}>
-																<i
-																	className={`fa fa-3x ${category(
-																		'decision',
-																		'fa-ban',
-																		'fa-minus-square',
-																		'fa-step-forward',
-																		'fa-check'
-																	)}`}
-																	aria-hidden='true'></i>
-															</span>
-															<div className='progress'>
-																<div
-																	style={{ width: '100%' }}
-																	className={`progress-bar progress-bar-striped ${category(
-																		'decision',
-																		'bg-danger',
-																		'bg-transparent',
-																		'bg-info',
-																		'bg-success'
-																	)} progress-bar-animated`}
-																	
-															
-																	aria-valuenow='1'
-																	aria-valuemin='0'
-																	aria-valuemax='1'></div>
-															</div>
-
-															<div className='container'>
-																{/* Collapsable Card Example*/}
-																<div className='card shadow mb-4'>
-																	{/* Card Header - Accordion */}
-																	<a
-																		href='#collapseCardExample1'
-																		className='d-block card-header py-3'
-																		data-toggle='collapse'
-																		role='button'
-																		aria-expanded='false'
-																		aria-controls='collapseCardExample1'>
-																		<h6 className='m-0 font-weight-bold text-primary'>
-																			Decision
-																		</h6>
-																	</a>
-																	{/* Card Content - Collapse */}
-																	<div className='collapse multi-collapse show'
-																		id='collapseCardExample1'>
-																		{this.state.currentproduct &&
-																			this.state.currentproduct.process.map(
-																				(process) => {
-																					//TODO: implement time exceeded yellow color
-																					if (
-																						process.category === 'decision' &&
-																						process.state === 'complete'
-																					) {
-																						return (
-																							<div className='pro-list'>
-																								<div className='text-success border border-success rounded pl md-2 my-3 mx-3 py-3 px-3'>
-																									{process.processName}
-																								</div>
-																							</div>
-																						);
-																					} else if (
-																						process.category === 'decision' &&
-																						process.state === 'active'
-																					) {
-																						return (
-																							<div className='pro-list'>
-																								<div className='text-info border border-info rounded pl md-2 my-3 mx-3 py-3 px-3'>
-																									{process.processName}
-																								</div>
-																							</div>
-																						);
-																					} else if (
-																						process.category === 'decision' &&
-																						process.state === 'fail'
-																					) {
-																						return (
-																							<div className='pro-list'>
-																								<div className='text-danger border border-danger rounded pl md-2 my-3 mx-3 py-3 px-3'>
-																									{process.processName}
-																								</div>
-																							</div>
-																						);
-																					} else if (
-																						process.category === 'decision'
-																					) {
-																						return (
-																							<div className='pro-list'>
-																								<div className='text-muted border border-muted rounded pl md-2 my-3 mx-3 py-3 px-3'>
-																									{process.processName}
-																								</div>
-																							</div>
-																						);
-																					}
-																				}
-																			)}
-																	</div>
-																</div>
-															</div>
-														</div>
-
-														<div id='sub-container'>
-															<span
-																className={
-																	next === 'complete'
-																		? ` ${category(
-																				'activity',
-																				'text-danger',
-																				'',
-																				'text-info',
-																				'text-success'
-																		  )}`
-																		: (next === 'pending' || next === 'active')
-																		? next = 'pending'
-																		: 'text-danger'
-																}>
-																<i
-																	className={`fa fa-3x ${
-																		next === 'complete'
-																			? ` ${category(
-																					'activity',
-																					'fa-ban',
-																					'fa-minus-square',
-																					'fa-step-forward',
-																					'fa-check'
-																			  )}`
-																			: next === 'pending'
-																			? 'fa-minus-square'
-																			: next === 'active'
-																			? 'fa-step-forward'
-																			:'fa-ban'
-																	}`}
-																	aria-hidden='true'></i>
-															</span>
-															<div className='progress'>
-																<div
-																	className={`progress-bar progress-bar-striped ${
-																		next === 'complete'
-																			? ` ${category(
-																					'activity',
-																					'bg-danger',
-																					'bg-transparent',
-																					'bg-info',
-																					'bg-success'
-																			  )} `
-																			: next === 'pending'
-																			? 'bg-transparent'
-																			: next === 'active'
-																			? 'bg-info'
-																			: 'bg-danger'
-																	} progress-bar-animated`}
-																	style={{ width: '100%' }}
-																	aria-valuenow='1'
-																	aria-valuemin='0'
-																	aria-valuemax='1'></div>
-															</div>
-
-															<div className='container'>
-																{/* Collapsable Card Example*/}
-																<div className='card shadow mb-4'>
-																	{/* Card Header - Accordion */}
-																	<a
-																		href='#collapseCardExample1'
-																		className='d-block card-header py-3'
-																		data-toggle='collapse'
-																		role='button'
-																		aria-expanded='false'
-																		aria-controls='collapseCardExample1'>
-																		<h6 className='m-0 font-weight-bold text-primary'>
-																			Activity
-																		</h6>
-																	</a>
-																	{/* Card Content - Collapse */}
-																	<div
-																		className='collapse multi-collapse show'
-																		id='collapseCardExample1'>
-																		{this.state.currentproduct &&
-																			this.state.currentproduct.process.map(
-																				(process) => {
-																					//TODO: implement time exceeded yellow color
-																					if (
-																						process.category === 'activity' &&
-																						process.state === 'complete'
-																					) {
-																						return (
-																							<div className='pro-list'>
-																								<div className='text-success border border-success rounded pl md-2 my-3 mx-3 py-3 px-3'>
-																									{process.processName}
-																								</div>
-																							</div>
-																						);
-																					} else if (
-																						process.category === 'activity' &&
-																						process.state === 'active'
-																					) {
-																						return (
-																							<div className='pro-list'>
-																								<div className='text-info border border-info rounded pl md-2 my-3 mx-3 py-3 px-3'>
-																									{process.processName}
-																								</div>
-																							</div>
-																						);
-																					} else if (
-																						process.category === 'activity' &&
-																						process.state === 'fail'
-																					) {
-																						return (
-																							<div className='pro-list'>
-																								<div className='text-danger border border-danger rounded pl md-2 my-3 mx-3 py-3 px-3'>
-																									{process.processName}
-																								</div>
-																							</div>
-																						);
-																					} else if (
-																						process.category === 'activity'
-																					) {
-																						return (
-																							<div className='pro-list'>
-																								<div className='text-muted border border-muted rounded pl md-2 my-3 mx-3 py-3 px-3'>
-																									{process.processName}
-																								</div>
-																							</div>
-																						);
-																					}
-																				}
-																			)}
-																	</div>
-																</div>
-															</div>
-														</div>
-														<div id='sub-container'>
-															<span
-																className={
-																	next === 'complete'
-																		? 'text-success'
-																		: (next === 'pending' || next === 'active')
-																		? ''
-																		: 'text-danger'
-																}>
-																<i
-																	//className='fa fa-3x fa-minus-square'
-																	className={`fa fa-3x ${
-																		next === 'complete'
-																			? 'fa-check'
-																			: (next === 'pending' || next === 'active')
-																			? 'fa-minus-square'
-																			: 'fa-ban'
-																	}`}
-																	aria-hidden='true'></i>
-															</span>
-
-															<div className='progress'>
-																<div
-																	//className='progress-bar progress-bar-striped bg-success progress-bar-animated'
-
-																	className={`progress-bar progress-bar-striped ${
-																		next === 'complete'
-																			? 'bg-success'
-																			: (next === 'pending' || next === 'active')
-																			? 'bg-transparent'
-																			: 'bg-danger'
-																	} progress-bar-animated`}
-																	style={{ width: '100%' }}
-																	aria-valuenow='1'
-																	aria-valuemin='0'
-																	aria-valuemax='1'></div>
-															</div>
-
-															<div className='container'>
-																{/* Collapsable Card Example*/}
-																<div className='card shadow mb-4'>
-																	{/* Card Header - Accordion */}
-																	<a
-																		href='#collapseCardExample1'
-																		className='d-block card-header py-3'
-																		data-toggle='collapse'
-																		role='button'
-																		aria-expanded='false'
-																		aria-controls='collapseCardExample1'>
-																		<h6 className='m-0 font-weight-bold text-primary'>
-																			Order Completion
-																		</h6>
-																	</a>
-																	{/* Card Content - Collapse */}
-																	<div
-																		className='collapse multi-collapse show'
-																		id='collapseCardExample1'>
-																		<div className='card-body'>
-																			<strong>Estimated Time:</strong> 10:00{' '}
-																			<br />
-																			<strong>Time Taken:</strong> 12:00
-																		</div>
-																	</div>
+													<div className='container'>
+														{/* Collapsable Card Example*/}
+														<div className='card shadow mb-4'>
+															{/* Card Header - Accordion */}
+															<a
+																href='#collapseCardExample1'
+																className='d-block card-header py-3'
+																data-toggle='collapse'
+																role='button'
+																aria-expanded='false'
+																aria-controls='collapseCardExample1'>
+																<h6 className='m-0 font-weight-bold text-primary'>
+																	Order Recieved
+																</h6>
+															</a>
+															{/* Card Content - Collapse */}
+															<div
+																className='collapse multi-collapse show'
+																id='collapseCardExample1'>
+																<div className='card-body'>
+																	<strong>Estimated Time:</strong> 10:00 <br />
+																	<strong>Time Taken:</strong> 12:00
 																</div>
 															</div>
 														</div>
 													</div>
+												</div>
+												<div id='sub-container'>
+													<span
+														className={`${category(
+															'decision',
+															'text-danger',
+															'',
+															'text-info',
+															'text-success'
+														)}`}>
+														<i
+															className={`fa fa-3x ${category(
+																'decision',
+																'fa-ban',
+																'fa-minus-square',
+																'fa-step-forward',
+																'fa-check'
+															)}`}
+															aria-hidden='true'></i>
+													</span>
+													<div className='progress'>
+														<div
+															style={{ width: '100%' }}
+															className={`progress-bar progress-bar-striped ${category(
+																'decision',
+																'bg-danger',
+																'bg-transparent',
+																'bg-info',
+																'bg-success'
+															)} progress-bar-animated`}
+															aria-valuenow='1'
+															aria-valuemin='0'
+															aria-valuemax='1'></div>
+													</div>
+
+													<div className='container'>
+														{/* Collapsable Card Example*/}
+														<div className='card shadow mb-4'>
+															{/* Card Header - Accordion */}
+															<a
+																href='#collapseCardExample1'
+																className='d-block card-header py-3'
+																data-toggle='collapse'
+																role='button'
+																aria-expanded='false'
+																aria-controls='collapseCardExample1'>
+																<h6 className='m-0 font-weight-bold text-primary'>
+																	Decision
+																</h6>
+															</a>
+															{/* Card Content - Collapse */}
+															<div
+																className='collapse multi-collapse show'
+																id='collapseCardExample1'>
+																{this.state.currentproduct &&
+																	this.state.currentproduct.process.map(
+																		(process) => {
+																			//TODO: implement time exceeded yellow color
+																			if (
+																				process.category === 'decision' &&
+																				process.state === 'complete'
+																			) {
+																				return (
+																					<div className='pro-list'>
+																						<div className='text-success border border-success rounded pl md-2 my-3 mx-3 py-3 px-3'>
+																							{process.processName}
+																						</div>
+																					</div>
+																				);
+																			} else if (
+																				process.category === 'decision' &&
+																				process.state === 'active'
+																			) {
+																				return (
+																					<div className='pro-list'>
+																						<div className='text-info border border-info rounded pl md-2 my-3 mx-3 py-3 px-3'>
+																							{process.processName}
+																						</div>
+																					</div>
+																				);
+																			} else if (
+																				process.category === 'decision' &&
+																				process.state === 'fail'
+																			) {
+																				return (
+																					<div className='pro-list'>
+																						<div className='text-danger border border-danger rounded pl md-2 my-3 mx-3 py-3 px-3'>
+																							{process.processName}
+																						</div>
+																					</div>
+																				);
+																			} else if (
+																				process.category === 'decision'
+																			) {
+																				return (
+																					<div className='pro-list'>
+																						<div className='text-muted border border-muted rounded pl md-2 my-3 mx-3 py-3 px-3'>
+																							{process.processName}
+																						</div>
+																					</div>
+																				);
+																			}
+																		}
+																	)}
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<div id='sub-container'>
+													<span
+														className={
+															next === 'complete'
+																? ` ${category(
+																		'activity',
+																		'text-danger',
+																		'',
+																		'text-info',
+																		'text-success'
+																  )}`
+																: next === 'pending' || next === 'active'
+																? (next = 'pending')
+																: 'text-danger'
+														}>
+														<i
+															className={`fa fa-3x ${
+																next === 'complete'
+																	? ` ${category(
+																			'activity',
+																			'fa-ban',
+																			'fa-minus-square',
+																			'fa-step-forward',
+																			'fa-check'
+																	  )}`
+																	: next === 'pending'
+																	? 'fa-minus-square'
+																	: next === 'active'
+																	? 'fa-step-forward'
+																	: 'fa-ban'
+															}`}
+															aria-hidden='true'></i>
+													</span>
+													<div className='progress'>
+														<div
+															className={`progress-bar progress-bar-striped ${
+																next === 'complete'
+																	? ` ${category(
+																			'activity',
+																			'bg-danger',
+																			'bg-transparent',
+																			'bg-info',
+																			'bg-success'
+																	  )} `
+																	: next === 'pending'
+																	? 'bg-transparent'
+																	: next === 'active'
+																	? 'bg-info'
+																	: 'bg-danger'
+															} progress-bar-animated`}
+															style={{ width: '100%' }}
+															aria-valuenow='1'
+															aria-valuemin='0'
+															aria-valuemax='1'></div>
+													</div>
+
+													<div className='container'>
+														{/* Collapsable Card Example*/}
+														<div className='card shadow mb-4'>
+															{/* Card Header - Accordion */}
+															<a
+																href='#collapseCardExample1'
+																className='d-block card-header py-3'
+																data-toggle='collapse'
+																role='button'
+																aria-expanded='false'
+																aria-controls='collapseCardExample1'>
+																<h6 className='m-0 font-weight-bold text-primary'>
+																	Activity
+																</h6>
+															</a>
+															{/* Card Content - Collapse */}
+															<div
+																className='collapse multi-collapse show'
+																id='collapseCardExample1'>
+																{this.state.currentproduct &&
+																	this.state.currentproduct.process.map(
+																		(process) => {
+																			//TODO: implement time exceeded yellow color
+																			if (
+																				process.category === 'activity' &&
+																				process.state === 'complete'
+																			) {
+																				return (
+																					<div className='pro-list'>
+																						<div className='text-success border border-success rounded pl md-2 my-3 mx-3 py-3 px-3'>
+																							{process.processName}
+																						</div>
+																					</div>
+																				);
+																			} else if (
+																				process.category === 'activity' &&
+																				process.state === 'active'
+																			) {
+																				return (
+																					<div className='pro-list'>
+																						<div className='text-info border border-info rounded pl md-2 my-3 mx-3 py-3 px-3'>
+																							{process.processName}
+																						</div>
+																					</div>
+																				);
+																			} else if (
+																				process.category === 'activity' &&
+																				process.state === 'fail'
+																			) {
+																				return (
+																					<div className='pro-list'>
+																						<div className='text-danger border border-danger rounded pl md-2 my-3 mx-3 py-3 px-3'>
+																							{process.processName}
+																						</div>
+																					</div>
+																				);
+																			} else if (
+																				process.category === 'activity'
+																			) {
+																				return (
+																					<div className='pro-list'>
+																						<div className='text-muted border border-muted rounded pl md-2 my-3 mx-3 py-3 px-3'>
+																							{process.processName}
+																						</div>
+																					</div>
+																				);
+																			}
+																		}
+																	)}
+															</div>
+														</div>
+													</div>
+												</div>
+												<div id='sub-container'>
+													<span
+														className={
+															next === 'complete'
+																? 'text-success'
+																: next === 'pending' || next === 'active'
+																? ''
+																: 'text-danger'
+														}>
+														<i
+															//className='fa fa-3x fa-minus-square'
+															className={`fa fa-3x ${
+																next === 'complete'
+																	? 'fa-check'
+																	: next === 'pending' || next === 'active'
+																	? 'fa-minus-square'
+																	: 'fa-ban'
+															}`}
+															aria-hidden='true'></i>
+													</span>
+
+													<div className='progress'>
+														<div
+															//className='progress-bar progress-bar-striped bg-success progress-bar-animated'
+
+															className={`progress-bar progress-bar-striped ${
+																next === 'complete'
+																	? 'bg-success'
+																	: next === 'pending' || next === 'active'
+																	? 'bg-transparent'
+																	: 'bg-danger'
+															} progress-bar-animated`}
+															style={{ width: '100%' }}
+															aria-valuenow='1'
+															aria-valuemin='0'
+															aria-valuemax='1'></div>
+													</div>
+
+													<div className='container'>
+														{/* Collapsable Card Example*/}
+														<div className='card shadow mb-4'>
+															{/* Card Header - Accordion */}
+															<a
+																href='#collapseCardExample1'
+																className='d-block card-header py-3'
+																data-toggle='collapse'
+																role='button'
+																aria-expanded='false'
+																aria-controls='collapseCardExample1'>
+																<h6 className='m-0 font-weight-bold text-primary'>
+																	Order Completion
+																</h6>
+															</a>
+															{/* Card Content - Collapse */}
+															<div
+																className='collapse multi-collapse show'
+																id='collapseCardExample1'>
+																<div className='card-body'>
+																	<strong>Estimated Time:</strong> 10:00 <br />
+																	<strong>Time Taken:</strong> 12:00
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 
 									<div className='card-columns'>
-										<div className="flip-card">
-											<div className="flip-card-inner">
-									  			<div className="flip-card-front">
-													<img className='bottle' src= {bottleneck}/>
-									  			</div>
-									  			<div className="flip-card-back">
-													<h1>John Doe</h1> 
-													<p>Architect & Engineer</p> 
+										<div className='flip-card'>
+											<div className='flip-card-inner'>
+												<div className='flip-card-front'>
+													<img className='bottle' src={bottleneck} />
+												</div>
+												<div className='flip-card-back'>
+													<h1>John Doe</h1>
+													<p>Architect & Engineer</p>
 													<p>We love that guy</p>
-									  			</div>
+												</div>
 											</div>
-								  		</div>
-								  		<div className="flip-card">
-											<div className="flip-card-inner">
-									  			<div className="flip-card-front">
-												  <img className='bottle' src= {bottleneck}/>
-									  			</div>
-									  			<div className="flip-card-back">
-													<h1>John Doe</h1> 
-													<p>Architect & Engineer</p> 
+										</div>
+										<div className='flip-card'>
+											<div className='flip-card-inner'>
+												<div className='flip-card-front'>
+													<img className='bottle' src={bottleneck} />
+												</div>
+												<div className='flip-card-back'>
+													<h1>John Doe</h1>
+													<p>Architect & Engineer</p>
 													<p>We love that guy</p>
-									  			</div>
+												</div>
 											</div>
-								  		</div>
-								  		<div className="flip-card">
-											<div className="flip-card-inner">
-									  			<div className="flip-card-front">
-												  <img className='bottle' src= {bottleneck}/>
-									  			</div>
-									  			<div className="flip-card-back">
-													<h1>John Doe</h1> 
-													<p>Architect & Engineer</p> 
+										</div>
+										<div className='flip-card'>
+											<div className='flip-card-inner'>
+												<div className='flip-card-front'>
+													<img className='bottle' src={bottleneck} />
+												</div>
+												<div className='flip-card-back'>
+													<h1>John Doe</h1>
+													<p>Architect & Engineer</p>
 													<p>We love that guy</p>
-									  			</div>
+												</div>
 											</div>
-								  		</div>
+										</div>
 									</div>
 									{/* TODO: here ends */}
 
@@ -1192,7 +1194,6 @@ class DashBoard extends Component {
 														BOTTLENECKS
 													</h6>
 												</div>
-
 
 												<div className='card-body'>
 													<h4 className='small font-weight-bold'>
@@ -1448,7 +1449,7 @@ class DashBoard extends Component {
 										data-dismiss='modal'>
 										Cancel
 									</button>
-									<a className='btn btn-primary' href='login.html'>
+									<a class='btn btn-primary' href='/login'>
 										Logout
 									</a>
 								</div>

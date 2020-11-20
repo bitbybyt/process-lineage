@@ -1,0 +1,18 @@
+[
+    {
+        "username": "lucy",
+        "password":"xyz"
+    },
+    {
+        "username": "rock",
+        "password":"abc"
+    },
+    {
+        "username": "poison",
+        "password":"poi"
+    },
+    {
+        "username": "stark",
+        "password":"qwe"
+    }
+]
