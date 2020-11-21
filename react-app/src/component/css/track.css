@@ -87,11 +87,9 @@
   float: right;
 }
 
-.prog select {
- height: 20%;
- width: 50%;
- margin-left: 25%;
- border: 3px solid #4A6FDC;
+.prog {
+ text-align: center;
+ /* border: 3px solid #4A6FDC; */
 }
 
 /*.container::-webkit-scrollbar{

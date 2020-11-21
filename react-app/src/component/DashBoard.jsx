@@ -314,76 +314,11 @@ class DashBoard extends Component {
 												</option>
 											))}
 										</select>
-
-										{/*<div className='dropdown'>
-											<button
-												type='button'
-												className='btn btn-primary dropdown-toggle'
-												data-toggle='dropdown'>
-												Dropdown button
-											</button>
-											<div className='dropdown-menu'>
-											
-											</div>
-										</div>*/}
 									</div>
-
-									{/*div id="collapseUtilities" className="collapse" aria-labelledby="headingUtilities"
-                                                data-parent="#accordionSidebar">
-                                                <div className="bg-white py-2 collapse-inner rounded">
-                                                    <h6 className="collapse-header">Custom Utilities:</h6>
-                                                    <a className="collapse-item" href="utilities-color.html">A</a>
-                                                    <a className="collapse-item" href="utilities-bproduct.html">B</a>
-                                                    <a className="collapse-item" href="utilities-animation.html">C</a>
-                                                </div>
-                                            </div>
-                                            <input type="text" className="form-control bg-light bproduct-0 small" placeholder="Search for..."
-                                                aria-label="Search" aria-describedby="basic-addon2">
-                                            <div className="input-group-append">
-                                                <button className="btn btn-primary" type="button">
-                                                    <i className="fas fa-search fa-sm"></i>
-                                                </button>
-                                            </div>
-                                        </div*/}
 
 									{/* Topbar Navbar */}
 									<ul className='navbar-nav ml-auto'>
-										{/* Nav Item - Search Dropdown (Visible Only XS) */}
-										<li className='nav-item dropdown no-arrow d-sm-none'>
-											<a
-												className='nav-link dropdown-toggle'
-												href='#'
-												id='searchDropdown'
-												role='button'
-												data-toggle='dropdown'
-												aria-haspopup='true'
-												aria-expanded='false'>
-												<i className='fas fa-search fa-fw'></i>
-											</a>
-											{/* Dropdown - Messages */}
-											<div
-												className='dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in'
-												aria-labelledby='searchDropdown'>
-												<form className='form-inline mr-auto w-100 navbar-search'>
-													<div className='input-group'>
-														<input
-															type='text'
-															className='form-control bg-light bproduct-0 small'
-															placeholder='Search for...'
-															aria-label='Search'
-															aria-describedby='basic-addon2'
-														/>
-														<div className='input-group-append'>
-															<button className='btn btn-primary' type='button'>
-																<i className='fas fa-search fa-sm'></i>
-															</button>
-														</div>
-													</div>
-												</form>
-											</div>
-										</li>
 
-										{/* Topbar Search */}
 										<div className='container'>
 											<select
 												onChange={this.handleTime}
@@ -404,124 +339,9 @@ class DashBoard extends Component {
 												<option value='1'>Today</option>
 												<option value='2'>This week</option>
 												<option value='3'>This Month</option>
+												<option value='4'>All Records</option>
 											</select>
 										</div>
-
-										{/* Nav Item - Alerts */}
-										{/* <li className="nav-item dropdown no-arrow mx-1">
-                                            <a className="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i className="fas fa-bell fa-fw"></i>
-                                                
-                                                <span className="badge badge-danger badge-counter">3+</span>
-                                            </a>
-                                            
-                                            <div className="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                                aria-labelledby="alertsDropdown">
-                                                <h6 className="dropdown-header">
-                                                    Alerts Center
-                                                </h6>
-                                                <a className="dropdown-item d-flex align-items-center" href="#">
-                                                    <div className="mr-3">
-                                                        <div className="icon-circle bg-primary">
-                                                            <i className="fas fa-file-alt text-white"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <div className="small text-gray-500">December 12, 2019</div>
-                                                        <span className="font-weight-bold">A new monthly report is ready to download!</span>
-                                                    </div>
-                                                </a>
-                                                <a className="dropdown-item d-flex align-items-center" href="#">
-                                                    <div className="mr-3">
-                                                        <div className="icon-circle bg-success">
-                                                            <i className="fas fa-donate text-white"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <div className="small text-gray-500">December 7, 2019</div>
-                                                        $290.29 has been deposited into your account!
-                                                    </div>
-                                                </a>
-                                                <a className="dropdown-item d-flex align-items-center" href="#">
-                                                    <div className="mr-3">
-                                                        <div className="icon-circle bg-warning">
-                                                            <i className="fas fa-exclamation-triangle text-white"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <div className="small text-gray-500">December 2, 2019</div>
-                                                        Spending Alert: We've noticed unusually high spending for your account.
-                                                    </div>
-                                                </a>
-                                                <a className="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                                            </div>
-                                        </li>
-                                        
-                                        <li className="nav-item dropdown no-arrow mx-1">
-                                            <a className="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i className="fas fa-envelope fa-fw"></i>
-                                                
-                                                <span className="badge badge-danger badge-counter">7</span>
-                                            </a>
-                                            
-                                            <div className="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                                aria-labelledby="messagesDropdown">
-                                                <h6 className="dropdown-header">
-                                                    Message Center
-                                                </h6>
-                                                <a className="dropdown-item d-flex align-items-center" href="#">
-                                                    <div className="dropdown-list-image mr-3">
-                                                        <img className="rounded-circle" src="img/undraw_profile_1.svg"
-                                                            alt="">
-                                                        <div className="status-indicator bg-success"></div>
-                                                    </div>
-                                                    <div className="font-weight-bold">
-                                                        <div className="text-truncate">Hi there! I am wondering if you can help me with a
-                                                            problem I've been having.</div>
-                                                        <div className="small text-gray-500">Emily Fowler · 58m</div>
-                                                    </div>
-                                                </a>
-                                                <a className="dropdown-item d-flex align-items-center" href="#">
-                                                    <div className="dropdown-list-image mr-3">
-                                                        <img className="rounded-circle" src="img/undraw_profile_2.svg"
-                                                            alt="">
-                                                        <div className="status-indicator"></div>
-                                                    </div>
-                                                    <div>
-                                                        <div className="text-truncate">I have the photos that you producted last month, how
-                                                            would you like them sent to you?</div>
-                                                        <div className="small text-gray-500">Jae Chun · 1d</div>
-                                                    </div>
-                                                </a>
-                                                <a className="dropdown-item d-flex align-items-center" href="#">
-                                                    <div className="dropdown-list-image mr-3">
-                                                        <img className="rounded-circle" src="img/undraw_profile_3.svg"
-                                                            alt="">
-                                                        <div className="status-indicator bg-warning"></div>
-                                                    </div>
-                                                    <div>
-                                                        <div className="text-truncate">Last month's report looks great, I am very happy with
-                                                            the progress so far, keep up the good work!</div>
-                                                        <div className="small text-gray-500">Morgan Alvarez · 2d</div>
-                                                    </div>
-                                                </a>
-                                                <a className="dropdown-item d-flex align-items-center" href="#">
-                                                    <div className="dropdown-list-image mr-3">
-                                                        <img className="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                                            alt="">
-                                                        <div className="status-indicator bg-success"></div>
-                                                    </div>
-                                                    <div>
-                                                        <div className="text-truncate">Am I a good boy? The reason I ask is because someone
-                                                            told me that people say this to all dogs, even if they aren't good...</div>
-                                                        <div className="small text-gray-500">Chicken the Dog · 2w</div>
-                                                    </div>
-                                                </a>
-                                                <a className="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                                            </div>
-                                        </li> */}
 
 										<div className='topbar-divider d-none d-sm-block'></div>
 
@@ -616,7 +436,7 @@ class DashBoard extends Component {
 																Current State
 															</div>
 															<div className='h5 mb-0 font-weight-bold text-gray-800'>
-																---
+																{this.state.currentproduct && this.state.currentproduct.status}
 															</div>
 														</div>
 														<div className='col-auto'>
@@ -761,7 +581,7 @@ class DashBoard extends Component {
 										<select
 											onChange={this.handleproduct}
 											className='browser-default custom-select custom-select-sm mb-3'
-											style={{ width: '80vh' }}>
+											style={{ width: '80%' }}>
 											{this.state.product.map((product) => (
 												<option
 													key={product._id}

@@ -14,6 +14,11 @@ router.get('/product', async (req, res) => {
 	const product = await Product.find().populate('companies');
 	res.send(product);
 });
+router.get('/product/:id/:i', async (req, res) => {
+	const product = await Product.findById(req.params.id).populate('companies');
+	const t = await product.eachTime(req.params.i);
+	res.send(t); 
+});
 router.get('/bill', async (req, res) => {
 	const bill = await Bill.find().populate('sub');
 	res.send(bill);
@@ -30,7 +35,7 @@ router.get('/company/bill/:currentcompanyID/:sel', async (req, res) => {
 		console.log(bill);
 		res.send(bill);
 	} catch (err) {
-		return res.status(400).send('invalid username');
+		return res.status(400).send('Error on Date Selection');
 	}
 });
 
