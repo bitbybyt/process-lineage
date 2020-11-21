@@ -111,8 +111,12 @@ class DashBoard extends Component {
 			this.setState({ bar: 'fail' });
 		else if (this.state.currentproduct.status === 'complete') {
 			const i = this.state.currentproduct.process.length;
-			const tillTime = 1; //await getTillTime(this.state.currentproduct._id, i);
-			const allTillTime = 2; //await getAllTillTime(this.state.currentproduct.name, i);
+			const tillTime = 1;
+			// let { data: tillTime } = await getTillTime(this.state.currentproduct._id, i);
+			// tillTime = parseInt(tillTime);
+			const allTillTime = 2;
+			// let { data: allTillTime } = await getAllTillTime(this.state.currentproduct.name, i);
+			// allTillTime = parseInt(allTillTime);
 			if (tillTime <= allTillTime) {
 				this.setState({ bar: 'complete' });
 			} else this.setState({ bar: 'delay' });
@@ -124,8 +128,12 @@ class DashBoard extends Component {
 				this.state.currentproduct.process.filter(
 					(process) => process.status === 'complete'
 				).length - 1;
-			const tillTime = 1; //await getTillTime(this.state.currentproduct._id, i);
-			const allTillTime = 2; //await getAllTillTime(this.state.currentproduct.name, i);
+			const tillTime = 1;
+			// let { data: tillTime } = await getTillTime(this.state.currentproduct._id, i);
+			// tillTime = parseInt(tillTime);
+			const allTillTime = 2;
+			// let { data: allTillTime } = await getAllTillTime(this.state.currentproduct.name, i);
+			// allTillTime = parseInt(allTillTime);
 			if (tillTime <= allTillTime) {
 				this.setState({ bar: 'ontime' });
 			} else this.setState({ bar: 'being delayed' });
