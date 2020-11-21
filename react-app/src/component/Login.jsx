@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect, Route, Link } from 'react-router-dom';
 import { getCompany, getUser } from '../services/httpServices';
-import './assets/css/bootstrap.min.css';
-import './assets/css/font-awesome.css';
-import './assets/css/templatemo-lava.css';
-//import './assets/css/owl-carousel.css';
-import './assets/css/login.css';
-import back from './assets/images/back.jpg';
+import './css/bootstrap.min.css';
+import './css/login.css';
+import back from './img/back.jpg';
 import './css/track.css';
 
 class Login extends Component {

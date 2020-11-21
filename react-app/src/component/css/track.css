@@ -87,6 +87,13 @@
   float: right;
 }
 
+.prog select {
+ height: 20%;
+ width: 50%;
+ margin-left: 25%;
+ border: 3px solid #4A6FDC;
+}
+
 /*.container::-webkit-scrollbar{
     width: 5px;
 }

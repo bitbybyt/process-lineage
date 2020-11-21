@@ -567,12 +567,12 @@ class DashBoard extends Component {
 									{/* Page Heading */}
 									<div className='d-sm-flex align-items-center justify-content-between mb-4'>
 										<h1 className='h3 mb-0 text-gray-800'>Dashboard</h1>
-										<a
+										{/*<a
 											href='#'
 											className='d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm'>
 											<i className='fas fa-download fa-sm text-white-50'></i>{' '}
 											product
-										</a>
+										</a>*/}
 									</div>
 
 									{/* Content Row */}
@@ -749,11 +749,34 @@ class DashBoard extends Component {
                                     </div*/}
 
 									{/*Illustrations*/}
-
+									<div className='container prog'>
+											<select
+												onChange={this.handleTime}
+												value={this.state.currenttime}
+												className='browser-default custom-select custom-select-sm mb-3'
+												style={{ width: '80vh'}}>
+												{/*{this.state.product.map((product) => (
+												<option
+													key={product._id}
+													value={product._id}
+													className='dropdown-item'
+													href='#'
+													>
+													{product.name}
+												</option>
+											))}*/}
+												<option value='' disabled></option>
+												<option value='1'>one</option>
+												<option value='2'>two</option>
+												<option value='3'>Three</option>
+											</select>
+									</div>
 									<div className='card shadow mb-4'>
 										<div className='card-header py-3'>
+										
 											<h5 className='m-0 font-weight-bold text-primary'>
-												Progress <span class="badge badge-pill badge-secondary">On Time</span> {/*to display ontime/fail/delayed*/}
+												Progress 	
+												<span class="badge badge-pill badge-secondary">On Time</span> {/*to display ontime/fail/delayed*/}
 											</h5>
 										</div>
 										<div className='card-body custom-height'>
