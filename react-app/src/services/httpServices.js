@@ -20,3 +20,19 @@ export function getCompanyBill(currentcompanyID, sel) {
 		`http://localhost:5000/api/company/bill/${currentcompanyID}/${sel}`
 	);
 }
+
+export function getEachTime(currentproductID, i) {
+	return axios.get(
+		`http://localhost:5000/api/product/eachTime/${currentproductID}/${i}`
+	);
+}
+export function getTillTime(currentproductID, i) {
+	return axios.get(
+		`http://localhost:5000/api/product/tillTime/${currentproductID}/${i}`
+	);
+}
+export function getPropagationTime(currentproductID, i) {
+	return axios.get(
+		`http://localhost:5000/api/product/propagationTime/${currentproductID}/${i}`
+	);
+}

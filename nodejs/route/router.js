@@ -10,26 +10,61 @@ router.get('/company', async (req, res) => {
 	const company = await Company.find().populate('products').populate('bills');
 	res.send(company);
 });
-router.get('/product', async (req, res) => {
-	const product = await Product.find().populate('companies');
-	res.send(product);
-});
-router.get('/product/:id/:i', async (req, res) => {
-	const product = await Product.findById(req.params.id).populate('companies');
-	const t = await product.eachTime(req.params.i);
-	res.send(t); 
-});
 router.get('/bill', async (req, res) => {
 	const bill = await Bill.find().populate('sub');
 	res.send(bill);
 });
+router.get('/product', async (req, res) => {
+	const product = await Product.find().populate('companies');
+	res.send(product);
+});
+router.get('/product/eachTime/:currentproductID/:i', async (req, res) => {
+	try {
+		const product = await Product.findById(
+			req.params.currentproductID
+		).populate('parent');
+		//const t = { time: 1 };
+		const t = await product.eachTime(req.params.i);
+		//console.log(t.time);
+		console.log(t);
+		res.send(t.toString());
+	} catch (err) {
+		return res.status(400).send('Error on Each Time');
+	}
+});
+router.get('/product/tillTime/:currentproductID/:i', async (req, res) => {
+	try {
+		const product = await Product.findById(
+			req.params.currentproductID
+		).populate('parent');
+		const t = await product.tillTime(req.params.i);
+		res.send(t.toString());
+	} catch (err) {
+		return res.status(400).send('Error on Till Time');
+	}
+});
+router.get(
+	'/product/propagationTime/:currentproductID/:i',
+	async (req, res) => {
+		try {
+			const product = await Product.findById(
+				req.params.currentproductID
+			).populate('parent');
+			const t = await product.propagationTime(req.params.i);
+			res.send(t);
+		} catch (err) {
+			return res.status(400).send('Error on Propagation Time');
+		}
+	}
+);
+
 router.get('/company/bill/:currentcompanyID/:sel', async (req, res) => {
 	const { currentcompanyID, sel } = req.params;
 	try {
 		const company = await Company.findById(currentcompanyID)
 			.populate('products')
 			.populate('bills')
-			.populate({path: 'bills', populate: ['sub']});
+			.populate({ path: 'bills', populate: ['sub'] });
 		console.log(company);
 		const bill = await company.getBills(sel);
 		console.log(bill);

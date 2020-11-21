@@ -1,7 +1,15 @@
 import React, { Component, forwardRef } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
-import { getCompany, getProduct, getBill } from '../services/httpServices';
+import {
+	getCompany,
+	getProduct,
+	getBill,
+	getEachTime,
+	getTillTime,
+	getPropagationTime,
+	getCompanyBill,
+} from '../services/httpServices';
 import './css/sb-admin-2.min.css';
 import './css/sb-admin-2.css';
 import './css/track.css';
@@ -9,7 +17,7 @@ import './vendor/fontawesome-free/css/all.min.css';
 import undraw_profile from './img/undraw_profile.svg';
 import bottleneck from './img/blue1.jpg';
 import moment from 'moment';
-import { getCompanyBill } from './../services/httpServices';
+
 class DashBoard extends Component {
 	state = {
 		product: [],
@@ -20,6 +28,9 @@ class DashBoard extends Component {
 		currentcompany: {},
 		user: {},
 		currenttime: '',
+		each: 0,
+		all: [],
+		till: 0,
 	};
 	async componentDidMount() {
 		//const { currentcompany, currentproduct } = this.state;
@@ -80,6 +91,18 @@ class DashBoard extends Component {
 		);
 		await this.setState({ currentproduct: product[0] });
 		console.log(this.state.currentproduct);
+		const { data: each } = await getEachTime(this.state.currentproduct._id, 0);
+		this.setState({ each: parseInt(each) });
+		console.log('each:' + each);
+		const { data: till } = await getTillTime(this.state.currentproduct._id, 0);
+		console.log('till:' + till);
+		this.setState({ till: parseInt(till) });
+		const { data: all } = await getPropagationTime(
+			this.state.currentproduct._id,
+			0
+		);
+		this.setState({ all });
+		console.log('all:' + all);
 	};
 	//
 	// handlecompany = async (company) => {
@@ -318,7 +341,6 @@ class DashBoard extends Component {
 
 									{/* Topbar Navbar */}
 									<ul className='navbar-nav ml-auto'>
-
 										<div className='container'>
 											<select
 												onChange={this.handleTime}
@@ -436,7 +458,8 @@ class DashBoard extends Component {
 																Current State
 															</div>
 															<div className='h5 mb-0 font-weight-bold text-gray-800'>
-																{this.state.currentproduct && this.state.currentproduct.status}
+																{this.state.currentproduct &&
+																	this.state.currentproduct.status}
 															</div>
 														</div>
 														<div className='col-auto'>
