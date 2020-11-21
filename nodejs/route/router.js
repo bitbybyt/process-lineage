@@ -57,7 +57,32 @@ router.get(
 		}
 	}
 );
-
+router.get('/product/allEachTime/:currentproductname/:i', async (req, res) => {
+	try {
+		//const product = await Product.find().populate('parent');
+		//console.log(req.params.currentproductname);
+		//console.log(req.params.i);
+		//console.log(typeof parseInt(req.params.i));
+		const t = await Product.alleachTime(
+			req.params.currentproductname,
+			parseInt(req.params.i)
+		);
+		res.send(t.toString());
+	} catch (err) {
+		return res.status(400).send('Error on AllEachTime');
+	}
+});
+router.get('/product/allTillTime/:currentproductname/:i', async (req, res) => {
+	try {
+		const t = await Product.alltillTime(
+			req.params.currentproductname,
+			parseInt(req.params.i)
+		);
+		res.send(t.toString());
+	} catch (err) {
+		return res.status(400).send('Error on AllTillTime');
+	}
+});
 router.get('/company/bill/:currentcompanyID/:sel', async (req, res) => {
 	const { currentcompanyID, sel } = req.params;
 	try {

@@ -36,3 +36,13 @@ export function getPropagationTime(currentproductID, i) {
 		`http://localhost:5000/api/product/propagationTime/${currentproductID}/${i}`
 	);
 }
+export function getAllTillTime(currentproductname, i) {
+	return axios.get(
+		`http://localhost:5000/api/product/allTillTime/${currentproductname}/${i}`
+	);
+}
+export function getAllEachTime(currentproductname, i) {
+	return axios.get(
+		`http://localhost:5000/api/product/allEachTime/${currentproductname}/${i}`
+	);
+}

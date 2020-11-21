@@ -9,6 +9,8 @@ import {
 	getTillTime,
 	getPropagationTime,
 	getCompanyBill,
+	getAllEachTime,
+	getAllTillTime,
 } from '../services/httpServices';
 import './css/sb-admin-2.min.css';
 import './css/sb-admin-2.css';
@@ -31,6 +33,7 @@ class DashBoard extends Component {
 		each: 0,
 		all: [],
 		till: 0,
+		bar: '',
 	};
 	async componentDidMount() {
 		//const { currentcompany, currentproduct } = this.state;
@@ -91,19 +94,44 @@ class DashBoard extends Component {
 		);
 		await this.setState({ currentproduct: product[0] });
 		console.log(this.state.currentproduct);
-		const { data: each } = await getEachTime(this.state.currentproduct._id, 0);
-		this.setState({ each: parseInt(each) });
-		console.log('each:' + each);
-		const { data: till } = await getTillTime(this.state.currentproduct._id, 0);
-		console.log('till:' + till);
-		this.setState({ till: parseInt(till) });
-		const { data: all } = await getPropagationTime(
-			this.state.currentproduct._id,
-			0
-		);
-		this.setState({ all });
-		console.log('all:' + all);
+		// const { data: each } = await getEachTime(this.state.currentproduct._id, 0);
+		// this.setState({ each: parseInt(each) });
+		// console.log('each:' + each);
+		// const { data: till } = await getTillTime(this.state.currentproduct._id, 0);
+		// console.log('till:' + till);
+		// this.setState({ till: parseInt(till) });
+		// const { data: all } = await getPropagationTime(
+		// 	this.state.currentproduct._id,
+		// 	0
+		// );
+		// this.setState({ all });
+		// console.log('all:' + all);
+
+		if (this.state.currentproduct.status === 'fail')
+			this.setState({ bar: 'fail' });
+		else if (this.state.currentproduct.status === 'complete') {
+			const i = this.state.currentproduct.process.length;
+			const tillTime = 1; //await getTillTime(this.state.currentproduct._id, i);
+			const allTillTime = 2; //await getAllTillTime(this.state.currentproduct.name, i);
+			if (tillTime <= allTillTime) {
+				this.setState({ bar: 'complete' });
+			} else this.setState({ bar: 'delay' });
+		} else if (
+			this.state.currentproduct.status === 'pending' ||
+			this.state.currentproduct.status === 'active'
+		) {
+			const i =
+				this.state.currentproduct.process.filter(
+					(process) => process.status === 'complete'
+				).length - 1;
+			const tillTime = 1; //await getTillTime(this.state.currentproduct._id, i);
+			const allTillTime = 2; //await getAllTillTime(this.state.currentproduct.name, i);
+			if (tillTime <= allTillTime) {
+				this.setState({ bar: 'ontime' });
+			} else this.setState({ bar: 'being delayed' });
+		}
 	};
+
 	//
 	// handlecompany = async (company) => {
 	// 	await this.setState({
@@ -437,7 +465,8 @@ class DashBoard extends Component {
 																Bill Reference
 															</div>
 															<div className='h5 mb-0 font-weight-bold text-gray-800'>
-																--
+																{this.state.currentbill &&
+																	this.state.currentbill._id}
 															</div>
 														</div>
 														<div className='col-auto'>
@@ -625,7 +654,7 @@ class DashBoard extends Component {
 											<h5 className='m-0 font-weight-bold text-primary'>
 												Progress
 												<span class='badge badge-pill badge-secondary'>
-													On Time
+													{this.state.bar}
 												</span>{' '}
 												{/*to display ontime/fail/delayed*/}
 											</h5>
