@@ -7,7 +7,7 @@ import './css/sb-admin-2.css';
 import './css/track.css';
 import './vendor/fontawesome-free/css/all.min.css';
 import undraw_profile from './img/undraw_profile.svg';
-import bottleneck from './img/bottle.jpg';
+import bottleneck from './img/blue1.jpg';
 import moment from 'moment';
 import { getCompanyBill } from './../services/httpServices';
 class DashBoard extends Component {
@@ -136,7 +136,7 @@ class DashBoard extends Component {
 							{/* Sidebar - Brand */}
 							<a
 								className='sidebar-brand d-flex align-items-center justify-content-center'
-								href='index.html'>
+								href='#'>
 								<div className='sidebar-brand-icon rotate-n-15'>
 									<i className='fas fa-chart-bar'></i>
 									{/*i className="fas fa-laugh-wink"></i*/}
@@ -747,9 +747,9 @@ class DashBoard extends Component {
 
 									<div className='card shadow mb-4'>
 										<div className='card-header py-3'>
-											<h6 className='m-0 font-weight-bold text-primary'>
-												Progress
-											</h6>
+											<h5 className='m-0 font-weight-bold text-primary'>
+												Progress <span class="badge badge-pill badge-secondary">On Time</span> {/*to display ontime/fail/delayed*/}
+											</h5>
 										</div>
 										<div className='card-body custom-height'>
 											<div id='container'>
@@ -1101,16 +1101,16 @@ class DashBoard extends Component {
 										</div>
 									</div>
 
-									<div className='card-columns'>
+									<div className='row'>
 										<div className='flip-card'>
 											<div className='flip-card-inner'>
 												<div className='flip-card-front'>
 													<img className='bottle' src={bottleneck} />
 												</div>
 												<div className='flip-card-back'>
-													<h1>John Doe</h1>
-													<p>Architect & Engineer</p>
-													<p>We love that guy</p>
+													<h1>Failed Process</h1>
+													<p className='cardin1'>Architect & Engineer</p>
+													<p className='cardin1'>We love that guy</p>
 												</div>
 											</div>
 										</div>
@@ -1120,9 +1120,9 @@ class DashBoard extends Component {
 													<img className='bottle' src={bottleneck} />
 												</div>
 												<div className='flip-card-back'>
-													<h1>John Doe</h1>
-													<p>Architect & Engineer</p>
-													<p>We love that guy</p>
+													<h1>Overhead Optimization</h1>
+													<p className='cardin2'>Architect & Engineer</p>
+													<p className='cardin2'>We love that guy</p>
 												</div>
 											</div>
 										</div>
@@ -1132,9 +1132,9 @@ class DashBoard extends Component {
 													<img className='bottle' src={bottleneck} />
 												</div>
 												<div className='flip-card-back'>
-													<h1>John Doe</h1>
-													<p>Architect & Engineer</p>
-													<p>We love that guy</p>
+													<h1>Delayed Process</h1>
+													<p className='cardin3'>Architect & Engineer</p>
+													<p className='cardin3'>We love that guy</p>
 												</div>
 											</div>
 										</div>

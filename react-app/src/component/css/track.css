@@ -33,9 +33,12 @@
 
 .flip-card {
     background-color: transparent;
-    width: 300px;
-    height: 350px;
+    width: 340px;
+    height: 300px;
     perspective: 1000px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .flip-card-inner {
@@ -71,8 +74,17 @@
     transform: rotateY(180deg);
   }
 .flip-card-front img {
-    width: 300px;
-    height: 350px;
+  width: 340px;
+  height: 300px;
+}
+
+.cardin1 .cardin2 .cardin3 {
+  font-size: 20px !important;
+  color: white !important;
+}
+
+.badge {
+  float: right;
 }
 
 /*.container::-webkit-scrollbar{
@@ -91,3 +103,14 @@
     border-radius: 10px;
     background: linear-gradient(to right, #201c29, #201c29 1px, #100e17 1px, #100e17)
 }*/
+
+
+/*CSS FOR LOGIN*/
+.organization {
+  
+  padding-left: 35px;
+  padding-right: 35px;
+}
+#inputGroupSelect01 {
+  height: 50px;
+}
