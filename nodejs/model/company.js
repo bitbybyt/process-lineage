@@ -32,34 +32,33 @@ const companySchema = new mongoose.Schema({
 });
 
 companySchema.methods.getBills = async function (sel) {
-	// this.populate('product');
-	// console.log(this);
 	const d = new Date();
 	let t;
 	let ret = [];
+	console.log(typeof ret);
 	const foundBill = await this.bills;
 	// console.log(foundBill);
 	for (let i in foundBill) {
-		// console.log(foundBill[i]);
 		t = d - foundBill[i].date;
-		// console.log(t);
+
 		if (sel == 1) {
 			//today
 			if (t < 86400000) {
-				ret += foundBill[i];
+				ret.push(foundBill[i]);
 			}
 		} else if (sel == 2) {
 			//last week
 			if (t < 604800000) {
-				ret += foundBill[i];
+				ret.push(foundBill[i]);
 			}
 		} else if (sel == 3) {
 			//last month
 			if (t < 2592000000) {
-				ret += foundBill[i];
+				ret.push(foundBill[i]);
 			}
-		} else ret += foundBill[i];
+		} else ret.push(foundBill[i]);
 	}
+	console.log(typeof ret);
 	return ret;
 };
 
