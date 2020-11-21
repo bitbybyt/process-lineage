@@ -52,24 +52,28 @@ class DashBoard extends Component {
 			this.state.currenttime
 		);
 		console.log(typeof biller);
-		await this.setState({ bill: biller });
+		await this.setState({ bill: [{ _id: '', name: '' }, ...biller] });
 		// console.log("hey");
-		// console.log(this.state.bill);
+		console.log(this.state.bill);
 	};
 	handlebill = async (e) => {
 		const billID = e.target.value;
 		const bill = this.state.bill.filter((bill) => bill._id === billID);
 		await this.setState({ currentbill: bill[0] });
 		console.log(this.state.currentbill);
+		this.setState({ product: [...this.state.currentbill.sub] });
+		console.log(this.state.product);
 	};
-	handleproduct = async (e) => {
-		const productID = e.target.value;
-		const product = this.state.product.filter(
-			(product) => product._id === productID
-		);
-		await this.setState({ currentproduct: product[0] });
-		console.log(this.state.currentproduct);
-	};
+	//
+	// handleproduct = async (e) => {
+	// 	const productID = e.target.value;
+	// 	const product = this.state.product.filter(
+	// 		(product) => product._id === productID
+	// 	);
+	// 	await this.setState({ currentproduct: product[0] });
+	// 	console.log(this.state.currentproduct);
+	// };
+	//
 	// handlecompany = async (company) => {
 	// 	await this.setState({
 	// 		currentcompany: company,
