@@ -33,7 +33,7 @@ class DashBoard extends Component {
 		each: 0,
 		all: [],
 		till: 0,
-		bar: '',
+		bar: 'NA',
 	};
 	async componentDidMount() {
 		//const { currentcompany, currentproduct } = this.state;
@@ -88,52 +88,54 @@ class DashBoard extends Component {
 	};
 
 	handleproduct = async (e) => {
+		this.setState({bar: 'NA'});
 		const productID = e.target.value;
 		const product = this.state.product.filter(
 			(product) => product._id === productID
 		);
+		console.log(product);
 		await this.setState({ currentproduct: product[0] });
 		console.log(this.state.currentproduct);
-		// const { data: each } = await getEachTime(this.state.currentproduct._id, 0);
-		// this.setState({ each: parseInt(each) });
+		
+		
+		const { data: each } = await getEachTime(this.state.currentproduct._id, 0);
+		this.setState({ each: parseInt(each) });
 		// console.log('each:' + each);
-		// const { data: till } = await getTillTime(this.state.currentproduct._id, 0);
+		const { data: till } = await getAllEachTime(this.state.currentproduct._id, 0);
 		// console.log('till:' + till);
-		// this.setState({ till: parseInt(till) });
-		// const { data: all } = await getPropagationTime(
-		// 	this.state.currentproduct._id,
-		// 	0
-		// );
-		// this.setState({ all });
+		this.setState({ till: parseInt(till) });
+		const { data: all } = await getPropagationTime(
+			this.state.currentproduct._id,
+			0
+		);
+		this.setState({ all });
 		// console.log('all:' + all);
 
 		if (this.state.currentproduct.status === 'fail')
 			this.setState({ bar: 'fail' });
 		else if (this.state.currentproduct.status === 'complete') {
-			const i = this.state.currentproduct.process.length;
-			const tillTime = 1;
-			// let { data: tillTime } = await getTillTime(this.state.currentproduct._id, i);
-			// tillTime = parseInt(tillTime);
-			const allTillTime = 2;
-			// let { data: allTillTime } = await getAllTillTime(this.state.currentproduct.name, i);
-			// allTillTime = parseInt(allTillTime);
+			let i = this.state.currentproduct.process.length;
+			i-=1;
+			// const tillTime = 1;
+			let { data: tillTime } = await getTillTime(this.state.currentproduct._id, i);
+			tillTime = parseInt(tillTime);
+			// const allTillTime = 2;
+			let { data: allTillTime } = await getAllTillTime(this.state.currentproduct.name, i);
+			allTillTime = parseInt(allTillTime);
 			if (tillTime <= allTillTime) {
-				this.setState({ bar: 'complete' });
-			} else this.setState({ bar: 'delay' });
-		} else if (
-			this.state.currentproduct.status === 'pending' ||
-			this.state.currentproduct.status === 'active'
-		) {
-			const i =
+				this.setState({ bar: 'completed on time' });
+			} else this.setState({ bar: 'delayed complete' });
+		} else if (this.state.currentproduct.status === 'active') {
+			let i =
 				this.state.currentproduct.process.filter(
 					(process) => process.status === 'complete'
-				).length - 1;
-			const tillTime = 1;
-			// let { data: tillTime } = await getTillTime(this.state.currentproduct._id, i);
-			// tillTime = parseInt(tillTime);
-			const allTillTime = 2;
-			// let { data: allTillTime } = await getAllTillTime(this.state.currentproduct.name, i);
-			// allTillTime = parseInt(allTillTime);
+				).length;
+			// const tillTime = 1;
+			let { data: tillTime } = await getTillTime(this.state.currentproduct._id, i);
+			tillTime = parseInt(tillTime);
+			// const allTillTime = 2;
+			let { data: allTillTime } = await getAllTillTime(this.state.currentproduct.name, i);
+			allTillTime = parseInt(allTillTime);
 			if (tillTime <= allTillTime) {
 				this.setState({ bar: 'ontime' });
 			} else this.setState({ bar: 'being delayed' });
