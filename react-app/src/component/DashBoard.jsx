@@ -47,13 +47,19 @@ class DashBoard extends Component {
 		//console.log(this.state.currenttime);
 		//console.log(this.state.bill);
 		//console.log(this.state.currentcompany);
+		await this.setState({
+			bill: [{ _id: '', name: '' }],
+		});
 		const { data: biller } = await getCompanyBill(
 			this.state.currentcompany._id,
 			this.state.currenttime
 		);
-		console.log(typeof biller);
-		await this.setState({ bill: [{ _id: '', name: '' }, ...biller] });
-		// console.log("hey");
+		//console.log(typeof biller);
+		await this.setState({
+			bill: [{ _id: '', name: '' }, ...biller],
+			product: [{ _id: '', name: '' }],
+			currentproduct: null,
+		});
 		console.log(this.state.bill);
 	};
 	handlebill = async (e) => {
@@ -61,18 +67,20 @@ class DashBoard extends Component {
 		const bill = this.state.bill.filter((bill) => bill._id === billID);
 		await this.setState({ currentbill: bill[0] });
 		console.log(this.state.currentbill);
-		this.setState({ product: [...this.state.currentbill.sub] });
+		await this.setState({
+			product: [{ _id: '', name: '' }, ...this.state.currentbill.sub],
+		});
 		console.log(this.state.product);
 	};
-	//
-	// handleproduct = async (e) => {
-	// 	const productID = e.target.value;
-	// 	const product = this.state.product.filter(
-	// 		(product) => product._id === productID
-	// 	);
-	// 	await this.setState({ currentproduct: product[0] });
-	// 	console.log(this.state.currentproduct);
-	// };
+
+	handleproduct = async (e) => {
+		const productID = e.target.value;
+		const product = this.state.product.filter(
+			(product) => product._id === productID
+		);
+		await this.setState({ currentproduct: product[0] });
+		console.log(this.state.currentproduct);
+	};
 	//
 	// handlecompany = async (company) => {
 	// 	await this.setState({
@@ -750,33 +758,33 @@ class DashBoard extends Component {
 
 									{/*Illustrations*/}
 									<div className='container prog'>
-											<select
-												onChange={this.handleTime}
-												value={this.state.currenttime}
-												className='browser-default custom-select custom-select-sm mb-3'
-												style={{ width: '80vh'}}>
-												{/*{this.state.product.map((product) => (
+										<select
+											onChange={this.handleproduct}
+											className='browser-default custom-select custom-select-sm mb-3'
+											style={{ width: '80vh' }}>
+											{this.state.product.map((product) => (
 												<option
 													key={product._id}
 													value={product._id}
 													className='dropdown-item'
-													href='#'
-													>
+													href='#'>
 													{product.name}
 												</option>
-											))}*/}
-												<option value='' disabled></option>
+											))}
+											{/* <option value='' disabled></option>
 												<option value='1'>one</option>
 												<option value='2'>two</option>
-												<option value='3'>Three</option>
-											</select>
+												<option value='3'>Three</option> */}
+										</select>
 									</div>
 									<div className='card shadow mb-4'>
 										<div className='card-header py-3'>
-										
 											<h5 className='m-0 font-weight-bold text-primary'>
-												Progress 	
-												<span class="badge badge-pill badge-secondary">On Time</span> {/*to display ontime/fail/delayed*/}
+												Progress
+												<span class='badge badge-pill badge-secondary'>
+													On Time
+												</span>{' '}
+												{/*to display ontime/fail/delayed*/}
 											</h5>
 										</div>
 										<div className='card-body custom-height'>
