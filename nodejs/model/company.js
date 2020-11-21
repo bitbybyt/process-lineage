@@ -34,8 +34,8 @@ const companySchema = new mongoose.Schema({
 companySchema.methods.getBills = async function (sel) {
 	const d = new Date();
 	let t;
-	let ret = [];
-	console.log(typeof ret);
+	let ret = new Array();
+	// console.log(typeof ret);
 	const foundBill = await this.bills;
 	// console.log(foundBill);
 	for (let i in foundBill) {
@@ -58,7 +58,7 @@ companySchema.methods.getBills = async function (sel) {
 			}
 		} else ret.push(foundBill[i]);
 	}
-	console.log(typeof ret);
+	// console.log(typeof ret);
 	return ret;
 };
 

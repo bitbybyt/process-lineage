@@ -23,7 +23,8 @@ router.get('/company/bill/:currentcompanyID/:sel', async (req, res) => {
 	try {
 		const company = await Company.findById(currentcompanyID)
 			.populate('products')
-			.populate('bills');
+			.populate('bills')
+			.populate({path: 'bills', populate: ['sub']});
 		console.log(company);
 		const bill = await company.getBills(sel);
 		console.log(bill);

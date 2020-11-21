@@ -53,14 +53,15 @@ class DashBoard extends Component {
 		);
 		console.log(typeof biller);
 		await this.setState({ bill: biller });
-		console.log(this.state.bill);
+		// console.log("hey");
+		// console.log(this.state.bill);
 	};
-	// handlebill = async (e) => {
-	// 	const billID = e.target.value;
-	// 	const bill = this.state.bill.filter((bill) => bill._id === billID);
-	// 	await this.setState({ currentbill: bill[0] });
-	// 	console.log(this.state.currentbill);
-	// };
+	handlebill = async (e) => {
+		const billID = e.target.value;
+		const bill = this.state.bill.filter((bill) => bill._id === billID);
+		await this.setState({ currentbill: bill[0] });
+		console.log(this.state.currentbill);
+	};
 	handleproduct = async (e) => {
 		const productID = e.target.value;
 		const product = this.state.product.filter(
@@ -287,7 +288,7 @@ class DashBoard extends Component {
 
 									{/* Topbar Search */}
 									<div className='container'>
-										{/* <select
+										<select
 											onChange={this.handlebill}
 											className='browser-default custom-select custom-select-sm mb-3'
 											style={{ width: '200px' }}>
@@ -300,7 +301,7 @@ class DashBoard extends Component {
 													{bill.customerName}
 												</option>
 											))}
-										</select> */}
+										</select>
 
 										{/*<div className='dropdown'>
 											<button
