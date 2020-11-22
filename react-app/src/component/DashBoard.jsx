@@ -34,7 +34,9 @@ class DashBoard extends Component {
 		propagationdelay: [],
 		eachall: {},
 		bar: 'NA',
-		cnt:0,
+		cnt: 0,
+		success: 0,
+		failprocessname: '',
 	};
 	async componentDidMount() {
 		//const { currentcompany, currentproduct } = this.state;
@@ -89,9 +91,9 @@ class DashBoard extends Component {
 	};
 
 	handleproduct = async (e) => {
-		this.setState({cnt: 0});
-		this.setState({bar: 'NA'});
-		this.setState({propagationdelay: []});
+		this.setState({ cnt: 0 });
+		this.setState({ bar: 'NA' });
+		this.setState({ propagationdelay: [] });
 		// this.setState({each: new Array()});
 		// this.setState({eachall: new Array()});
 		// this.setState({delayed: []});
@@ -102,20 +104,18 @@ class DashBoard extends Component {
 		console.log(product);
 		await this.setState({ currentproduct: product[0] });
 		console.log(this.state.currentproduct);
-		
-		
-
 
 		const process = this.state.currentproduct.process;
-		const complete = process.filter(
-			(process) => process.state === 'complete'
-			);
-		let x=complete.length;
+		const complete = process.filter((process) => process.state === 'complete');
+		let x = complete.length;
 		let { data: each } = await getEachTime(this.state.currentproduct._id, x);
 		this.setState({ each });
 		console.log('each:' + each);
 		// console.log(typeof each);
-		const { data: eachall } = await getAllEachTime(this.state.currentproduct.name, x);
+		const { data: eachall } = await getAllEachTime(
+			this.state.currentproduct.name,
+			x
+		);
 		console.log('eachall:' + eachall);
 		// console.log(typeof eachall);
 		this.setState({ eachall });
@@ -128,43 +128,72 @@ class DashBoard extends Component {
 		// }
 		// this.setState({ delayed: res });
 		// console.log('delay:' + delayed);
-		const { data: propagationdelay } = await getPropagationTime(this.state.currentproduct._id);
+		const { data: propagationdelay } = await getPropagationTime(
+			this.state.currentproduct._id
+		);
 		this.setState({ propagationdelay });
 		console.log('propagationdelay:' + propagationdelay);
-
-
-
-
 
 		if (this.state.currentproduct.status === 'fail')
 			this.setState({ bar: 'fail' });
 		else if (this.state.currentproduct.status === 'complete') {
 			let i = this.state.currentproduct.process.length;
-			i-=1;
+			i -= 1;
 			// const tillTime = 1;
-			let { data: tillTime } = await getTillTime(this.state.currentproduct._id, i);
+			let { data: tillTime } = await getTillTime(
+				this.state.currentproduct._id,
+				i
+			);
 			tillTime = parseInt(tillTime);
 			// const allTillTime = 2;
-			let { data: allTillTime } = await getAllTillTime(this.state.currentproduct.name, i);
+			let { data: allTillTime } = await getAllTillTime(
+				this.state.currentproduct.name,
+				i
+			);
 			allTillTime = parseInt(allTillTime);
 			if (tillTime <= allTillTime) {
 				this.setState({ bar: 'completed on time' });
 			} else this.setState({ bar: 'delayed complete' });
 		} else if (this.state.currentproduct.status === 'active') {
-			let i =
-				this.state.currentproduct.process.filter(
-					(process) => process.status === 'complete'
-				).length;
+			let i = this.state.currentproduct.process.filter(
+				(process) => process.status === 'complete'
+			).length;
 			// const tillTime = 1;
-			let { data: tillTime } = await getTillTime(this.state.currentproduct._id, i);
+			let { data: tillTime } = await getTillTime(
+				this.state.currentproduct._id,
+				i
+			);
 			tillTime = parseInt(tillTime);
 			// const allTillTime = 2;
-			let { data: allTillTime } = await getAllTillTime(this.state.currentproduct.name, i);
+			let { data: allTillTime } = await getAllTillTime(
+				this.state.currentproduct.name,
+				i
+			);
 			allTillTime = parseInt(allTillTime);
 			if (tillTime <= allTillTime) {
 				this.setState({ bar: 'ontime' });
 			} else this.setState({ bar: 'being delayed' });
 		}
+		//success percentage
+		const total = this.state.currentcompany.products.filter(
+			(product) => product.name === this.state.currentproduct.name
+		);
+		const compy = total.filter((product) => product.status === 'complete');
+		console.log(total, total.length);
+		console.log(compy, compy.length);
+		const success = (compy.length / total.length) * 100;
+		console.log(success);
+		this.setState({ success });
+		//fail process
+		if (this.state.currentproduct.status === 'fail') {
+			const failprocess = this.state.currentproduct.process.filter(
+				(process) => process.state === 'fail'
+			);
+			this.setState({ failprocessname: failprocess[0].processName });
+		} else {
+			this.setState({ failprocessname: 'No Fail' });
+		}
+		console.log(this.state.failprocessname);
 	};
 
 	//
@@ -178,8 +207,8 @@ class DashBoard extends Component {
 	render() {
 		const { currentproduct } = this.state;
 		var next;
-		var cnnt=-1;
-		const prop=parseInt(this.state.propagationdelay[1]);
+		var cnnt = -1;
+		const prop = parseInt(this.state.propagationdelay[1]);
 		// this.state.currentproduct && console.log(this.state.currentproduct.process[prop].processName);
 
 		function category(category, fail1, pending1, active1, complete1) {
@@ -546,7 +575,7 @@ class DashBoard extends Component {
 															<div className='row no-gutters align-items-center'>
 																<div className='col-auto'>
 																	<div className='h5 mb-0 mr-3 font-weight-bold text-gray-800'>
-																		---
+																		{this.state.success}%
 																	</div>
 																</div>
 																{/*<div className='col'>
@@ -791,11 +820,9 @@ class DashBoard extends Component {
 															<div
 																className='collapse multi-collapse show'
 																id='collapseCardExample1'>
-																{
-																this.state.currentproduct &&
+																{this.state.currentproduct &&
 																	this.state.currentproduct.process.map(
-																		(process) => 
-																		{
+																		(process) => {
 																			//TODO: implement time exceeded yellow color
 																			// console.log('y:' + process.processname);
 																			if (
@@ -808,7 +835,10 @@ class DashBoard extends Component {
 																				// console.log(this.state.each[x]);
 																				cnnt++;
 																				console.log('cnnt1:' + cnnt);
-																				if(this.state.each[cnnt]<=this.state.eachall[cnnt]) {
+																				if (
+																					this.state.each[cnnt] <=
+																					this.state.eachall[cnnt]
+																				) {
 																					return (
 																						<div className='pro-list'>
 																							<div className='text-success border border-success rounded pl md-2 my-3 mx-3 py-3 px-3'>
@@ -824,7 +854,7 @@ class DashBoard extends Component {
 																							</div>
 																						</div>
 																					);
-																				}																			
+																				}
 																			} else if (
 																				process.category === 'decision' &&
 																				process.state === 'active'
@@ -936,7 +966,7 @@ class DashBoard extends Component {
 																	Activity
 																</h6>
 															</a>
-															
+
 															<div
 																className='collapse multi-collapse show'
 																id='collapseCardExample1'>
@@ -950,7 +980,10 @@ class DashBoard extends Component {
 																			) {
 																				cnnt++;
 																				console.log('cnnt2:' + cnnt);
-																				if(this.state.each[cnnt]<=this.state.eachall[cnnt]) {
+																				if (
+																					this.state.each[cnnt] <=
+																					this.state.eachall[cnnt]
+																				) {
 																					return (
 																						<div className='pro-list'>
 																							<div className='text-success border border-success rounded pl md-2 my-3 mx-3 py-3 px-3'>
@@ -1083,8 +1116,11 @@ class DashBoard extends Component {
 												</div>
 												<div className='flip-card-back'>
 													<h1>Failed Process</h1>
-													<p className='cardin1'>Architect & Engineer</p>
-													<p className='cardin1'>We love that guy</p>
+													<p className='cardin1'>
+														{this.state.failprocessname}
+													</p>
+													{/* <p className='cardin1'>Architect & Engineer</p>
+													<p className='cardin1'>We love that guy</p> */}
 												</div>
 											</div>
 										</div>
@@ -1096,11 +1132,7 @@ class DashBoard extends Component {
 												<div className='flip-card-back'>
 													<h1>Overhead Optimization</h1>
 													<p className='cardin2'>
-														
-														{
-															this.state.currentproduct && 
-															console.log()
-														}
+														{this.state.currentproduct && console.log()}
 													</p>
 													<p className='cardin2'>We love that guy</p>
 												</div>
