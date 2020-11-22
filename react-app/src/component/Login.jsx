@@ -104,10 +104,7 @@ class Login extends Component {
 														id='inputGroupSelect01'
 														onChange={this.handleChange}
 														required>
-														{/* <option selected>Organization</option>
-														<option value='1'>Dell</option>
-														<option value='2'>Two</option>
-														<option value='3'>Three</option> */}
+														
 														<option selected disabled>
 															Organization
 														</option>

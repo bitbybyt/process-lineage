@@ -18,6 +18,9 @@ import './css/track.css';
 import './vendor/fontawesome-free/css/all.min.css';
 import undraw_profile from './img/undraw_profile.svg';
 import bottleneck from './img/blue1.jpg';
+import bottleneck1 from './img/bn1.jpeg';
+import bottleneck2 from './img/bn2.jpeg';
+import bottleneck3 from './img/bn3.jpeg';
 import moment from 'moment';
 
 class DashBoard extends Component {
@@ -230,7 +233,7 @@ class DashBoard extends Component {
 		var cnnt = -1;
 		// var timevar = this.state.tillTime
 		// console.log('timevar:' + timevar + currentproduct);
-		const prop = parseInt(this.state.propagationdelay[1]);
+		// const prop = parseInt(this.state.propagationdelay[1]);
 		// this.state.currentproduct && console.log(this.state.currentproduct.process[prop].processName);
 
 		function category(category, fail1, pending1, active1, complete1) {
@@ -361,6 +364,49 @@ class DashBoard extends Component {
 					)
 				}
 			}
+		}
+
+		function delayshow(curr, e, ea) {
+			if(currentproduct) {
+				const res = [];
+				for(let i=0;i<e.length;i++) {
+					if(e[i]>ea[i]) {
+						res.push(<div className="border rounded pl md-2 my-2 mx-2 py-2 px-2">{curr.process[i].processName}</div>)
+					} 
+				}
+
+				return res;
+			}
+		}
+
+		function overhead(propdelay) {
+			const process = currentproduct.process;
+			let pr=parseInt(propdelay[1]);
+			let one;
+			let two;
+			const tm=parseInt(propdelay[0]);
+
+			for(let p=pr; p<=pr;p++) {
+				one = process[p].processName.toString();
+				two = process[p+1].processName.toString();
+			}
+			console.log('one' + one + two);
+			
+			return(
+			<p>
+				<table className="table">
+					<tbody><tr >
+						<td className="border border-danger">{one}</td>
+						<td>-</td>
+						<td className="border border-danger">{two}</td>
+					</tr></tbody>
+					<tr >
+						<td></td>
+						<td>{tm}</td>
+						<td></td>
+					</tr>
+				</table>
+			</p>)
 		}
 
 		return (
@@ -1080,13 +1126,8 @@ class DashBoard extends Component {
 																className='collapse multi-collapse show'
 																id='collapseCardExample1'>
 																<div className='card-body'>
-																	{this.state.currentproduct && displaycomplete(this.state.currentproduct, this.state.tillall, this.state.till)}
-																	{/* {
-																		displaycomplete()
-																		return(<strong>Estimated Time:</strong>
-																		{this.state.currentproduct && 
-																		displayDateTime(this.state.currentproduct, this.state.tillall)})
-																	} */}
+																	{this.state.currentproduct && 
+																	displaycomplete(this.state.currentproduct, this.state.tillall, this.state.till)}
 																</div>
 															</div>
 														</div>
@@ -1100,41 +1141,67 @@ class DashBoard extends Component {
 										<div className='flip-card'>
 											<div className='flip-card-inner'>
 												<div className='flip-card-front'>
-													<img className='bottle' src={bottleneck} />
+													<img className='bottle' src={bottleneck1} />
 												</div>
 												<div className='flip-card-back'>
-													<h1>Failed Process</h1>
-													<p className='cardin1'>
+													<div class="card bg-danger">
+														<div class="card-body text-center">
+															<h3 class="text-white">Failed Process </h3>
+														</div>
+													</div>
+													<div class="card-body text-center">
+														<p class="card-text h1 font-weight-bold text-monospace">
 														{this.state.failprocessname}
-													</p>
-													{/* <p className='cardin1'>Architect & Engineer</p>
-													<p className='cardin1'>We love that guy</p> */}
+														</p>
+													</div>
 												</div>
 											</div>
 										</div>
 										<div className='flip-card'>
 											<div className='flip-card-inner'>
 												<div className='flip-card-front'>
-													<img className='bottle' src={bottleneck} />
+													<img className='bottle' src={bottleneck2} />
 												</div>
 												<div className='flip-card-back'>
-													<h1>Overhead Optimization</h1>
-													<p className='cardin2'>
-														{this.state.currentproduct && console.log()}
-													</p>
-													<p className='cardin2'>We love that guy</p>
+													<div class="card bg-secondary">
+														<div class="card-body text-center">
+															<h3 class="text-white">Overhead Optimization</h3>
+														</div>
+													</div>
+													<div class="card-body text-center">
+														{this.state.currentproduct && 
+														overhead(this.state.propagationdelay)}
+														{/* <p>
+															<div>
+																
+																
+															</div>
+															<br/>
+															<div>
+
+															</div>
+														</p> */}
+													</div>
 												</div>
 											</div>
 										</div>
 										<div className='flip-card'>
 											<div className='flip-card-inner'>
 												<div className='flip-card-front'>
-													<img className='bottle' src={bottleneck} />
+													<img className='bottle' src={bottleneck3} />
 												</div>
 												<div className='flip-card-back'>
-													<h1>Delayed Process</h1>
-													<p className='cardin3'>Architect & Engineer</p>
-													<p className='cardin3'>We love that guy</p>
+												<div class="card bg-warning">
+														<div class="card-body text-center">
+															<h3 class="text-white">Delayed Process</h3>
+														</div>
+													</div>
+													<div class="card-body text-center">
+														<p class="card-text">
+														 {this.state.currentproduct && 
+															delayshow(this.state.currentproduct, this.state.each, this.state.eachall)}
+														</p>
+													</div>
 												</div>
 											</div>
 										</div>

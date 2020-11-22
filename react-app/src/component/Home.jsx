@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './css/temp.css';
-import Img1 from './img/features-icon-1.jpg';
-import Img2 from './img/features-icon-2.jpg';
-import Img3 from './img/features-icon-3.jpg';
+import Img1 from './img/ft-icon-1.png';
+import Img2 from './img/ft-icon-2.png';
+import Img3 from './img/ft-icon-3.png';
 
 const Home = () => {
 	return (
@@ -18,7 +18,7 @@ const Home = () => {
 									Lineager
 								</a>
 								{/*<!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->*/}
+                        		<!-- ***** Menu Start ***** -->*/}
 								<ul className='nav'>
 									<li className='scroll-to-section'>
 										<a href='#welcome' className='menu-item'>
@@ -31,10 +31,10 @@ const Home = () => {
 										</a>
 									</li>
 								</ul>
-								<a className='menu-trigger'>
+								{/*<a className='menu-trigger'>
 									<span>Menu</span>
 								</a>
-								{/*<!-- ***** Menu End ***** -->*/}
+								<!-- ***** Menu End ***** -->*/}
 							</nav>
 						</div>
 					</div>
@@ -50,7 +50,7 @@ const Home = () => {
 								className='left-text col-lg-6 col-md-12 col-sm-12 col-xs-12'
 								data-scroll-reveal='enter left move 30px over 0.6s after 0.4s'>
 								<h1>
-									Know About Your <em>PROCESS</em>
+									Know the Insights of Your Business <em>PROCESS</em>
 								</h1>
 								<a href='/login' className='main-button-slider'>
 									LOGIN
@@ -71,12 +71,14 @@ const Home = () => {
 							data-scroll-reveal='enter left move 30px over 0.6s after 0.4s'>
 							<div className='features-item'>
 								<div className='features-icon'>
-									<h2>1</h2>
-									<img src={Img1} alt='Feature 1' />
-									<h4>Process Flow Visualization</h4>
+								<h2>1</h2>
+									<img src={Img3} alt='' 
+									style={{height:'15vh'}} />
+									<h4>Total Cycle Time Estimation</h4>
 									<p>
-										Curabitur pulvinar vel odio sed sagittis. Nam maximus ex
-										diam, nec consectetur diam.
+									The total time from the beginning to the end of your process, 
+									as defined by you and your customer. Find out the time taken by 
+									the total process to help you fasten the chain.
 									</p>
 								</div>
 							</div>
@@ -87,11 +89,13 @@ const Home = () => {
 							<div className='features-item'>
 								<div className='features-icon'>
 									<h2>2</h2>
-									<img src={Img2} alt='' />
+									<img src={Img1} alt='' 
+									style={{height:'15vh'}} />
 									<h4>Identification of Bottlenecks</h4>
 									<p>
-										Curabitur pulvinar vel odio sed sagittis. Nam maximus ex
-										diam, nec consectetur diam.
+										Botteleneck is a point of congestion in a production system that occurs
+										when workloads arrive too quickly for the production process to handle. 
+										Identify bottlenecks and optimise your process.
 									</p>
 								</div>
 							</div>
@@ -102,11 +106,12 @@ const Home = () => {
 							<div className='features-item'>
 								<div className='features-icon'>
 									<h2>3</h2>
-									<img src={Img3} alt='' />
-									<h4>Total Cycle Time Estimation</h4>
+									<img src={Img2} alt='Feature 1'
+									style={{height:'15vh'}} />
+									<h4>Process Flow Visualization</h4>
 									<p>
-										Curabitur pulvinar vel odio sed sagittis. Nam maximus ex
-										diam, nec consectetur diam.
+									A business process flow is a way of visualizing and documenting 
+									the steps in a business process.<br/><br/><br/>
 									</p>
 								</div>
 							</div>
@@ -114,7 +119,7 @@ const Home = () => {
 					</div>
 				</div>
 			</section>
-			<footer id='contact-us'>
+			{/*<footer id='contact-us'>
 				<div className='container'>
 					<div className='footer-content'>
 						<div className='row'></div>
@@ -127,7 +132,7 @@ const Home = () => {
 						</div>
 					</div>
 				</div>
-			</footer>
+							</footer>*/}
 		</div>
 	);
 };
