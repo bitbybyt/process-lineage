@@ -27,7 +27,7 @@ router.get('/product/eachTime/:currentproductID/:i', async (req, res) => {
 		const t = await product.eachTime(req.params.i);
 		//console.log(t.time);
 		console.log(t);
-		res.send(t.toString());
+		res.send(t);
 	} catch (err) {
 		return res.status(400).send('Error on Each Time');
 	}
@@ -44,13 +44,13 @@ router.get('/product/tillTime/:currentproductID/:i', async (req, res) => {
 	}
 });
 router.get(
-	'/product/propagationTime/:currentproductID/:i',
+	'/product/propagationTime/:currentproductID',
 	async (req, res) => {
 		try {
 			const product = await Product.findById(
 				req.params.currentproductID
 			).populate('parent');
-			const t = await product.propagationTime(req.params.i);
+			const t = await product.propagationTime();
 			res.send(t);
 		} catch (err) {
 			return res.status(400).send('Error on Propagation Time');
@@ -67,7 +67,7 @@ router.get('/product/allEachTime/:currentproductname/:i', async (req, res) => {
 			req.params.currentproductname,
 			parseInt(req.params.i)
 		);
-		res.send(t.toString());
+		res.send(t);
 	} catch (err) {
 		return res.status(400).send('Error on AllEachTime');
 	}

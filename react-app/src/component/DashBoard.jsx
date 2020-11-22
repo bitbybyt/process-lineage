@@ -30,10 +30,11 @@ class DashBoard extends Component {
 		currentcompany: {},
 		user: {},
 		currenttime: '',
-		each: 0,
-		all: [],
-		till: 0,
+		each: {},
+		propagationdelay: [],
+		eachall: {},
 		bar: 'NA',
+		cnt:0,
 	};
 	async componentDidMount() {
 		//const { currentcompany, currentproduct } = this.state;
@@ -88,7 +89,12 @@ class DashBoard extends Component {
 	};
 
 	handleproduct = async (e) => {
+		this.setState({cnt: 0});
 		this.setState({bar: 'NA'});
+		this.setState({propagationdelay: []});
+		// this.setState({each: new Array()});
+		// this.setState({eachall: new Array()});
+		// this.setState({delayed: []});
 		const productID = e.target.value;
 		const product = this.state.product.filter(
 			(product) => product._id === productID
@@ -98,18 +104,37 @@ class DashBoard extends Component {
 		console.log(this.state.currentproduct);
 		
 		
-		const { data: each } = await getEachTime(this.state.currentproduct._id, 0);
-		this.setState({ each: parseInt(each) });
-		// console.log('each:' + each);
-		const { data: till } = await getAllEachTime(this.state.currentproduct._id, 0);
-		// console.log('till:' + till);
-		this.setState({ till: parseInt(till) });
-		const { data: all } = await getPropagationTime(
-			this.state.currentproduct._id,
-			0
-		);
-		this.setState({ all });
-		// console.log('all:' + all);
+
+
+		const process = this.state.currentproduct.process;
+		const complete = process.filter(
+			(process) => process.state === 'complete'
+			);
+		let x=complete.length;
+		let { data: each } = await getEachTime(this.state.currentproduct._id, x);
+		this.setState({ each });
+		console.log('each:' + each);
+		// console.log(typeof each);
+		const { data: eachall } = await getAllEachTime(this.state.currentproduct.name, x);
+		console.log('eachall:' + eachall);
+		// console.log(typeof eachall);
+		this.setState({ eachall });
+		// let res=[];
+		// for(let i in each) {
+
+		// 	if(this.state.each[i]<=this.state.eachall[i]) {
+		// 		res.push(0) //0 for on-time
+		// 	} else {res.push(1)} //1 for delay
+		// }
+		// this.setState({ delayed: res });
+		// console.log('delay:' + delayed);
+		const { data: propagationdelay } = await getPropagationTime(this.state.currentproduct._id);
+		this.setState({ propagationdelay });
+		console.log('propagationdelay:' + propagationdelay);
+
+
+
+
 
 		if (this.state.currentproduct.status === 'fail')
 			this.setState({ bar: 'fail' });
@@ -153,45 +178,45 @@ class DashBoard extends Component {
 	render() {
 		const { currentproduct } = this.state;
 		var next;
+		var cnnt=-1;
+		const prop=parseInt(this.state.propagationdelay[1]);
+		// this.state.currentproduct && console.log(this.state.currentproduct.process[prop].processName);
+
 		function category(category, fail1, pending1, active1, complete1) {
-			console.log(category);
+			// console.log(category);
 			if (currentproduct) {
 				const process = currentproduct.process;
-				console.log(process);
+				// console.log(process);
 				const activity = process.filter(
 					(process) => process.category === category
 				);
 				const fail = activity.filter((activity) => activity.state === 'fail');
-				console.log(fail);
+				// console.log(fail);
 				const complete = activity.filter(
 					(activity) => activity.state === 'complete'
 				);
-				console.log(complete);
+				// console.log(complete);
 				if (fail.length !== 0) {
-					console.log('fail');
+					// console.log('fail');
 					next = 'fail';
-					console.log('nextsteps : ', next);
-					//icon = 'fa-ban';
+					// console.log('nextsteps : ', next);
 					return fail1;
 				} else if (activity[0].state === 'pending') {
-					console.log('pending');
+					// console.log('pending');
 					next = 'pending';
-					console.log('nextsteps : ', next);
-
-					//icon = 'fa-step-forward';
+					// console.log('nextsteps : ', next);
 
 					return pending1;
 				} else if (complete.length === activity.length) {
-					console.log('complete');
+					// console.log('complete');
 					next = 'complete';
-					//icon = 'fa-check';
-					console.log('nextsteps : ', next);
+					// console.log('nextsteps : ', next);
 
 					return complete1;
 				} else {
-					console.log('lastone');
+					// console.log('lastone');
 					next = 'active';
-					console.log('nextsteps : ', next);
+					// console.log('nextsteps : ', next);
 					return active1;
 				}
 			}
@@ -766,21 +791,40 @@ class DashBoard extends Component {
 															<div
 																className='collapse multi-collapse show'
 																id='collapseCardExample1'>
-																{this.state.currentproduct &&
+																{
+																this.state.currentproduct &&
 																	this.state.currentproduct.process.map(
-																		(process) => {
+																		(process) => 
+																		{
 																			//TODO: implement time exceeded yellow color
+																			// console.log('y:' + process.processname);
 																			if (
 																				process.category === 'decision' &&
 																				process.state === 'complete'
 																			) {
-																				return (
-																					<div className='pro-list'>
-																						<div className='text-success border border-success rounded pl md-2 my-3 mx-3 py-3 px-3'>
-																							{process.processName}
+																				// let x = this.state.cnt;
+																				// this.state.cnt +=1;
+																				// console.log('x:' + x + process.processName);
+																				// console.log(this.state.each[x]);
+																				cnnt++;
+																				console.log('cnnt1:' + cnnt);
+																				if(this.state.each[cnnt]<=this.state.eachall[cnnt]) {
+																					return (
+																						<div className='pro-list'>
+																							<div className='text-success border border-success rounded pl md-2 my-3 mx-3 py-3 px-3'>
+																								{process.processName}
+																							</div>
 																						</div>
-																					</div>
-																				);
+																					);
+																				} else {
+																					return (
+																						<div className='pro-list'>
+																							<div className='text-warning border border-warning rounded pl md-2 my-3 mx-3 py-3 px-3'>
+																								{process.processName}
+																							</div>
+																						</div>
+																					);
+																				}																			
 																			} else if (
 																				process.category === 'decision' &&
 																				process.state === 'active'
@@ -892,7 +936,7 @@ class DashBoard extends Component {
 																	Activity
 																</h6>
 															</a>
-															{/* Card Content - Collapse */}
+															
 															<div
 																className='collapse multi-collapse show'
 																id='collapseCardExample1'>
@@ -904,13 +948,25 @@ class DashBoard extends Component {
 																				process.category === 'activity' &&
 																				process.state === 'complete'
 																			) {
-																				return (
-																					<div className='pro-list'>
-																						<div className='text-success border border-success rounded pl md-2 my-3 mx-3 py-3 px-3'>
-																							{process.processName}
+																				cnnt++;
+																				console.log('cnnt2:' + cnnt);
+																				if(this.state.each[cnnt]<=this.state.eachall[cnnt]) {
+																					return (
+																						<div className='pro-list'>
+																							<div className='text-success border border-success rounded pl md-2 my-3 mx-3 py-3 px-3'>
+																								{process.processName}
+																							</div>
 																						</div>
-																					</div>
-																				);
+																					);
+																				} else {
+																					return (
+																						<div className='pro-list'>
+																							<div className='text-warning border border-warning rounded pl md-2 my-3 mx-3 py-3 px-3'>
+																								{process.processName}
+																							</div>
+																						</div>
+																					);
+																				}
 																			} else if (
 																				process.category === 'activity' &&
 																				process.state === 'active'
@@ -1039,7 +1095,13 @@ class DashBoard extends Component {
 												</div>
 												<div className='flip-card-back'>
 													<h1>Overhead Optimization</h1>
-													<p className='cardin2'>Architect & Engineer</p>
+													<p className='cardin2'>
+														
+														{
+															this.state.currentproduct && 
+															console.log()
+														}
+													</p>
 													<p className='cardin2'>We love that guy</p>
 												</div>
 											</div>

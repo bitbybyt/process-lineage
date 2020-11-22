@@ -263,8 +263,12 @@ async function link() {
 	//console.log(product1[0].eachTime(0));
 
 	// console.log(await product1[0].eachTime( 0 ));
-	console.log(await Product.alleachTime('XPS 15', 0));
-	console.log(await Product.allEachTime('XPS 15', 'Decide the Factory'));
+	// console.log(product1);
+	const t = await product1[0].propagationTime();
+	console.log(t);
+	// console.log('------');
+	// console.log(await Product.alleachTime('XPS 15', 2));
+	// console.log(await Product.allEachTime('XPS 15', 'Decide the Factory'));
 
 	mongoose.disconnect();
 

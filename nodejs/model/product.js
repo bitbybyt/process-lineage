@@ -43,37 +43,37 @@ const productSchema = new mongoose.Schema({
 	],
 });
 
-productSchema.methods.eachTime = function (pname) {
-    for(let p in this.process) {
-        if(this.process[p].processName === pname) {
-            return this.process[p].time.outTime - this.process[p].time.inTime;
-        }
+productSchema.methods.eachTime = function (i) {
+    let ret = [];
+    for(let a=0;a<i;a++) {
+        ret.push(this.process[a].time.outTime - this.process[a].time.inTime);
     }
-    return 0;
-	// return this.process[i].time.outTime - this.process[i].time.inTime;
+    return ret;
 };
 
-productSchema.statics.alleachTime = async function (name, pname) {
+productSchema.statics.alleachTime = async function (name, i) {
 	// console.log(name);
 	// console.log(i);
 	let sum = 0;
-	let cnt = 0;
+    let cnt = 0;
+    let ret = [];
 	
 	const foundProduct = await this.find({ name: name });
 
-	for (let p in foundProduct) {
-        for (let q in foundProduct[p].process) {
-            let foundProcess = foundProduct[p].process[q];
-            if(foundProcess.processName === pname && foundProcess.state === 'complete') { 
+    for ( let a=0;a<i; a++) {
+        cnt=0;
+        sum=0;
+        for (let p in foundProduct) {
+            let foundProcess = foundProduct[p].process[a];
+            if(foundProcess.state === 'complete') { 
                 cnt += 1;
                 sum += foundProcess.time.outTime - foundProcess.time.inTime;  
-            }
+            } 
         }
-    }
-    if (cnt === 0) {
-		return 0;
-	}
-	return sum / cnt;
+        if(cnt===0) {ret.push(0);}
+        else {ret.push(sum/cnt);}
+    }   
+	return ret;
 };
 
 productSchema.methods.tillTime = function (i) {
@@ -99,30 +99,21 @@ productSchema.statics.alltillTime = async function (name, i) {
 	return sum / cnt;
 };
 
-productSchema.methods.propagationTime = function (i) {
-	if (
-		!(
-			this.process[i].state === 'complete' || this.process[i].state === 'active'
-		)
-	) {
-		i -= 1;
-	}
-
-	console.log(this.process);
-
-	let max = 0;
+productSchema.methods.propagationTime = function () {
+    const len= this.process.length
+    let max = 0;
 	let t;
-	let loc = 0;
-	// console.log(i);
-	for (let z = i; z > 0; z--) {
-		t = this.process[z].time.inTime - this.process[z - 1].time.outTime;
-		// console.log(t);
-		if (t > max) {
-			max = t;
-			loc = z;
-		}
-	}
-	return [max, loc];
+	let locdown = 0;
+    for (i=1;i<len;i++) {
+        if (this.process[i].state === 'complete' || this.process[i].state === 'active') {
+            t = this.process[i].time.inTime - this.process[i - 1].time.outTime;
+            if (t > max) {
+                max = t;
+                locdown = i-1;
+            }
+        } else break;
+    }
+	return [max, locdown];
 };
 
 productSchema.pre('save', async function () {
