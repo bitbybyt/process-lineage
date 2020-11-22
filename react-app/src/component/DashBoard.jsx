@@ -31,6 +31,8 @@ class DashBoard extends Component {
 		user: {},
 		currenttime: '',
 		each: {},
+		till: 0,
+		tillall: 0,
 		propagationdelay: [],
 		eachall: {},
 		bar: 'NA',
@@ -134,6 +136,21 @@ class DashBoard extends Component {
 		this.setState({ propagationdelay });
 		console.log('propagationdelay:' + propagationdelay);
 
+		let len = this.state.currentproduct.process.length;
+		len-=1;
+		let { data: tillTime } = await getTillTime(
+			this.state.currentproduct._id,
+			len
+		);
+		this.setState({till: tillTime});
+
+		let { data: allTillTime } = await getAllTillTime(
+			this.state.currentproduct.name,
+			len
+		);
+		this.setState({tillall: allTillTime});
+
+
 		if (this.state.currentproduct.status === 'fail')
 			this.setState({ bar: 'fail' });
 		else if (this.state.currentproduct.status === 'complete') {
@@ -144,6 +161,7 @@ class DashBoard extends Component {
 				this.state.currentproduct._id,
 				i
 			);
+			// this.setState({till: tillTime});
 			tillTime = parseInt(tillTime);
 			// const allTillTime = 2;
 			let { data: allTillTime } = await getAllTillTime(
@@ -151,6 +169,7 @@ class DashBoard extends Component {
 				i
 			);
 			allTillTime = parseInt(allTillTime);
+			// this.setState({tillall: allTillTime});
 			if (tillTime <= allTillTime) {
 				this.setState({ bar: 'completed on time' });
 			} else this.setState({ bar: 'delayed complete' });
@@ -179,11 +198,12 @@ class DashBoard extends Component {
 			(product) => product.name === this.state.currentproduct.name
 		);
 		const compy = total.filter((product) => product.status === 'complete');
+		const faily = total.filter((product) => product.status === 'complete');
 		console.log(total, total.length);
 		console.log(compy, compy.length);
-		const success = (compy.length / total.length) * 100;
+		const success = (compy.length / (compy.length + faily.length)) * 100;
 		console.log(success);
-		this.setState({ success });
+		((total.length+compy.length) === 0) ? this.setState({ success: 0 }) : this.setState({ success });
 		//fail process
 		if (this.state.currentproduct.status === 'fail') {
 			const failprocess = this.state.currentproduct.process.filter(
@@ -208,6 +228,8 @@ class DashBoard extends Component {
 		const { currentproduct } = this.state;
 		var next;
 		var cnnt = -1;
+		// var timevar = this.state.tillTime
+		// console.log('timevar:' + timevar + currentproduct);
 		const prop = parseInt(this.state.propagationdelay[1]);
 		// this.state.currentproduct && console.log(this.state.currentproduct.process[prop].processName);
 
@@ -250,6 +272,95 @@ class DashBoard extends Component {
 				}
 			}
 			return complete1;
+		}
+
+		function displayDate(currproduct) {
+			const product=currproduct;
+			// this.state.currentproduct.process[0].time.inTime
+			// var today = new Date();
+			var date = new Date(product.process[0].time.inTime);
+			// console.log('today', date);
+			var dd = date.getDate();
+			var mm = date.getMonth()+1; 
+			var yyyy = date.getFullYear();
+			if(dd<10) {dd='0'+dd;}
+			if(mm<10) {mm='0'+mm;} 
+			date = dd+'-'+mm+'-'+yyyy;
+			// console.log('date', date);
+			return date;
+			
+		}
+
+		function displayTime(currproduct) {
+			const product=currproduct;
+			// this.state.currentproduct.process[0].time.inTime
+			// var today = new Date();
+			var time = new Date(product.process[0].time.inTime);
+			// console.log('today', time);
+			var hh = time.getHours();
+			var mm = time.getMinutes(); 
+			var ss = time.getSeconds();
+			if(hh<10) {hh='0'+hh;}
+			if(mm<10) {mm='0'+mm;}
+			if(ss<10) {ss='0'+ss;}
+			time = hh+':'+mm+':'+ss;
+			// console.log('time', time);
+			return time;
+			
+		}
+
+		function displayDateTime(currproduct, t) {
+			const product=currproduct;
+			
+			var date = new Date(product.process[0].time.inTime); 
+			const input = parseInt(t);
+			date.setTime(date.getTime() + (input));
+			
+			var dd = date.getDate();
+			var mmm = date.getMonth()+1; 
+			var yyyy = date.getFullYear();
+			var hh = date.getHours();
+			var mm = date.getMinutes(); 
+			var ss = date.getSeconds();
+			if(dd<10) {dd='0'+dd;}
+			if(mmm<10) {mmm='0'+mmm;}
+			if(hh<10) {hh='0'+hh;}
+			if(mm<10) {mm='0'+mm;}
+			if(ss<10) {ss='0'+ss;}
+
+			date = dd+'-'+mmm+'-'+yyyy+' | '+hh+':'+mm+':'+ss;
+			// console.log('date', date);
+			return date;
+			
+		}
+
+		function displaycomplete(curr,one, two) {
+			if(currentproduct) {
+				if(currentproduct.status !== 'fail') {
+					if(currentproduct.status === 'complete') {
+						return(
+							<div>
+								<strong>Delivered on:</strong>
+								<br/>{displayDateTime(curr, two)}
+							</div>
+						)
+					}else {
+						return(
+							<div>
+								<strong>Expected Delivery:</strong>
+								<br/>{displayDateTime(curr, one)}
+							</div>	
+						)
+					}
+					
+				} else {
+					return(
+						<div>
+							<strong>FAILED :(</strong>
+						</div>
+					)
+				}
+			}
 		}
 
 		return (
@@ -347,56 +458,6 @@ class DashBoard extends Component {
 
 							{/* Divider */}
 							<hr className='sidebar-divider' />
-
-							{/* Heading */}
-							{/*div className="sidebar-heading">
-                                Addons
-                            </div*/}
-
-							{/* Nav Item - Pages Collapse Menu */}
-							{/*li className="nav-item">
-                                <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                                    aria-expanded="true" aria-controls="collapsePages">
-                                    <i className="fas fa-fw fa-folder"></i>
-                                    <span>Pages</span>
-                                </a>
-                                <div id="collapsePages" className="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                                    <div className="bg-white py-2 collapse-inner rounded">
-                                        <h6 className="collapse-header">Login Screens:</h6>
-                                        <a className="collapse-item" href="login.html">Login</a>
-                                        <a className="collapse-item" href="register.html">Register</a>
-                                        <a className="collapse-item" href="forgot-password.html">Forgot Password</a>
-                                        <div className="collapse-divider"></div>
-                                        <h6 className="collapse-header">Other Pages:</h6>
-                                        <a className="collapse-item" href="404.html">404 Page</a>
-                                        <a className="collapse-item" href="blank.html">Blank Page</a>
-                                    </div>
-                                </div>
-                            </li*/}
-
-							{/* Nav Item - Charts */}
-							{/*li className="nav-item">
-                                <a className="nav-link" href="charts.html">
-                                    <i className="fas fa-fw fa-chart-area"></i>
-                                    <span>Charts</span></a>
-                            </li*/}
-
-							{/* Nav Item - Tables */}
-							{/*li className="nav-item">
-                                <a className="nav-link" href="tables.html">
-                                    <i className="fas fa-fw fa-table"></i>
-                                    <span>Tables</span></a>
-                            </li*/}
-
-							{/* Divider */}
-							{/*hr className="sidebar-divider d-none d-md-block"*/}
-
-							{/* Sidebar Toggler (Sidebar)
-							<div className='text-center d-none d-md-inline'>
-								<button
-									className='rounded-circle bproduct-0'
-									id='sidebarToggle'></button>
-							</div> */}
 						</ul>
 						{/* End of Sidebar */}
 
@@ -528,7 +589,7 @@ class DashBoard extends Component {
 															<div className='text-xs font-weight-bold text-primary text-uppercase mb-1'>
 																Bill Reference
 															</div>
-															<div className='h5 mb-0 font-weight-bold text-gray-800'>
+															<div className='h8 mb-0 font-italic text-gray-600'>
 																{this.state.currentbill &&
 																	this.state.currentbill._id}
 															</div>
@@ -578,17 +639,6 @@ class DashBoard extends Component {
 																		{this.state.success}%
 																	</div>
 																</div>
-																{/*<div className='col'>
-																	<div className='progress progress-sm mr-2'>
-																		<div
-																			className='progress-bar bg-info'
-																			role='progressbar'
-																			style={{ width: '50%' }}
-																			aria-valuenow='50'
-																			aria-valuemin='0'
-																			aria-valuemax='100'></div>
-																	</div>
-																</div>*/}
 															</div>
 														</div>
 														<div className='col-auto'>
@@ -608,8 +658,9 @@ class DashBoard extends Component {
 															<div className='text-xs font-weight-bold text-warning text-uppercase mb-1'>
 																Estimated Time
 															</div>
-															<div className='h5 mb-0 font-weight-bold text-gray-800'>
-																--
+															<div className='h6 mb-0 text-gray-800'>
+																{this.state.currentproduct && 
+																displayDateTime(this.state.currentproduct, this.state.tillall)}
 															</div>
 														</div>
 														<div className='col-auto'>
@@ -619,78 +670,7 @@ class DashBoard extends Component {
 												</div>
 											</div>
 										</div>
-									</div>
-
-									{/* Content Row */}
-
-									{/*div className="row"*/}
-
-									{/* Area Chart */}
-									{/*div className="col-12">
-                                            <div className="card shadow mb-4"*/}
-									{/* Card Header - Dropdown */}
-									{/*div
-                                                    className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                                    <h6 className="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                                                    <div className="dropdown no-arrow">
-                                                        <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <i className="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                                        </a>
-                                                        <div className="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                                            aria-labelledby="dropdownMenuLink">
-                                                            <div className="dropdown-header">Dropdown Header:</div>
-                                                            <a className="dropdown-item" href="#">Action</a>
-                                                            <a className="dropdown-item" href="#">Another action</a>
-                                                            <div className="dropdown-divider"></div>
-                                                            <a className="dropdown-item" href="#">Something else here</a>
-                                                        </div>
-                                                    </div>
-                                                </div*/}
-									{/* Card Body */}
-									{/*div className="card-body">
-                                                    <div className="chart-area"*/}
-									{/* <canvas id="myAreaChart"></canvas> */}
-
-									{/*div id="container">
-                                                            
-                                                            <div id="sub-container">
-                                                                <span className="text-success"><i className="fa fa-3x fa-check" aria-hidden="true"></i></span>
-                                                                <div className="progress">
-                                                                    <div className="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: 100%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="1"></div>
-                                                                </div>
-                                                                <div className="container">Type Anything Here, and here is something long!</div>
-                                                            </div>
-                                                            <div id="sub-container">
-                                                                <span className="text-info"><i className="fas fa-caret-square-right fa-3x" aria-hidden="true"></i></span>
-                                                                <div className="progress">
-                                                                    <div className="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" style="width: 100%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div id="sub-container">
-                                                                <span className=""><i className="fa fa-3x fa-minus-square" aria-hidden="true"></i></span>
-                                                                <div className="progress">
-                                                                    <div className="progress-bar progress-bar-striped bg-success" role="progressbar progress-bar-animated" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div id="sub-container">
-                                                                <span className=""><i className="fa fa-3x fa-minus-square" aria-hidden="true"></i></span>
-                                                                <div className="progress">
-                                                                    <div className="progress-bar progress-bar-striped bg-success" role="progressbar progress-bar-animated" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div id="sub-container">
-                                                                <span className=""><i className="fa fa-3x fa-minus-square" aria-hidden="true"></i></span>
-                                                                <div className="progress">
-                                                                    <div className="progress-bar progress-bar-striped bg-success" role="progressbar progress-bar-animated" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1"></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div*/}
+									</div>						
 
 									{/*Illustrations*/}
 									<div className='container prog'>
@@ -760,8 +740,11 @@ class DashBoard extends Component {
 																className='collapse multi-collapse show'
 																id='collapseCardExample1'>
 																<div className='card-body'>
-																	<strong>Estimated Time:</strong> 10:00 <br />
-																	<strong>Time Taken:</strong> 12:00
+																	<strong>Receive Date:</strong>
+																	<p>{this.state.currentproduct && displayDate(this.state.currentproduct)}</p>
+																	<br />
+																	<strong>Receive Time:</strong>
+																	<p>{this.state.currentproduct && displayTime(this.state.currentproduct)}</p>
 																</div>
 															</div>
 														</div>
@@ -834,7 +817,7 @@ class DashBoard extends Component {
 																				// console.log('x:' + x + process.processName);
 																				// console.log(this.state.each[x]);
 																				cnnt++;
-																				console.log('cnnt1:' + cnnt);
+																				// console.log('cnnt1:' + cnnt);
 																				if (
 																					this.state.each[cnnt] <=
 																					this.state.eachall[cnnt]
@@ -979,7 +962,7 @@ class DashBoard extends Component {
 																				process.state === 'complete'
 																			) {
 																				cnnt++;
-																				console.log('cnnt2:' + cnnt);
+																				// console.log('cnnt2:' + cnnt);
 																				if (
 																					this.state.each[cnnt] <=
 																					this.state.eachall[cnnt]
@@ -1097,8 +1080,13 @@ class DashBoard extends Component {
 																className='collapse multi-collapse show'
 																id='collapseCardExample1'>
 																<div className='card-body'>
-																	<strong>Estimated Time:</strong> 10:00 <br />
-																	<strong>Time Taken:</strong> 12:00
+																	{this.state.currentproduct && displaycomplete(this.state.currentproduct, this.state.tillall, this.state.till)}
+																	{/* {
+																		displaycomplete()
+																		return(<strong>Estimated Time:</strong>
+																		{this.state.currentproduct && 
+																		displayDateTime(this.state.currentproduct, this.state.tillall)})
+																	} */}
 																</div>
 															</div>
 														</div>
@@ -1151,217 +1139,6 @@ class DashBoard extends Component {
 											</div>
 										</div>
 									</div>
-									{/* TODO: here ends */}
-
-									{/* Content Row */}
-									<div className='row'>
-										{/* Content Column */}
-										<div className='col-lg-6 mb-4'>
-											{/* Project Card Example */}
-											<div className='card shadow mb-4'>
-												<div className='card-header py-3'>
-													<h6 className='m-0 font-weight-bold text-primary'>
-														BOTTLENECKS
-													</h6>
-												</div>
-
-												<div className='card-body'>
-													<h4 className='small font-weight-bold'>
-														Server Migration{' '}
-														<span className='float-right'>20%</span>
-													</h4>
-													<div className='progress mb-4'>
-														<div
-															className='progress-bar bg-danger'
-															role='progressbar'
-															style={{ width: '20%' }}
-															aria-valuenow='20'
-															aria-valuemin='0'
-															aria-valuemax='100'></div>
-													</div>
-													<h4 className='small font-weight-bold'>
-														Sales Tracking{' '}
-														<span className='float-right'>40%</span>
-													</h4>
-													<div className='progress mb-4'>
-														<div
-															className='progress-bar bg-warning'
-															role='progressbar'
-															style={{ width: ' 40%' }}
-															aria-valuenow='40'
-															aria-valuemin='0'
-															aria-valuemax='100'></div>
-													</div>
-													<h4 className='small font-weight-bold'>
-														Customer Database{' '}
-														<span className='float-right'>60%</span>
-													</h4>
-													<div className='progress mb-4'>
-														<div
-															className='progress-bar'
-															role='progressbar'
-															style={{ width: '60%' }}
-															aria-valuenow='60'
-															aria-valuemin='0'
-															aria-valuemax='100'></div>
-													</div>
-													<h4 className='small font-weight-bold'>
-														Payout Details{' '}
-														<span className='float-right'>80%</span>
-													</h4>
-													<div className='progress mb-4'>
-														<div
-															className='progress-bar bg-info'
-															role='progressbar'
-															style={{ width: '80%' }}
-															aria-valuenow='80'
-															aria-valuemin='0'
-															aria-valuemax='100'></div>
-													</div>
-													<h4 className='small font-weight-bold'>
-														Account Setup{' '}
-														<span className='float-right'>Complete!</span>
-													</h4>
-													<div className='progress'>
-														<div
-															className='progress-bar bg-success'
-															role='progressbar'
-															style={{ width: '100%' }}
-															aria-valuenow='100'
-															aria-valuemin='0'
-															aria-valuemax='100'></div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										{/* Donut Chart */}
-										<div className='col-lg-6 mb-4'>
-											<div className='card shadow mb-4'>
-												{/* Card Header - Dropdown */}
-												<div className='card-header py-3'>
-													<h6 className='m-0 font-weight-bold text-primary'>
-														Donut Chart
-													</h6>
-												</div>
-												{/* Card Body */}
-												<div className='card-body'>
-													<div className='chart-pie pt-4'>
-														<canvas id='myPieChart'></canvas>
-													</div>
-													<br />
-													<hr />
-													Styling for the donut chart can be found in the
-													<code>/js/demo/chart-pie-demo.js</code> file.
-												</div>
-											</div>
-										</div>
-									</div>
-
-									{/* Color System */}
-									{/*div className="row">
-                                                <div className="col-lg-6 mb-4">
-                                                    <div className="card bg-primary text-white shadow">
-                                                        <div className="card-body">
-                                                            Primary
-                                                            <div className="text-white-50 small">#4e73df</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-6 mb-4">
-                                                    <div className="card bg-success text-white shadow">
-                                                        <div className="card-body">
-                                                            Success
-                                                            <div className="text-white-50 small">#1cc88a</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-6 mb-4">
-                                                    <div className="card bg-info text-white shadow">
-                                                        <div className="card-body">
-                                                            Info
-                                                            <div className="text-white-50 small">#36b9cc</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-6 mb-4">
-                                                    <div className="card bg-warning text-white shadow">
-                                                        <div className="card-body">
-                                                            Warning
-                                                            <div className="text-white-50 small">#f6c23e</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-6 mb-4">
-                                                    <div className="card bg-danger text-white shadow">
-                                                        <div className="card-body">
-                                                            Danger
-                                                            <div className="text-white-50 small">#e74a3b</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-6 mb-4">
-                                                    <div className="card bg-secondary text-white shadow">
-                                                        <div className="card-body">
-                                                            Secondary
-                                                            <div className="text-white-50 small">#858796</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-6 mb-4">
-                                                    <div className="card bg-light text-black shadow">
-                                                        <div className="card-body">
-                                                            Light
-                                                            <div className="text-black-50 small">#f8f9fc</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-6 mb-4">
-                                                    <div className="card bg-dark text-white shadow">
-                                                        <div className="card-body">
-                                                            Dark
-                                                            <div className="text-white-50 small">#5a5c69</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                            <div className="col-lg-12 mb-4"*/}
-
-									{/* Illustrations */}
-									{/*div className="card shadow mb-4">
-                                                <div className="card-header py-3">
-                                                    <h6 className="m-0 font-weight-bold text-primary">Illustrations</h6>
-                                                </div>
-                                                <div className="card-body">
-                                                    <div className="text-center">
-                                                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                                            src="img/undraw_posting_photo.svg" alt="">
-                                                    </div>
-                                                    <p>Add some quality, svg illustrations to your project courtesy of <a
-                                                            target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                                                        constantly updated collection of beautiful svg images that you can use
-                                                        completely free and without attribution!</p>
-                                                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                                                        unDraw &rarr;</a>
-                                                </div>
-                                                </div*/}
-
-									{/* Approach */}
-									{/*div className="card shadow mb-4">
-                                                <div className="card-header py-3">
-                                                    <h6 className="m-0 font-weight-bold text-primary">Development Approach</h6>
-                                                </div>
-                                                <div className="card-body">
-                                                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in product to reduce
-                                                        CSS bloat and poor page performance. Custom CSS classes are used to create
-                                                        custom components and custom utility classes.</p>
-                                                    <p className="mb-0">Before working with this theme, you should become familiar with the
-                                                        Bootstrap framework, especially the utility classes.</p>
-                                                </div>
-                                        
-                                        </div>
-                                    </div*/}
 								</div>
 								{/* /.container-fluid */}
 							</div>
@@ -1371,7 +1148,7 @@ class DashBoard extends Component {
 							<footer className='sticky-footer bg-white'>
 								<div className='container my-auto'>
 									<div className='copyright text-center my-auto'>
-										<span>Copyright &copy; Your Website 2020</span>
+										<span>Copyright &copy; Lineager 2020</span>
 									</div>
 								</div>
 							</footer>
