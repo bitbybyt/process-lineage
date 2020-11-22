@@ -251,6 +251,20 @@ class DashBoard extends Component {
 			}
 			return complete1;
 		}
+		function mili(milisec) {
+			if (currentproduct) {
+				const intime = currentproduct.process[0].inTime;
+				const date = new Date(intime);
+				console.log(date);
+				const intimemilisec = date.getTime();
+				const sum = intimemilisec + milisec;
+				const sumdate = new Date(sum);
+				console.log(sumdate);
+				const sumtime = sumdate.toISOString();
+				console.log(sumtime);
+				return sumtime;
+			}
+		}
 
 		return (
 			<React.Fragment>
