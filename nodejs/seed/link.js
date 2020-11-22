@@ -191,7 +191,7 @@ async function link() {
 	bill3.sub.push(product3[8]);
 	bill8.sub.push(product3[7]);
 	bill8.sub.push(product4[0]);
-	bill8.sub.push(product4[1]);
+	bill8.sub.push(product4[2]);
 	bill8.sub.push(product4[3]);
 	bill8.sub.push(product1[0]);
 	bill8.sub.push(product1[4]);

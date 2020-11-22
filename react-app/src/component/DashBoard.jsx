@@ -58,7 +58,7 @@ class DashBoard extends Component {
 			const jwt = await localStorage.getItem('token');
 			const user = jwtDecode(jwt);
 			this.setState({ user, currentcompany: user.currentcompany });
-			console.log(user.currentcompany);
+			// console.log(user.currentcompany);
 			// this.setState({ bill: this.state.currentcompany.bills });
 			// console.log(this.state.bill);
 		} catch (err) {}
@@ -82,7 +82,7 @@ class DashBoard extends Component {
 			product: [{ _id: '', name: '' }],
 			currentproduct: null,
 		});
-		console.log(this.state.bill);
+		// console.log(this.state.bill);
 	};
 	handlebill = async (e) => {
 		const billID = e.target.value;
@@ -92,38 +92,34 @@ class DashBoard extends Component {
 		await this.setState({
 			product: [{ _id: '', name: '' }, ...this.state.currentbill.sub],
 		});
-		console.log(this.state.product);
+		// console.log(this.state.product);
 	};
 
 	handleproduct = async (e) => {
 		this.setState({ cnt: 0 });
 		this.setState({ bar: 'NA' });
 		this.setState({ propagationdelay: [] });
-		// this.setState({each: new Array()});
-		// this.setState({eachall: new Array()});
-		// this.setState({delayed: []});
 		const productID = e.target.value;
 		const product = this.state.product.filter(
 			(product) => product._id === productID
 		);
-		console.log(product);
+		// console.log(product);
 		await this.setState({ currentproduct: product[0] });
-		console.log(this.state.currentproduct);
+		// console.log(this.state.currentproduct);
 
 		const process = this.state.currentproduct.process;
 		const complete = process.filter((process) => process.state === 'complete');
 		let x = complete.length;
 		let { data: each } = await getEachTime(this.state.currentproduct._id, x);
 		this.setState({ each });
-		console.log('each:' + each);
-		// console.log(typeof each);
+		// console.log('each:' + each);
 		const { data: eachall } = await getAllEachTime(
 			this.state.currentproduct.name,
 			x
 		);
-		console.log('eachall:' + eachall);
-		// console.log(typeof eachall);
+		// console.log('eachall:' + eachall);
 		this.setState({ eachall });
+
 		// let res=[];
 		// for(let i in each) {
 
@@ -133,6 +129,7 @@ class DashBoard extends Component {
 		// }
 		// this.setState({ delayed: res });
 		// console.log('delay:' + delayed);
+
 		const { data: propagationdelay } = await getPropagationTime(
 			this.state.currentproduct._id
 		);
@@ -196,17 +193,16 @@ class DashBoard extends Component {
 				this.setState({ bar: 'ontime' });
 			} else this.setState({ bar: 'being delayed' });
 		}
+
 		//success percentage
 		const total = this.state.currentcompany.products.filter(
 			(product) => product.name === this.state.currentproduct.name
 		);
 		const compy = total.filter((product) => product.status === 'complete');
-		const faily = total.filter((product) => product.status === 'complete');
-		console.log(total, total.length);
-		console.log(compy, compy.length);
-		const success = (compy.length / (compy.length + faily.length)) * 100;
-		console.log(success);
+		const success = (compy.length / total.length) * 100;
 		((total.length+compy.length) === 0) ? this.setState({ success: 0 }) : this.setState({ success });
+		
+
 		//fail process
 		if (this.state.currentproduct.status === 'fail') {
 			const failprocess = this.state.currentproduct.process.filter(

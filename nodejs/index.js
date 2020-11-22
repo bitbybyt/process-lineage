@@ -2,14 +2,14 @@ const express = require('express');
 var bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
-app.use(express.json());
+// app.use(express.bodyParser({limit: '50mb'}));
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb'}));
 app.use(cors());
 const router = require('./route/router');
 const mongoose = require('mongoose');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
 mongoose
-	.connect('mongodb://localhost/demomanufacture')
+	.connect('mongodb://localhost/demomanufacture', {useNewUrlParser: true, useUnifiedTopology: true})
 	.then(() => console.log('Connected to mongodb....'))
 	.catch((err) => console.log('Error:' + err));
 
